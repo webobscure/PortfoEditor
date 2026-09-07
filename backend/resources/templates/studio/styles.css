@@ -1,0 +1,708 @@
+/*
+ * Studio — poster typography, hard rules, staggered case rows.
+ *
+ * Two ideas carry the whole template:
+ *
+ * 1. Scale contrast. The hero name is set as large as the viewport allows and
+ *    everything around it is deliberately small and quiet, so the page has one
+ *    voice instead of four competing ones.
+ * 2. A visible grid. Sections are separated by rules rather than by whitespace
+ *    alone, and every section carries a numbered rail, so the layout reads as
+ *    a designed system rather than stacked blocks.
+ *
+ * Motion is CSS-only, through scroll-driven animation timelines. Browsers
+ * without support simply show the finished state — there is no JavaScript in
+ * this template, so an export stays a plain HTML file.
+ */
+
+.pf-t-studio {
+  --studio-rule: 1px solid var(--pf-border);
+  --studio-rail: clamp(56px, 8vw, 104px);
+  --studio-gutter: clamp(24px, 4vw, 56px);
+}
+
+/* -------------------------------------------------------------------- nav */
+
+.pf-t-studio .pf-nav {
+  border-bottom: var(--studio-rule);
+  background: color-mix(in srgb, var(--pf-bg) 92%, transparent);
+}
+
+.pf-t-studio .pf-nav__inner {
+  padding-block: 18px;
+}
+
+.pf-t-studio .pf-nav__brand {
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pf-t-studio .pf-nav__link {
+  font-size: 0.78em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.pf-t-studio .pf-nav__link:hover {
+  color: var(--pf-accent);
+}
+
+/* ------------------------------------------------------------------ rules */
+
+.pf-t-studio .pf-section + .pf-section {
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-section__title {
+  font-size: calc(clamp(30px, 4.4vw, 52px) * var(--pf-type-scale));
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin-bottom: calc(30px * var(--pf-space-scale));
+  padding-bottom: 16px;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-section__intro {
+  margin-top: -26px;
+  font-size: 1.02em;
+}
+
+/* ------------------------------------------------------------------- hero */
+
+.pf-t-studio .pf-section--hero {
+  padding-block: calc(88px * var(--pf-space-scale)) calc(80px * var(--pf-space-scale));
+}
+
+/*
+ * The shared markup wraps the hero copy in .pf-hero__text, so that is the
+ * grid: the name spans both columns as a display line, the supporting copy
+ * sits in the right column and the social links hang off the left one.
+ */
+.pf-t-studio .pf-hero__text {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: var(--studio-gutter);
+  row-gap: 26px;
+  align-items: start;
+}
+
+.pf-t-studio .pf-hero__eyebrow {
+  grid-column: 1 / -1;
+  font-size: 0.76em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pf-accent);
+  margin: 0 0 4px;
+  padding-bottom: 14px;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-hero__name {
+  grid-column: 1 / -1;
+  font-size: clamp(48px, 11vw, 148px);
+  /* Below ~0.95 the descenders of a two-line name collide with the row gap. */
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.pf-t-studio .pf-hero__intro {
+  grid-column: 2 / -1;
+  margin: 0;
+  max-width: 46ch;
+  font-size: 1.02em;
+  color: var(--pf-muted);
+}
+
+.pf-t-studio .pf-hero__actions {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pf-t-studio .pf-hero__social {
+  grid-column: 1 / 2;
+  grid-row: 3 / span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: start;
+}
+
+.pf-t-studio .pf-hero__social-link {
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pf-muted);
+  transition: color 0.18s ease;
+}
+
+.pf-t-studio .pf-hero__social-link:hover {
+  color: var(--pf-accent);
+}
+
+.pf-t-studio .pf-hero.has-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 44px;
+}
+
+.pf-t-studio .pf-hero__photo img {
+  width: 100%;
+  aspect-ratio: 16 / 6;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: filter 0.4s ease;
+}
+
+.pf-t-studio .pf-hero__photo img:hover {
+  filter: grayscale(0);
+}
+
+.pf-t-studio .pf-hero.is-center .pf-hero__text {
+  text-align: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pf-t-studio .pf-hero.is-center .pf-hero__intro,
+.pf-t-studio .pf-hero.is-center .pf-hero__actions,
+.pf-t-studio .pf-hero.is-center .pf-hero__social {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.pf-t-studio .pf-hero.is-center .pf-hero__social {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+/* --------------------------------------------------------------- buttons */
+
+.pf-t-studio .pf-btn {
+  font-size: 0.82em;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+}
+
+.pf-t-studio .pf-btn:hover {
+  transform: none;
+}
+
+.pf-t-studio .pf-btn--ghost {
+  border-color: var(--pf-text);
+}
+
+.pf-t-studio .pf-btn--ghost:hover {
+  background: var(--pf-text);
+  color: var(--pf-bg);
+  border-color: var(--pf-text);
+}
+
+/* ------------------------------------------------------------------ about */
+
+.pf-t-studio .pf-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--studio-gutter);
+  align-items: start;
+}
+
+/* Two columns only when there is actually a photo to put in the second one. */
+.pf-t-studio .pf-about__grid:has(.pf-about__photo) {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+}
+
+.pf-t-studio .pf-about__body {
+  font-size: 1.12em;
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.pf-t-studio .pf-about__photo img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.pf-t-studio .pf-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+  margin-top: 48px;
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-highlight {
+  padding: 22px 20px 22px 0;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-highlight__value {
+  font-family: var(--pf-font-heading);
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.pf-t-studio .pf-highlight__label {
+  margin-top: 8px;
+  font-size: 0.76em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+}
+
+/* -------------------------------------------------------------- entries */
+
+.pf-t-studio .pf-entries {
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-entry {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.28fr) minmax(0, 1fr);
+  gap: var(--studio-gutter);
+  padding-block: 30px;
+  border-bottom: var(--studio-rule);
+  transition: background-color 0.2s ease;
+}
+
+.pf-t-studio .pf-entry:hover {
+  background: color-mix(in srgb, var(--pf-surface) 60%, transparent);
+}
+
+.pf-t-studio .pf-entry__period {
+  font-size: 0.78em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+  white-space: nowrap;
+}
+
+.pf-t-studio .pf-entry__title {
+  font-size: 1.12em;
+  letter-spacing: -0.015em;
+}
+
+.pf-t-studio .pf-entry__meta {
+  margin-top: 6px;
+  font-size: 0.86em;
+  color: var(--pf-muted);
+}
+
+.pf-t-studio .pf-entry__text {
+  color: var(--pf-muted);
+  font-size: 0.95em;
+}
+
+/* --------------------------------------------------------------- skills */
+
+.pf-t-studio .pf-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0;
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-skillgroup {
+  padding: 26px var(--studio-gutter) 26px 0;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-skillgroup__name {
+  font-family: var(--pf-font-heading);
+  font-size: 0.8em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pf-accent);
+  margin-bottom: 14px;
+}
+
+.pf-t-studio .pf-tag {
+  border-radius: 0;
+  border-color: var(--pf-border);
+  background: transparent;
+  font-size: 0.86em;
+}
+
+/* -------------------------------------------------------------- projects */
+
+.pf-t-studio .pf-projects {
+  display: grid;
+  gap: 0;
+}
+
+/*
+ * The case row. Rail, media and body sit on one grid; the mirrored variant
+ * swaps the media and the body so consecutive rows alternate.
+ */
+/*
+ * Rail plus body. A third column only exists when the project actually has an
+ * image; without one the body would otherwise sit in a narrow column with a
+ * third of the row left blank.
+ */
+.pf-t-studio .pf-project--case {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.22fr) minmax(0, 1fr);
+  gap: var(--studio-gutter);
+  padding-block: clamp(40px, 5vw, 72px);
+  border-bottom: var(--studio-rule);
+  align-items: start;
+}
+
+.pf-t-studio .pf-project--case:has(.pf-project__media) {
+  grid-template-columns: minmax(120px, 0.22fr) minmax(0, 1.15fr) minmax(0, 1fr);
+}
+
+.pf-t-studio .pf-project--case:first-child {
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-project--mirrored .pf-project__media {
+  order: 3;
+}
+
+.pf-t-studio .pf-project--mirrored .pf-project__body {
+  order: 2;
+}
+
+.pf-t-studio .pf-project__rail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pf-t-studio .pf-project__index {
+  font-family: var(--pf-font-heading);
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--pf-accent);
+  margin: 0;
+}
+
+.pf-t-studio .pf-project__year {
+  font-size: 0.76em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+  margin: 0;
+}
+
+.pf-t-studio .pf-project__rail .pf-chips {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.pf-t-studio .pf-chip {
+  border-radius: 0;
+  border-color: transparent;
+  border-left: 2px solid var(--pf-border);
+  background: transparent;
+  padding: 2px 0 2px 10px;
+  font-size: 0.78em;
+}
+
+.pf-t-studio .pf-project__media {
+  overflow: hidden;
+}
+
+.pf-t-studio .pf-project__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1);
+}
+
+.pf-t-studio .pf-project--case:hover .pf-project__media img {
+  transform: scale(1.03);
+}
+
+.pf-t-studio .pf-project__title {
+  font-size: clamp(24px, 2.8vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.pf-t-studio .pf-project__text {
+  margin-top: 16px;
+  color: var(--pf-muted);
+}
+
+.pf-t-studio .pf-project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.pf-t-studio .pf-project__link {
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pf-text);
+  border-bottom: 1px solid var(--pf-accent);
+  padding-bottom: 3px;
+  transition: color 0.18s ease;
+}
+
+.pf-t-studio .pf-project__link:hover {
+  color: var(--pf-accent);
+}
+
+/* -------------------------------------------------------------- services */
+
+.pf-t-studio .pf-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-service {
+  padding: 30px var(--studio-gutter) 30px 0;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-service__title {
+  font-size: 1.15em;
+  letter-spacing: -0.02em;
+}
+
+.pf-t-studio .pf-service__price {
+  margin-top: 6px;
+  font-size: 0.82em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pf-accent);
+}
+
+.pf-t-studio .pf-service__text {
+  margin-top: 14px;
+  color: var(--pf-muted);
+  font-size: 0.95em;
+}
+
+/* ------------------------------------------------------------ achievements */
+
+.pf-t-studio .pf-awards {
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-award {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--studio-gutter);
+  padding-block: 24px;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-award__title {
+  font-size: 1.05em;
+  letter-spacing: -0.015em;
+}
+
+.pf-t-studio .pf-award__meta {
+  font-size: 0.8em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+}
+
+.pf-t-studio .pf-award__text {
+  color: var(--pf-muted);
+  font-size: 0.95em;
+}
+
+/* -------------------------------------------------------------- contacts */
+
+.pf-t-studio .pf-section--contacts {
+  background: var(--pf-surface);
+}
+
+.pf-t-studio .pf-contacts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-contact {
+  padding: 24px 20px 24px 0;
+  border-bottom: var(--studio-rule);
+}
+
+.pf-t-studio .pf-contact__label {
+  font-size: 0.74em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+}
+
+.pf-t-studio .pf-contact__value,
+.pf-t-studio .pf-contact__link {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--pf-font-heading);
+  font-size: 1.1em;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.pf-t-studio .pf-contact__link:hover {
+  color: var(--pf-accent);
+}
+
+/* ---------------------------------------------------------- social links */
+
+.pf-t-studio .pf-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 32px;
+}
+
+.pf-t-studio .pf-social__link {
+  font-size: 0.82em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--pf-muted);
+  padding-block: 10px;
+  transition: color 0.18s ease;
+}
+
+.pf-t-studio .pf-social__link:hover {
+  color: var(--pf-accent);
+}
+
+/* ---------------------------------------------------------------- footer */
+
+.pf-t-studio .pf-footer {
+  border-top: var(--studio-rule);
+}
+
+.pf-t-studio .pf-footer__text {
+  font-size: 0.76em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- motion
+ * Scroll-driven, declared entirely in CSS. Browsers without animation
+ * timelines never run the animation and therefore never hide anything —
+ * the finished state is the default, and the animation only replays the
+ * arrival. Reduced-motion users opt out through the base stylesheet's own
+ * guard as well as the query below.
+ */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .pf-t-studio .pf-project--case,
+    .pf-t-studio .pf-entry,
+    .pf-t-studio .pf-service,
+    .pf-t-studio .pf-award,
+    .pf-t-studio .pf-highlight,
+    .pf-t-studio .pf-skillgroup {
+      animation: pf-studio-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 4% entry 85%;
+    }
+
+    .pf-t-studio .pf-section__title {
+      animation: pf-studio-underline linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 95%;
+    }
+  }
+}
+
+@keyframes pf-studio-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pf-studio-underline {
+  from {
+    opacity: 0.4;
+    border-bottom-color: transparent;
+  }
+
+  to {
+    opacity: 1;
+    border-bottom-color: var(--pf-border);
+  }
+}
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 900px) {
+  .pf-t-studio .pf-about__grid,
+  .pf-t-studio .pf-award {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-t-studio .pf-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .pf-t-studio .pf-project--case {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  /*
+   * On one column the mirrored order would put the image after the text on
+   * every second row, which reads as a mistake rather than as rhythm.
+   */
+  .pf-t-studio .pf-project--mirrored .pf-project__media,
+  .pf-t-studio .pf-project--mirrored .pf-project__body {
+    order: initial;
+  }
+
+  .pf-t-studio .pf-project__rail {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .pf-t-studio .pf-project__rail .pf-chips {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .pf-t-studio .pf-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-t-studio .pf-hero__intro,
+  .pf-t-studio .pf-hero__actions,
+  .pf-t-studio .pf-hero__social {
+    grid-column: 1 / -1;
+  }
+
+  .pf-t-studio .pf-hero__social {
+    grid-row: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+}

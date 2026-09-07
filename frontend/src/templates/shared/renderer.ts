@@ -826,6 +826,99 @@ class MinimalRenderer extends TemplateRenderer {
 }
 
 /**
+ * Studio lays work out as a stagger rather than a grid: every project is a
+ * full-width band with an oversized index numeral, and consecutive bands mirror
+ * each other. The mirroring is a class, so the alternation stays CSS's problem
+ * and this markup stays byte-identical to StudioRenderer.php.
+ */
+class StudioRenderer extends TemplateRenderer {
+  bodyClass(): string {
+    return 'pf pf-t-studio'
+  }
+
+  protected projects(data: Record<string, unknown>, ctx: RenderContext): string {
+    let rowsHtml = ''
+    let index = 0
+
+    for (const item of rows(data)) {
+      const row = this.caseRow(item, index + 1, ctx)
+
+      if (row === '') continue
+
+      index++
+      rowsHtml += row
+    }
+
+    if (rowsHtml === '') return ''
+
+    return (
+      '<div class="pf-shell">' +
+      this.heading(data, 'Избранные работы') +
+      paragraphs(str(data, 'intro'), 'pf-section__intro') +
+      '<div class="pf-projects">' +
+      rowsHtml +
+      '</div>' +
+      '</div>'
+    )
+  }
+
+  private caseRow(item: Record<string, unknown>, index: number, ctx: RenderContext): string {
+    const title = str(item, 'title')
+
+    if (title.trim() === '') return ''
+
+    const media = this.figure(image(ctx, item['image_media_id']), title, 'pf-project__media')
+
+    let tech = ''
+
+    for (const technology of strings(item, 'technologies')) {
+      tech += tag('li', { class: 'pf-chip' }, escape(technology))
+    }
+
+    let links = ''
+
+    for (const [key, label] of [
+      ['url', 'Смотреть работу'],
+      ['github_url', 'Исходный код'],
+    ] as const) {
+      const href = safeUrl(item[key])
+
+      if (href === '') continue
+
+      links += tag(
+        'a',
+        { class: 'pf-project__link', href, target: '_blank', rel: 'noopener noreferrer' },
+        escape(label) + '<span aria-hidden="true"> ↗</span>',
+      )
+    }
+
+    const year = str(item, 'year')
+
+    // Counted from the rendered rows, not the source array, so skipping an
+    // untitled item does not break the alternation.
+    const classes = 'pf-project pf-project--case' + (index % 2 === 0 ? ' pf-project--mirrored' : '')
+
+    return (
+      '<article class="' +
+      classes +
+      '">' +
+      '<div class="pf-project__rail">' +
+      tag('p', { class: 'pf-project__index' }, pad2(index)) +
+      (year !== '' ? tag('p', { class: 'pf-project__year' }, escape(year)) : '') +
+      (tech !== '' ? '<ul class="pf-chips">' + tech + '</ul>' : '') +
+      '</div>' +
+      media +
+      '<div class="pf-project__body">' +
+      tag('h3', { class: 'pf-project__title' }, escape(title)) +
+      paragraphs(str(item, 'description'), 'pf-project__text') +
+      (links !== '' ? '<div class="pf-project__links">' + links + '</div>' : '') +
+      '</div>' +
+      '</article>'
+    )
+  }
+}
+
+/**
  * Developer numbers its section headings and lifts the availability line out of
  * the contacts section into a hero status pill, so it is written once.
  */
@@ -1012,6 +1105,7 @@ const RENDERERS: Record<string, () => TemplateRenderer> = {
   minimal: () => new MinimalRenderer(),
   'developer-dark': () => new DeveloperDarkRenderer(),
   editorial: () => new EditorialRenderer(),
+  studio: () => new StudioRenderer(),
 }
 
 /**

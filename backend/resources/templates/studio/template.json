@@ -1,0 +1,88 @@
+{
+    "key": "studio",
+    "name": "Студия",
+    "description": "Крупная афишная типографика и работы во всю ширину, выложенные в шахматном порядке. Для арт-директоров, брендинга и небольших студий, которым нужна страница с характером, а не аккуратная сетка плиток.",
+    "tags": [
+        "арт-дирекшн",
+        "брендинг",
+        "студия"
+    ],
+    "renderer": "StudioRenderer",
+    "supported_sections": [
+        "hero",
+        "about",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "services",
+        "achievements",
+        "contacts",
+        "social_links"
+    ],
+    "capabilities": {
+        "script": false
+    },
+    "defaults": {
+        "settings": {
+            "colors": {
+                "accent": "#1f4bd8",
+                "background": "#fbfaf8",
+                "surface": "#f0eeea",
+                "text": "#14141a",
+                "muted": "#6f6f7a",
+                "border": "#dedbd4"
+            },
+            "typography": {
+                "heading_font": "ibm-plex-sans",
+                "body_font": "inter",
+                "scale": "default"
+            },
+            "layout": {
+                "section_spacing": "spacious",
+                "content_width": "wide"
+            },
+            "buttons": {
+                "style": "square"
+            }
+        }
+    },
+    "color_schemes": [
+        {
+            "key": "cobalt",
+            "name": "Кобальт",
+            "colors": {
+                "accent": "#1f4bd8",
+                "background": "#fbfaf8",
+                "surface": "#f0eeea",
+                "text": "#14141a",
+                "muted": "#6f6f7a",
+                "border": "#dedbd4"
+            }
+        },
+        {
+            "key": "terracotta",
+            "name": "Терракота",
+            "colors": {
+                "accent": "#c0492b",
+                "background": "#fdf8f4",
+                "surface": "#f5e9e0",
+                "text": "#20140f",
+                "muted": "#7d6a60",
+                "border": "#e8d8cb"
+            }
+        },
+        {
+            "key": "pine",
+            "name": "Хвоя",
+            "colors": {
+                "accent": "#0f6b4f",
+                "background": "#f8faf7",
+                "surface": "#e9f0ea",
+                "text": "#101a15",
+                "muted": "#65756c",
+                "border": "#d5e0d7"
+            }
+        }
+    ]
+}

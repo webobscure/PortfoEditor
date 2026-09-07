@@ -840,6 +840,28 @@
             "buttons": {
                 "style": "pill"
             }
+        },
+        "studio": {
+            "colors": {
+                "accent": "#1f4bd8",
+                "background": "#fbfaf8",
+                "surface": "#f0eeea",
+                "text": "#14141a",
+                "muted": "#6f6f7a",
+                "border": "#dedbd4"
+            },
+            "typography": {
+                "heading_font": "ibm-plex-sans",
+                "body_font": "inter",
+                "scale": "default"
+            },
+            "layout": {
+                "section_spacing": "spacious",
+                "content_width": "wide"
+            },
+            "buttons": {
+                "style": "square"
+            }
         }
     },
     "compiled": ":root {\n  --pf-accent: #4f46e5;\n  --pf-accent-strong: #443cc5;\n  --pf-accent-soft: rgba(79, 70, 229, 0.12);\n  --pf-accent-contrast: #ffffff;\n  --pf-bg: #ffffff;\n  --pf-surface: #f7f7f8;\n  --pf-text: #101014;\n  --pf-muted: #6b6b76;\n  --pf-border: #e6e6ea;\n  --pf-font-heading: \"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --pf-font-body: \"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif;\n  --pf-type-scale: 1;\n  --pf-space-scale: 1;\n  --pf-content-width: 960px;\n  --pf-btn-radius: 10px;\n}"
