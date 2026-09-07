@@ -1,0 +1,255 @@
+{
+    "name": "Alex Morgan",
+    "slug": "alex-morgan",
+    "meta": {
+        "title": "",
+        "description": ""
+    },
+    "settings": {
+        "colors": {
+            "accent": "#2f5bea"
+        }
+    },
+    "sections": [
+        {
+            "type": "hero",
+            "content": {
+                "name": "Alex Morgan",
+                "title": "Product designer",
+                "intro": "I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens where the real work happens.",
+                "photo_media_id": null,
+                "cta_text": "View work",
+                "cta_url": "https://example.com/work",
+                "secondary_cta_text": "Download CV",
+                "secondary_cta_url": "https://example.com/cv.pdf",
+                "alignment": "left",
+                "show_social": true
+            }
+        },
+        {
+            "type": "about",
+            "content": {
+                "heading": "About",
+                "body": "I started in print, moved to interfaces, and never lost the habit of caring about type and rhythm. These days I spend most of my time on flows that are hard to get right — onboarding, permissions, billing — where a good decision saves a support team a thousand emails.\n\nI work best embedded with engineers, sketching in the morning and reviewing a build in the afternoon.",
+                "photo_media_id": null,
+                "highlights": [
+                    {
+                        "label": "Years designing",
+                        "value": "10"
+                    },
+                    {
+                        "label": "Products shipped",
+                        "value": "24"
+                    },
+                    {
+                        "label": "Design systems built",
+                        "value": "3"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "experience",
+            "content": {
+                "heading": "Experience",
+                "items": [
+                    {
+                        "role": "Lead Product Designer",
+                        "company": "Fathom Health",
+                        "location": "London",
+                        "start": "2021",
+                        "end": "",
+                        "current": true,
+                        "description": "Lead design for the clinician workspace used in 60 practices. Redesigned the triage flow and cut the time to log a consultation from nine minutes to under four.",
+                        "tags": [
+                            "Product design",
+                            "Design systems",
+                            "Research"
+                        ]
+                    },
+                    {
+                        "role": "Senior Product Designer",
+                        "company": "Ravel",
+                        "location": "Amsterdam",
+                        "start": "2018",
+                        "end": "2021",
+                        "current": false,
+                        "description": "Owned the billing and subscription experience for a B2B analytics product, and built the first version of the design system with two engineers.",
+                        "tags": [
+                            "SaaS",
+                            "Design systems"
+                        ]
+                    },
+                    {
+                        "role": "Designer",
+                        "company": "Studio Mara",
+                        "location": "Lisbon",
+                        "start": "2015",
+                        "end": "2018",
+                        "current": false,
+                        "description": "Brand and interface work for cultural institutions and early-stage products. Where I learned to present work properly.",
+                        "tags": [
+                            "Brand",
+                            "Web"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "skills",
+            "content": {
+                "heading": "Capabilities",
+                "groups": [
+                    {
+                        "name": "Design",
+                        "items": [
+                            "Product design",
+                            "Design systems",
+                            "Interaction",
+                            "Prototyping",
+                            "Typography"
+                        ]
+                    },
+                    {
+                        "name": "Research",
+                        "items": [
+                            "User interviews",
+                            "Usability testing",
+                            "Journey mapping"
+                        ]
+                    },
+                    {
+                        "name": "Tools",
+                        "items": [
+                            "Figma",
+                            "Framer",
+                            "Principle",
+                            "HTML & CSS"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "type": "projects",
+            "content": {
+                "heading": "Selected work",
+                "intro": "Four projects that show how I think, not just what I shipped.",
+                "items": [
+                    {
+                        "title": "Clinician workspace",
+                        "description": "A single screen replacing four. We shadowed twelve clinicians for a week, found that most of the time went to context switching, and rebuilt the day around one timeline. Consultation logging dropped from nine minutes to under four.",
+                        "technologies": [
+                            "Product design",
+                            "Research",
+                            "Design system"
+                        ],
+                        "url": "https://example.com/work/clinician",
+                        "github_url": "",
+                        "year": "2024",
+                        "image_media_id": null,
+                        "featured": true
+                    },
+                    {
+                        "title": "Ravel design system",
+                        "description": "Sixty components, one type scale, and a contribution model that survived the team doubling. The point was never the library — it was giving engineers a default that was already right.",
+                        "technologies": [
+                            "Design systems",
+                            "Documentation"
+                        ],
+                        "url": "https://example.com/work/ravel",
+                        "github_url": "",
+                        "year": "2023",
+                        "image_media_id": null,
+                        "featured": true
+                    },
+                    {
+                        "title": "Billing that explains itself",
+                        "description": "Usage-based pricing is honest and confusing. We rebuilt the invoice around a plain-language summary and put the breakdown one click away. Billing support tickets fell by 38% in a quarter.",
+                        "technologies": [
+                            "Product design",
+                            "Content design"
+                        ],
+                        "url": "https://example.com/work/billing",
+                        "github_url": "",
+                        "year": "2022",
+                        "image_media_id": null,
+                        "featured": false
+                    },
+                    {
+                        "title": "Museu do Som identity",
+                        "description": "Identity and site for a small sound archive in Lisbon. A restrained system built around one serif and a lot of silence, so the recordings carry the page.",
+                        "technologies": [
+                            "Brand",
+                            "Web"
+                        ],
+                        "url": "https://example.com/work/museu",
+                        "github_url": "",
+                        "year": "2019",
+                        "image_media_id": null,
+                        "featured": false
+                    }
+                ]
+            }
+        },
+        {
+            "type": "education",
+            "content": {
+                "heading": "Education",
+                "items": [
+                    {
+                        "degree": "MA Graphic Design",
+                        "institution": "Central Saint Martins",
+                        "location": "London",
+                        "start": "2013",
+                        "end": "2015",
+                        "description": ""
+                    },
+                    {
+                        "degree": "BA Visual Communication",
+                        "institution": "FBAUL",
+                        "location": "Lisbon",
+                        "start": "2009",
+                        "end": "2013",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        {
+            "type": "contacts",
+            "content": {
+                "heading": "Work together",
+                "intro": "I take on one freelance engagement at a time, and I answer every email.",
+                "email": "alex@example.com",
+                "phone": "",
+                "location": "London, UK",
+                "availability": "Taking projects from April",
+                "cta_text": "Start a conversation"
+            }
+        },
+        {
+            "type": "social_links",
+            "content": {
+                "items": [
+                    {
+                        "platform": "dribbble",
+                        "url": "https://dribbble.com/example",
+                        "label": "Dribbble"
+                    },
+                    {
+                        "platform": "linkedin",
+                        "url": "https://linkedin.com/in/example",
+                        "label": "LinkedIn"
+                    },
+                    {
+                        "platform": "instagram",
+                        "url": "https://instagram.com/example",
+                        "label": "Instagram"
+                    }
+                ]
+            }
+        }
+    ]
+}
