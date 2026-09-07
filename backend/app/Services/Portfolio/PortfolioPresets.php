@@ -24,11 +24,11 @@ final class PortfolioPresets
     public function all(): array
     {
         return [
-            ['key' => 'developer', 'name' => 'Developer portfolio', 'description' => 'Engineering work, stack and shipped projects.', 'template' => 'developer-dark'],
-            ['key' => 'designer', 'name' => 'Designer portfolio', 'description' => 'Visual work presented as large case studies.', 'template' => 'minimal'],
-            ['key' => 'photographer', 'name' => 'Photographer portfolio', 'description' => 'Image-led series with editorial typography.', 'template' => 'editorial'],
-            ['key' => 'product', 'name' => 'Product / UX portfolio', 'description' => 'Outcomes, process and measurable impact.', 'template' => 'minimal'],
-            ['key' => 'other', 'name' => 'Something else', 'description' => 'A clean starting point you can shape yourself.', 'template' => 'minimal'],
+            ['key' => 'developer', 'name' => 'Портфолио разработчика', 'description' => 'Инженерная работа, стек и выпущенные проекты.', 'template' => 'developer-dark'],
+            ['key' => 'designer', 'name' => 'Портфолио дизайнера', 'description' => 'Визуальные работы в виде крупных кейсов.', 'template' => 'minimal'],
+            ['key' => 'photographer', 'name' => 'Портфолио фотографа', 'description' => 'Серии снимков с журнальной типографикой.', 'template' => 'editorial'],
+            ['key' => 'product', 'name' => 'Продуктовое / UX-портфолио', 'description' => 'Результаты, процесс и измеримый эффект.', 'template' => 'minimal'],
+            ['key' => 'other', 'name' => 'Что-то другое', 'description' => 'Чистая заготовка, которую вы соберёте сами.', 'template' => 'minimal'],
         ];
     }
 

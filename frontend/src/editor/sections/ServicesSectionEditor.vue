@@ -19,29 +19,29 @@ interface Service extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Services')
+const heading = field('heading', 'Услуги')
 const services = list<Service>('items')
 </script>
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
     </PanelSection>
 
-    <PanelSection title="Services">
+    <PanelSection title="Услуги">
       <EmptyState
         v-if="services.items.value.length === 0"
         compact
-        title="No services yet"
-        description="What you offer, and roughly what it costs."
+        title="Услуг пока нет"
+        description="Что предлагаете и сколько это примерно стоит."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in services.items.value"
           :key="index"
-          :title="item.title || 'New service'"
+          :title="item.title || 'Новая услуга'"
           :subtitle="item.price"
           :can-move-up="index > 0"
           :can-move-down="index < services.items.value.length - 1"
@@ -51,20 +51,20 @@ const services = list<Service>('items')
         >
           <BaseInput
             :model-value="item.title"
-            label="Title"
+            label="Название"
             @update:model-value="services.update(index, { title: $event })"
           />
           <BaseTextarea
             :model-value="item.description"
-            label="Description"
+            label="Описание"
             :rows="4"
             :maxlength="600"
             @update:model-value="services.update(index, { description: $event })"
           />
           <BaseInput
             :model-value="item.price"
-            label="Price"
-            placeholder="From €900 / day"
+            label="Цена"
+            placeholder="От 60 000 ₽ за день"
             :maxlength="40"
             @update:model-value="services.update(index, { price: $event })"
           />
@@ -78,7 +78,7 @@ const services = list<Service>('items')
         :disabled="services.items.value.length >= 12"
         @click="services.add({ title: '', description: '', price: '' })"
       >
-        Add service
+        Добавить услугу
       </BaseButton>
     </PanelSection>
   </div>

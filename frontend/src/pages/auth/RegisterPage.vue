@@ -31,7 +31,7 @@ async function submit(): Promise<void> {
       fieldErrors.value = error.errors
       formError.value = Object.keys(error.errors).length === 0 ? error.message : ''
     } else {
-      formError.value = 'Something went wrong. Try again.'
+      formError.value = 'Что-то пошло не так. Попробуйте ещё раз.'
     }
   } finally {
     busy.value = false
@@ -40,7 +40,7 @@ async function submit(): Promise<void> {
 </script>
 
 <template>
-  <AuthLayout title="Create your account" subtitle="Your first portfolio takes about a minute.">
+  <AuthLayout title="Создайте аккаунт" subtitle="Первое портфолио займёт около минуты.">
     <form class="space-y-4" novalidate @submit.prevent="submit">
       <p
         v-if="formError"
@@ -52,16 +52,16 @@ async function submit(): Promise<void> {
 
       <BaseInput
         v-model="name"
-        label="Your name"
+        label="Ваше имя"
         autocomplete="name"
-        placeholder="Alex Morgan"
+        placeholder="Александра Морозова"
         :error="fieldErrors.name?.[0]"
         required
       />
 
       <BaseInput
         v-model="email"
-        label="Email"
+        label="Почта"
         type="email"
         autocomplete="email"
         placeholder="you@example.com"
@@ -71,24 +71,24 @@ async function submit(): Promise<void> {
 
       <BaseInput
         v-model="password"
-        label="Password"
+        label="Пароль"
         type="password"
         autocomplete="new-password"
-        placeholder="At least 8 characters"
-        hint="Eight characters or more, with a number."
+        placeholder="Минимум 8 символов"
+        hint="Восемь символов или больше, хотя бы одна цифра."
         :error="fieldErrors.password?.[0]"
         required
       />
 
       <BaseButton type="submit" variant="primary" size="lg" block :loading="busy">
-        Create account
+        Создать аккаунт
       </BaseButton>
     </form>
 
     <p class="mt-6 text-center text-[13px] text-ink-muted">
-      Already have an account?
+      Уже есть аккаунт?
       <RouterLink :to="{ name: 'login' }" class="font-medium text-brand hover:underline">
-        Sign in
+        Войти
       </RouterLink>
     </p>
   </AuthLayout>

@@ -53,7 +53,7 @@ const tones: Record<string, string> = {
         </div>
         <button
           type="button"
-          aria-label="Dismiss"
+          aria-label="Скрыть"
           class="grid size-6 shrink-0 place-items-center rounded-md text-ink-faint transition hover:bg-line-soft hover:text-ink-soft"
           @click="store.dismiss(toast.id)"
         >

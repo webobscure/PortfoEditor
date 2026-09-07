@@ -22,7 +22,7 @@ export function useExport() {
     if (busy.value) return
 
     busy.value = true
-    const pending = toast.info('Preparing your download', `Packaging ${portfolioName}…`)
+    const pending = toast.info('Готовим файл', `Упаковываем «${portfolioName}»…`)
 
     try {
       let record = await exportsApi.create(portfolioId)
@@ -36,9 +36,9 @@ export function useExport() {
 
       if (record.status !== 'completed' || !record.download_url) {
         toast.error(
-          'Export failed',
-          record.error ?? 'We could not build the archive. Please try again.',
-          { label: 'Try again', run: () => void download(portfolioId, portfolioName) },
+          'Экспорт не удался',
+          record.error ?? 'Не удалось собрать архив. Попробуйте ещё раз.',
+          { label: 'Повторить', run: () => void download(portfolioId, portfolioName) },
         )
 
         return
@@ -47,10 +47,10 @@ export function useExport() {
       // A normal navigation: the response carries Content-Disposition, so the
       // browser saves it rather than rendering it.
       window.location.assign(record.download_url)
-      toast.success('Download ready', 'Your portfolio is a self-contained static site.')
+      toast.success('Архив готов', 'Портфолио — самодостаточный статический сайт.')
     } catch (error) {
       toast.dismiss(pending)
-      toast.error('Export failed', isApiError(error) ? error.message : 'Please try again.')
+      toast.error('Экспорт не удался', isApiError(error) ? error.message : 'Попробуйте ещё раз.')
     } finally {
       busy.value = false
     }

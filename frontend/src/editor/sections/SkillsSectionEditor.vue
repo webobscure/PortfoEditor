@@ -18,29 +18,29 @@ interface Group extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Skills')
+const heading = field('heading', 'Навыки')
 const groups = list<Group>('groups')
 </script>
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
     </PanelSection>
 
-    <PanelSection title="Groups">
+    <PanelSection title="Группы">
       <EmptyState
         v-if="groups.items.value.length === 0"
         compact
-        title="No groups yet"
-        description="Group skills so the list scans — languages, tools, methods."
+        title="Групп пока нет"
+        description="Сгруппируйте навыки, чтобы список читался: языки, инструменты, методы."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(group, index) in groups.items.value"
           :key="index"
-          :title="group.name || 'New group'"
+          :title="group.name || 'Новая группа'"
           :subtitle="`${(group.items ?? []).length} items`"
           :can-move-up="index > 0"
           :can-move-down="index < groups.items.value.length - 1"
@@ -50,15 +50,15 @@ const groups = list<Group>('groups')
         >
           <BaseInput
             :model-value="group.name"
-            label="Group name"
-            placeholder="Design"
+            label="Название группы"
+            placeholder="Дизайн"
             :maxlength="60"
             @update:model-value="groups.update(index, { name: $event })"
           />
           <TagInput
             :model-value="group.items ?? []"
-            label="Skills"
-            placeholder="Prototyping"
+            label="Навыки"
+            placeholder="Прототипирование"
             @update:model-value="groups.update(index, { items: $event })"
           />
         </RepeaterItem>
@@ -71,7 +71,7 @@ const groups = list<Group>('groups')
         :disabled="groups.items.value.length >= 8"
         @click="groups.add({ name: '', items: [] })"
       >
-        Add group
+        Добавить группу
       </BaseButton>
     </PanelSection>
   </div>

@@ -20,19 +20,24 @@ const templateName = computed(
   () => catalog.template(props.portfolio.template_key)?.name ?? props.portfolio.template_key,
 )
 
+// Intl handles the Russian plural forms (минуту / минуты / минут), which a
+// hand-written `${n} мин` would get wrong for everything except 5-20.
+const relative = new Intl.RelativeTimeFormat('ru', { numeric: 'auto' })
+const dayMonth = new Intl.DateTimeFormat('ru-RU', { month: 'short', day: 'numeric' })
+
 const edited = computed(() => {
   const value = props.portfolio.updated_at
 
-  if (!value) return 'just now'
+  if (!value) return 'только что'
 
   const minutes = Math.round((Date.now() - new Date(value).getTime()) / 60000)
 
-  if (minutes < 1) return 'just now'
-  if (minutes < 60) return `${minutes} min ago`
-  if (minutes < 60 * 24) return `${Math.round(minutes / 60)} h ago`
-  if (minutes < 60 * 24 * 7) return `${Math.round(minutes / 1440)} d ago`
+  if (minutes < 1) return 'только что'
+  if (minutes < 60) return relative.format(-minutes, 'minute')
+  if (minutes < 60 * 24) return relative.format(-Math.round(minutes / 60), 'hour')
+  if (minutes < 60 * 24 * 7) return relative.format(-Math.round(minutes / 1440), 'day')
 
-  return new Date(value).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
+  return dayMonth.format(new Date(value))
 })
 
 const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
@@ -45,7 +50,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
     <RouterLink
       :to="{ name: 'editor', params: { id: portfolio.id } }"
       class="block border-b border-line-soft"
-      :aria-label="`Edit ${portfolio.name}`"
+      :aria-label="`Редактировать ${portfolio.name}`"
     >
       <SitePreviewFrame :src="previewUrl" :ratio="0.66" />
     </RouterLink>
@@ -61,7 +66,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
         <p class="mt-0.5 flex items-center gap-1.5 truncate text-[12px] text-ink-muted">
           <span>{{ templateName }}</span>
           <span aria-hidden="true">·</span>
-          <span>Edited {{ edited }}</span>
+          <span>Изменено {{ edited }}</span>
         </p>
       </div>
 
@@ -73,7 +78,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
             : 'bg-line-soft text-ink-muted'
         "
       >
-        {{ portfolio.status === 'published' ? 'Published' : 'Draft' }}
+        {{ portfolio.status === 'published' ? 'Опубликовано' : 'Черновик' }}
       </span>
     </div>
 
@@ -83,7 +88,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
         class="inline-flex h-7 items-center gap-1.5 rounded-[9px] px-2.5 text-[12.5px] font-medium text-ink-soft transition hover:bg-line-soft hover:text-ink"
       >
         <AppIcon name="sliders" :size="14" />
-        Edit
+        Правка
       </RouterLink>
 
       <a
@@ -93,7 +98,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
         class="inline-flex h-7 items-center gap-1.5 rounded-[9px] px-2.5 text-[12.5px] font-medium text-ink-soft transition hover:bg-line-soft hover:text-ink"
       >
         <AppIcon name="external" :size="14" />
-        Preview
+        Просмотр
       </a>
 
       <button
@@ -102,7 +107,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
         @click="emit('download', portfolio)"
       >
         <AppIcon name="download" :size="14" />
-        Download
+        Скачать
       </button>
 
       <div class="flex-1" />
@@ -112,7 +117,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
           <button
             type="button"
             class="grid size-7 place-items-center rounded-[9px] text-ink-muted transition hover:bg-line-soft hover:text-ink"
-            aria-label="More actions"
+            aria-label="Ещё действия"
             @click="toggle"
           >
             <AppIcon name="dots" :size="15" />
@@ -131,7 +136,7 @@ const previewUrl = computed(() => portfoliosApi.previewUrl(props.portfolio.id))
             "
           >
             <AppIcon name="trash" :size="15" />
-            Delete portfolio
+            Удалить портфолио
           </button>
         </template>
       </BasePopover>

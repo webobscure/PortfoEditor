@@ -21,7 +21,7 @@ interface Achievement extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Achievements')
+const heading = field('heading', 'Достижения')
 const items = list<Achievement>('items')
 
 const blank: Achievement = { title: '', issuer: '', date: '', url: '', description: '' }
@@ -29,24 +29,24 @@ const blank: Achievement = { title: '', issuer: '', date: '', url: '', descripti
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
     </PanelSection>
 
-    <PanelSection title="Entries">
+    <PanelSection title="Записи">
       <EmptyState
         v-if="items.items.value.length === 0"
         compact
         icon="award"
-        title="Nothing here yet"
-        description="Awards, talks, exhibitions, publications."
+        title="Здесь пока пусто"
+        description="Награды, доклады, выставки, публикации."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in items.items.value"
           :key="index"
-          :title="item.title || 'New entry'"
+          :title="item.title || 'Новая запись'"
           :subtitle="[item.issuer, item.date].filter(Boolean).join(' · ')"
           :can-move-up="index > 0"
           :can-move-down="index < items.items.value.length - 1"
@@ -56,29 +56,29 @@ const blank: Achievement = { title: '', issuer: '', date: '', url: '', descripti
         >
           <BaseInput
             :model-value="item.title"
-            label="Title"
+            label="Название"
             @update:model-value="items.update(index, { title: $event })"
           />
           <BaseInput
             :model-value="item.issuer"
-            label="Issuer or venue"
+            label="Кто вручил или где"
             @update:model-value="items.update(index, { issuer: $event })"
           />
           <BaseInput
             :model-value="item.date"
-            label="Date"
+            label="Дата"
             placeholder="2024"
             @update:model-value="items.update(index, { date: $event })"
           />
           <BaseInput
             :model-value="item.url"
-            label="Link"
+            label="Ссылка"
             type="url"
             @update:model-value="items.update(index, { url: $event })"
           />
           <BaseTextarea
             :model-value="item.description"
-            label="Note"
+            label="Заметка"
             :rows="3"
             :maxlength="600"
             @update:model-value="items.update(index, { description: $event })"
@@ -93,7 +93,7 @@ const blank: Achievement = { title: '', issuer: '', date: '', url: '', descripti
         :disabled="items.items.value.length >= 16"
         @click="items.add({ ...blank })"
       >
-        Add entry
+        Добавить запись
       </BaseButton>
     </PanelSection>
   </div>

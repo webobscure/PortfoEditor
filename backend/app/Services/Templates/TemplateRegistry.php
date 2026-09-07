@@ -79,7 +79,7 @@ final class TemplateRegistry
         }
 
         return $this->find(self::DEFAULT_KEY)
-            ?? throw new RuntimeException('No templates are installed.');
+            ?? throw new RuntimeException('Не установлено ни одного шаблона.');
     }
 
     /**

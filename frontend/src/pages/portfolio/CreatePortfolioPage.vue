@@ -33,7 +33,7 @@ const toast = useToastStore()
 const router = useRouter()
 const route = useRoute()
 
-const STEPS = ['What you do', 'About you', 'Template', 'Review'] as const
+const STEPS = ['Чем занимаетесь', 'О себе', 'Шаблон', 'Проверка'] as const
 
 const step = ref(0)
 const preset = ref('designer')
@@ -117,7 +117,7 @@ async function create(): Promise<void> {
 
   try {
     const portfolio = await portfolios.create({
-      name: fullName.value.trim() || 'My portfolio',
+      name: fullName.value.trim() || 'Моё портфолио',
       preset: preset.value,
       template_key: templateKey.value,
       profile: {
@@ -131,9 +131,9 @@ async function create(): Promise<void> {
   } catch (error) {
     if (isApiError(error)) {
       fieldErrors.value = error.errors
-      toast.error('Could not create the portfolio', error.message)
+      toast.error('Не удалось создать портфолио', error.message)
     } else {
-      toast.error('Could not create the portfolio', 'Please try again.')
+      toast.error('Не удалось создать портфолио', 'Попробуйте ещё раз.')
     }
 
     creating.value = false
@@ -174,9 +174,9 @@ async function create(): Promise<void> {
 
       <!-- Step 1 -->
       <section v-if="step === 0" class="mt-8">
-        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">What are you creating?</h1>
+        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Что вы создаёте?</h1>
         <p class="mt-1 text-[13.5px] text-ink-muted">
-          This decides the starting sections and sample copy. You can change everything later.
+          От этого зависят стартовые секции и примеры текста. Всё это можно изменить позже.
         </p>
 
         <div class="mt-6 grid gap-3 sm:grid-cols-2">
@@ -211,41 +211,41 @@ async function create(): Promise<void> {
 
       <!-- Step 2 -->
       <section v-else-if="step === 1" class="mt-8 max-w-xl">
-        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Tell us the basics</h1>
+        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Расскажите основное</h1>
         <p class="mt-1 text-[13.5px] text-ink-muted">
-          Three fields. Everything else is already filled in with sample content you can edit.
+          Три поля. Остальное уже заполнено примерами, которые можно отредактировать.
         </p>
 
         <div class="mt-6 space-y-4">
           <BaseInput
             v-model="fullName"
-            label="Name"
-            placeholder="Alex Morgan"
+            label="Имя"
+            placeholder="Александра Морозова"
             :error="fieldErrors.name?.[0]"
             required
           />
           <BaseInput
             v-model="title"
-            label="Professional title"
-            placeholder="Product designer"
-            hint="Appears under your name and in the page title."
+            label="Профессия"
+            placeholder="Продуктовый дизайнер"
+            hint="Показывается под именем и в заголовке страницы."
           />
           <BaseTextarea
             v-model="intro"
-            label="Short introduction"
+            label="Короткое вступление"
             :rows="4"
             :maxlength="600"
-            placeholder="One or two sentences about the work you want more of."
-            hint="Leave it blank and we will start you with sample copy."
+            placeholder="Одно-два предложения о работе, которой хочется больше."
+            hint="Оставьте пустым — подставим текст-пример."
           />
         </div>
       </section>
 
       <!-- Step 3 -->
       <section v-else-if="step === 2" class="mt-8">
-        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Choose a template</h1>
+        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Выберите шаблон</h1>
         <p class="mt-1 text-[13.5px] text-ink-muted">
-          These are live renderings, not screenshots. Open one full screen to look properly.
+          Это живые страницы, а не скриншоты. Откройте на весь экран, чтобы рассмотреть.
         </p>
 
         <div class="mt-6 grid gap-6 lg:grid-cols-2">
@@ -255,7 +255,7 @@ async function create(): Promise<void> {
             :template="template"
             :preset="preset"
             :selected="templateKey === template.key"
-            action-label="Select"
+            action-label="Выбрать"
             @preview="previewing = template"
             @choose="chooseTemplate(template)"
           />
@@ -264,22 +264,22 @@ async function create(): Promise<void> {
 
       <!-- Step 4 -->
       <section v-else class="mt-8 max-w-xl">
-        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Ready to build</h1>
+        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Всё готово</h1>
         <p class="mt-1 text-[13.5px] text-ink-muted">
-          We will create your portfolio with a hero, about, work, skills and contact section already
-          filled in.
+          Создадим портфолио с уже заполненными секциями: обложка, о себе, работы, навыки и
+          контакты.
         </p>
 
         <dl class="panel mt-6 divide-y divide-line-soft">
           <div
             v-for="row in [
-              { label: 'Name', value: fullName || '—' },
-              { label: 'Title', value: title || 'Sample content' },
+              { label: 'Имя', value: fullName || '—' },
+              { label: 'Профессия', value: title || 'Текст-пример' },
               {
-                label: 'Type',
+                label: 'Тип',
                 value: catalog.presets.find((p) => p.key === preset)?.name ?? preset,
               },
-              { label: 'Template', value: selectedTemplate?.name ?? templateKey },
+              { label: 'Шаблон', value: selectedTemplate?.name ?? templateKey },
             ]"
             :key="row.label"
             class="flex items-baseline gap-4 px-4 py-3"
@@ -299,7 +299,7 @@ async function create(): Promise<void> {
           :disabled="creating"
           @click="back"
         >
-          Back
+          Назад
         </BaseButton>
         <span v-else />
 
@@ -310,10 +310,10 @@ async function create(): Promise<void> {
           :disabled="!canContinue"
           @click="next"
         >
-          Continue
+          Дальше
         </BaseButton>
         <BaseButton v-else variant="primary" size="lg" :loading="creating" @click="create">
-          Create portfolio
+          Создать портфолио
         </BaseButton>
       </div>
     </div>
@@ -322,7 +322,7 @@ async function create(): Promise<void> {
       :open="previewing !== null"
       :template="previewing"
       :preset="preset"
-      action-label="Select this template"
+      action-label="Выбрать этот шаблон"
       @close="previewing = null"
       @choose="chooseTemplate"
     />

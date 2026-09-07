@@ -33,14 +33,14 @@ const emit = defineEmits<{ preview: []; choose: [] }>()
           @click="emit('preview')"
         >
           <AppIcon name="eye" :size="15" />
-          Preview
+          Предпросмотр
         </button>
         <button
           type="button"
           class="inline-flex h-9 items-center gap-1.5 rounded-[10px] bg-brand px-3.5 text-[13px] font-medium text-white shadow-soft transition hover:bg-brand-hover"
           @click="emit('choose')"
         >
-          {{ actionLabel ?? 'Use this template' }}
+          {{ actionLabel ?? 'Взять этот шаблон' }}
           <AppIcon name="arrowRight" :size="15" />
         </button>
       </div>
@@ -54,7 +54,7 @@ const emit = defineEmits<{ preview: []; choose: [] }>()
           class="inline-flex items-center gap-1 rounded-full bg-brand-soft px-2 py-0.5 text-[11px] font-medium text-brand"
         >
           <AppIcon name="check" :size="12" />
-          Current
+          Текущий
         </span>
       </div>
       <p class="mt-1 text-[13px] leading-relaxed text-ink-muted">{{ template.description }}</p>

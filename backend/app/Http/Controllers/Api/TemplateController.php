@@ -145,6 +145,6 @@ final class TemplateController extends Controller
 
     private function resolve(string $key): Template
     {
-        return $this->templates->find($key) ?? abort(404, 'Template not found.');
+        return $this->templates->find($key) ?? abort(404, 'Шаблон не найден.');
     }
 }

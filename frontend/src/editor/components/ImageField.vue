@@ -35,8 +35,8 @@ async function onPick(event: Event): Promise<void> {
     emit('update:modelValue', media.id)
   } catch (error) {
     toast.error(
-      'Upload failed',
-      isApiError(error) ? error.message : 'Use a JPEG, PNG or WebP under 8 MB.',
+      'Не удалось загрузить',
+      isApiError(error) ? error.message : 'Подойдёт JPEG, PNG или WebP до 8 МБ.',
     )
   } finally {
     progress.value = null
@@ -62,8 +62,8 @@ async function onPick(event: Event): Promise<void> {
         @click="input?.click()"
       >
         <AppIcon name="upload" :size="18" />
-        <span class="text-[12.5px]">Upload an image</span>
-        <span class="text-[11px] text-ink-faint">JPEG, PNG or WebP</span>
+        <span class="text-[12.5px]">Загрузить изображение</span>
+        <span class="text-[11px] text-ink-faint">JPEG, PNG или WebP</span>
       </button>
 
       <div
@@ -76,7 +76,7 @@ async function onPick(event: Event): Promise<void> {
             :style="{ width: `${progress}%` }"
           />
         </div>
-        <span class="text-[11.5px] text-ink-muted">Uploading {{ progress }}%</span>
+        <span class="text-[11.5px] text-ink-muted">Загрузка {{ progress }}%</span>
       </div>
 
       <div v-if="image" class="flex items-center gap-1 border-t border-line-soft bg-surface p-1.5">
@@ -86,7 +86,7 @@ async function onPick(event: Event): Promise<void> {
           @click="input?.click()"
         >
           <AppIcon name="refresh" :size="13" />
-          Replace
+          Заменить
         </button>
         <button
           type="button"
@@ -94,7 +94,7 @@ async function onPick(event: Event): Promise<void> {
           @click="emit('update:modelValue', null)"
         >
           <AppIcon name="trash" :size="13" />
-          Remove
+          Убрать
         </button>
       </div>
     </div>

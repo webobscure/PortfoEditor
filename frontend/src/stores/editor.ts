@@ -135,7 +135,7 @@ export const useEditorStore = defineStore('editor', () => {
       media.value = Object.fromEntries(portfolioMedia.map((item) => [item.id, item]))
       selectedSectionId.value = null
     } catch (error) {
-      loadError.value = isApiError(error) ? error.message : 'We could not open this portfolio.'
+      loadError.value = isApiError(error) ? error.message : 'Не удалось открыть это портфолио.'
       throw error
     } finally {
       loading.value = false
@@ -475,7 +475,7 @@ export const useEditorStore = defineStore('editor', () => {
         sectionIds.forEach((id) => dirtySections.value.add(id))
 
         saveState.value = 'error'
-        saveError.value = isApiError(error) ? error.message : 'Could not save changes'
+        saveError.value = isApiError(error) ? error.message : 'Не удалось сохранить изменения'
         scheduleRetry()
       } finally {
         flushing = null

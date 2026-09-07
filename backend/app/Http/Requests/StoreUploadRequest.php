@@ -29,8 +29,8 @@ final class StoreUploadRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'file.mimetypes' => 'Upload a JPEG, PNG or WebP image.',
-            'file.max' => 'Images must be smaller than :max kB.',
+            'file.mimetypes' => 'Загрузите изображение JPEG, PNG или WebP.',
+            'file.max' => 'Изображение должно быть меньше :max КБ.',
         ];
     }
 }

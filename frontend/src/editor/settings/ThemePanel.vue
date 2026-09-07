@@ -56,7 +56,7 @@ const isActiveScheme = (scheme: ColorScheme) =>
 
 <template>
   <div>
-    <PanelSection title="Colour scheme">
+    <PanelSection title="Цветовая схема">
       <div v-if="template?.color_schemes?.length" class="grid grid-cols-3 gap-2">
         <button
           v-for="scheme in template.color_schemes"
@@ -83,58 +83,58 @@ const isActiveScheme = (scheme: ColorScheme) =>
       </div>
     </PanelSection>
 
-    <PanelSection title="Colours">
+    <PanelSection title="Цвета">
       <ColorField
         :model-value="settings.colors.accent"
-        label="Accent"
+        label="Акцент"
         :presets="swatches"
         @update:model-value="setColor('accent', $event)"
       />
       <ColorField
         :model-value="settings.colors.background"
-        label="Background"
+        label="Фон"
         @update:model-value="setColor('background', $event)"
       />
       <ColorField
         :model-value="settings.colors.surface"
-        label="Surface"
+        label="Подложка"
         @update:model-value="setColor('surface', $event)"
       />
       <ColorField
         :model-value="settings.colors.text"
-        label="Text"
+        label="Текст"
         @update:model-value="setColor('text', $event)"
       />
       <ColorField
         :model-value="settings.colors.muted"
-        label="Muted text"
+        label="Приглушённый текст"
         @update:model-value="setColor('muted', $event)"
       />
       <ColorField
         :model-value="settings.colors.border"
-        label="Borders"
+        label="Границы"
         @update:model-value="setColor('border', $event)"
       />
     </PanelSection>
 
-    <PanelSection title="Typography">
+    <PanelSection title="Типографика">
       <BaseSelect
         :model-value="settings.typography.heading_font"
-        label="Headings"
+        label="Заголовки"
         :options="headingFonts"
         @update:model-value="editor.patchSettings('typography', { heading_font: $event })"
       />
       <BaseSelect
         :model-value="settings.typography.body_font"
-        label="Body"
+        label="Основной текст"
         :options="bodyFonts"
         @update:model-value="editor.patchSettings('typography', { body_font: $event })"
       />
       <div>
-        <span class="field-label">Text size</span>
+        <span class="field-label">Размер текста</span>
         <SegmentedControl
           :model-value="settings.typography.scale"
-          label="Text size"
+          label="Размер текста"
           compact
           :options="[
             { value: 'compact', label: 'S' },
@@ -148,17 +148,17 @@ const isActiveScheme = (scheme: ColorScheme) =>
       </div>
     </PanelSection>
 
-    <PanelSection title="Layout">
+    <PanelSection title="Раскладка">
       <div>
-        <span class="field-label">Section spacing</span>
+        <span class="field-label">Отступы между секциями</span>
         <SegmentedControl
           :model-value="settings.layout.section_spacing"
-          label="Section spacing"
+          label="Отступы между секциями"
           compact
           :options="[
-            { value: 'compact', label: 'Tight' },
-            { value: 'default', label: 'Normal' },
-            { value: 'spacious', label: 'Airy' },
+            { value: 'compact', label: 'Плотно' },
+            { value: 'default', label: 'Обычно' },
+            { value: 'spacious', label: 'Просторно' },
           ]"
           @update:model-value="
             editor.patchSettings('layout', {
@@ -168,15 +168,15 @@ const isActiveScheme = (scheme: ColorScheme) =>
         />
       </div>
       <div>
-        <span class="field-label">Content width</span>
+        <span class="field-label">Ширина контента</span>
         <SegmentedControl
           :model-value="settings.layout.content_width"
-          label="Content width"
+          label="Ширина контента"
           compact
           :options="[
-            { value: 'narrow', label: 'Narrow' },
-            { value: 'default', label: 'Default' },
-            { value: 'wide', label: 'Wide' },
+            { value: 'narrow', label: 'Узко' },
+            { value: 'default', label: 'Обычно' },
+            { value: 'wide', label: 'Широко' },
           ]"
           @update:model-value="
             editor.patchSettings('layout', {
@@ -186,15 +186,15 @@ const isActiveScheme = (scheme: ColorScheme) =>
         />
       </div>
       <div>
-        <span class="field-label">Buttons</span>
+        <span class="field-label">Кнопки</span>
         <SegmentedControl
           :model-value="settings.buttons.style"
-          label="Button style"
+          label="Стиль кнопок"
           compact
           :options="[
-            { value: 'rounded', label: 'Rounded' },
-            { value: 'square', label: 'Square' },
-            { value: 'pill', label: 'Pill' },
+            { value: 'rounded', label: 'Скруглённые' },
+            { value: 'square', label: 'Прямые' },
+            { value: 'pill', label: 'Капсула' },
           ]"
           @update:model-value="
             editor.patchSettings('buttons', { style: $event as 'rounded' | 'square' | 'pill' })
@@ -203,21 +203,21 @@ const isActiveScheme = (scheme: ColorScheme) =>
       </div>
     </PanelSection>
 
-    <PanelSection title="Search &amp; sharing" :default-open="false">
+    <PanelSection title="Поиск и ссылки" :default-open="false">
       <BaseInput
         :model-value="editor.portfolio?.meta.title ?? ''"
-        label="Page title"
+        label="Заголовок страницы"
         :maxlength="70"
-        placeholder="Alex Morgan — Product designer"
-        hint="Leave blank to use your name and title."
+        placeholder="Александра Морозова — продуктовый дизайнер"
+        hint="Оставьте пустым — подставим имя и профессию."
         @update:model-value="editor.patchMeta({ title: $event })"
       />
       <BaseTextarea
         :model-value="editor.portfolio?.meta.description ?? ''"
-        label="Meta description"
+        label="Мета-описание"
         :rows="3"
         :maxlength="180"
-        placeholder="Shown in search results and link previews."
+        placeholder="Показывается в поиске и в превью ссылок."
         @update:model-value="editor.patchMeta({ description: $event })"
       />
     </PanelSection>

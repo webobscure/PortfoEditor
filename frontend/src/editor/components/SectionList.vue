@@ -61,7 +61,7 @@ function mountSortable(): void {
       try {
         await editor.reorder(ids)
       } catch {
-        toast.error('Could not reorder sections', 'The original order has been restored.')
+        toast.error('Не удалось изменить порядок', 'Прежний порядок восстановлен.')
       }
     },
   })
@@ -82,7 +82,7 @@ async function addSection(type: SectionTypeKey, close: () => void): Promise<void
 
     if (section) emit('select', section.id)
   } catch {
-    toast.error('Could not add the section', 'Please try again.')
+    toast.error('Не удалось добавить секцию', 'Попробуйте ещё раз.')
   }
 }
 
@@ -114,7 +114,7 @@ async function remove(section: Section): Promise<void> {
     await editor.deleteSection(section.id)
     pendingDelete.value = null
   } catch {
-    toast.error('Could not delete the section', 'Please try again.')
+    toast.error('Не удалось удалить секцию', 'Попробуйте ещё раз.')
   } finally {
     busy.value = false
   }
@@ -124,14 +124,14 @@ async function remove(section: Section): Promise<void> {
 <template>
   <div class="flex h-full flex-col">
     <div class="flex items-center justify-between px-4 pt-4 pb-2">
-      <span class="panel-eyebrow">Sections</span>
+      <span class="panel-eyebrow">Секции</span>
 
       <BasePopover align="left" width="w-56">
         <template #trigger="{ toggle }">
           <button
             type="button"
             class="grid size-6 place-items-center rounded-md text-ink-muted transition hover:bg-line-soft hover:text-ink"
-            aria-label="Add section"
+            aria-label="Добавить секцию"
             @click="toggle"
           >
             <AppIcon name="plus" :size="15" />
@@ -139,7 +139,7 @@ async function remove(section: Section): Promise<void> {
         </template>
 
         <template #default="{ close }">
-          <p class="px-2 pt-1 pb-1.5 text-[11px] text-ink-faint">Add a section</p>
+          <p class="px-2 pt-1 pb-1.5 text-[11px] text-ink-faint">Добавить секцию</p>
           <button
             v-for="type in availableTypes"
             :key="type"
@@ -178,9 +178,9 @@ async function remove(section: Section): Promise<void> {
 
     <ConfirmDialog
       :open="pendingDelete !== null"
-      title="Delete this section?"
-      :description="`The content in “${pendingDelete ? SECTION_META[pendingDelete.type].label : ''}” will be removed. This cannot be undone.`"
-      confirm-label="Delete section"
+      title="Удалить эту секцию?"
+      :description="`Содержимое секции «${pendingDelete ? SECTION_META[pendingDelete.type].label : ''}» будет удалено. Отменить это нельзя.`"
+      confirm-label="Удалить секцию"
       destructive
       :busy="busy"
       @close="pendingDelete = null"

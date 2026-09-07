@@ -42,7 +42,7 @@ final class EditorialRenderer extends AbstractTemplateRenderer
         }
 
         return '<div class="pf-shell">'
-            .$this->heading($data, 'Selected work')
+            .$this->heading($data, 'Избранные работы')
             .Html::paragraphs((string) ($data['intro'] ?? ''), 'pf-section__intro')
             .'<div class="pf-projects">'.$cards.'</div>'
             .'</div>';
@@ -69,7 +69,7 @@ final class EditorialRenderer extends AbstractTemplateRenderer
 
         if ($year !== '') {
             $aside .= '<div>'
-                .Html::tag('p', ['class' => 'pf-project__label'], 'Year')
+                .Html::tag('p', ['class' => 'pf-project__label'], 'Год')
                 .Html::tag('p', ['class' => 'pf-project__year'], Html::e($year))
                 .'</div>';
         }
@@ -82,14 +82,14 @@ final class EditorialRenderer extends AbstractTemplateRenderer
 
         if ($tech !== '') {
             $aside .= '<div>'
-                .Html::tag('p', ['class' => 'pf-project__label'], 'Discipline')
+                .Html::tag('p', ['class' => 'pf-project__label'], 'Направление')
                 .'<ul class="pf-chips">'.$tech.'</ul>'
                 .'</div>';
         }
 
         $links = '';
 
-        foreach ([['url', 'View the work'], ['github_url', 'Source']] as [$key, $label]) {
+        foreach ([['url', 'Смотреть работу'], ['github_url', 'Исходный код']] as [$key, $label]) {
             $href = Html::url($item[$key] ?? null);
 
             if ($href === '') {

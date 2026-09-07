@@ -75,7 +75,7 @@ onBeforeUnmount(() => {
     <iframe
       v-if="visible"
       :src="src"
-      title="Site preview"
+      title="Предпросмотр сайта"
       loading="lazy"
       tabindex="-1"
       aria-hidden="true"

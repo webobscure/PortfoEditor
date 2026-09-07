@@ -57,7 +57,7 @@ async function back(): Promise<void> {
       <button
         type="button"
         class="grid size-8 place-items-center rounded-[9px] text-ink-soft transition hover:bg-line-soft hover:text-ink"
-        aria-label="Back to your portfolios"
+        aria-label="К моим портфолио"
         @click="back"
       >
         <AppIcon name="arrowLeft" :size="16" />
@@ -67,7 +67,7 @@ async function back(): Promise<void> {
     <input
       v-model="name"
       class="min-w-0 max-w-[15rem] flex-1 rounded-[9px] border border-transparent bg-transparent px-2 py-1 text-[13.5px] font-medium transition hover:border-line focus:border-brand focus:bg-surface focus:shadow-[0_0_0_3px_var(--color-brand-soft)] focus:outline-none sm:flex-none"
-      aria-label="Portfolio name"
+      aria-label="Название портфолио"
       maxlength="120"
       @blur="commitName"
       @keydown.enter="($event.target as HTMLInputElement).blur()"
@@ -82,7 +82,7 @@ async function back(): Promise<void> {
         <button
           type="button"
           class="grid size-8 place-items-center rounded-[9px] text-ink-soft transition enabled:hover:bg-line-soft enabled:hover:text-ink disabled:opacity-30"
-          aria-label="Undo"
+          aria-label="Отменить"
           :disabled="!editor.canUndo"
           @click="editor.undo()"
         >
@@ -93,7 +93,7 @@ async function back(): Promise<void> {
         <button
           type="button"
           class="grid size-8 place-items-center rounded-[9px] text-ink-soft transition enabled:hover:bg-line-soft enabled:hover:text-ink disabled:opacity-30"
-          aria-label="Redo"
+          aria-label="Вернуть"
           :disabled="!editor.canRedo"
           @click="editor.redo()"
         >
@@ -104,13 +104,13 @@ async function back(): Promise<void> {
 
     <SegmentedControl
       :model-value="editor.device"
-      label="Preview device"
+      label="Устройство предпросмотра"
       compact
       class="hidden sm:inline-flex"
       :options="[
-        { value: 'desktop', label: 'Desktop', icon: 'desktop' },
-        { value: 'tablet', label: 'Tablet', icon: 'tablet' },
-        { value: 'mobile', label: 'Mobile', icon: 'mobile' },
+        { value: 'desktop', label: 'Десктоп', icon: 'desktop' },
+        { value: 'tablet', label: 'Планшет', icon: 'tablet' },
+        { value: 'mobile', label: 'Мобильный', icon: 'mobile' },
       ]"
       @update:model-value="editor.setDevice($event as DeviceKey)"
     />
@@ -121,7 +121,7 @@ async function back(): Promise<void> {
     <button
       type="button"
       class="grid size-8 place-items-center rounded-[9px] text-ink-soft transition hover:bg-line-soft lg:hidden"
-      aria-label="Sections"
+      aria-label="Секции"
       @click="emit('sections')"
     >
       <AppIcon name="layers" :size="16" />
@@ -129,14 +129,14 @@ async function back(): Promise<void> {
     <button
       type="button"
       class="grid size-8 place-items-center rounded-[9px] text-ink-soft transition hover:bg-line-soft lg:hidden"
-      aria-label="Settings"
+      aria-label="Настройки"
       @click="emit('settings')"
     >
       <AppIcon name="sliders" :size="16" />
     </button>
 
     <BaseButton size="sm" icon="palette" class="hidden sm:inline-flex" @click="emit('templates')">
-      Templates
+      Шаблоны
     </BaseButton>
 
     <a
@@ -147,7 +147,7 @@ async function back(): Promise<void> {
       class="hidden h-7 items-center gap-1.5 rounded-[10px] border border-line bg-surface px-2.5 text-[12.5px] font-medium text-ink shadow-soft transition hover:border-[#d9d9de] sm:inline-flex"
     >
       <AppIcon name="external" :size="14" />
-      Preview
+      Предпросмотр
     </a>
 
     <BaseButton
@@ -157,7 +157,7 @@ async function back(): Promise<void> {
       :loading="downloading"
       @click="emit('download')"
     >
-      <span class="hidden sm:inline">Download</span>
+      <span class="hidden sm:inline">Скачать</span>
     </BaseButton>
   </header>
 </template>

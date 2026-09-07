@@ -137,28 +137,43 @@ final class PortfolioExportService
             $builder->addString(self::IMAGE_DIR.'/'.$image['filename'], $image['contents']);
         }
 
-        $builder->addString('README.txt', $this->readme($portfolio));
+        $builder->addString('README.txt', $this->readme($portfolio, $images !== [], $script !== null));
 
         return $builder->finish();
     }
 
-    private function readme(Portfolio $portfolio): string
+    /**
+     * The archive lists only the directories it actually contains, otherwise
+     * the note sends people looking for a folder that was never written.
+     */
+    private function readme(Portfolio $portfolio, bool $hasImages, bool $hasScript): string
     {
+        $files = [
+            '  index.html            страница',
+            '  assets/css/           стили',
+            '  assets/fonts/         шрифты, которые использует этот дизайн',
+        ];
+
+        if ($hasScript) {
+            $files[] = '  assets/js/            скрипт шаблона';
+        }
+
+        if ($hasImages) {
+            $files[] = '  assets/images/        загруженные вами изображения';
+        }
+
         return implode("\n", [
             $portfolio->name,
             str_repeat('=', max(3, mb_strlen($portfolio->name))),
             '',
-            'A static website. No build step, no dependencies, no server code.',
+            'Статический сайт. Без сборки, без зависимостей, без серверного кода.',
             '',
-            'To publish it, upload the contents of this folder to any static host',
-            '(Netlify, GitHub Pages, Cloudflare Pages, S3, nginx). To preview it',
-            'locally, open index.html in a browser.',
+            'Чтобы опубликовать его, загрузите содержимое этой папки на любой',
+            'статический хостинг (Netlify, GitHub Pages, Cloudflare Pages, S3,',
+            'nginx). Чтобы посмотреть локально, откройте index.html в браузере.',
             '',
-            'Files',
-            '  index.html            the page',
-            '  assets/css/           stylesheet',
-            '  assets/fonts/         the two webfonts this design uses',
-            '  assets/images/        your uploaded images',
+            'Файлы',
+            ...$files,
             '',
         ]);
     }

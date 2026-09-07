@@ -105,7 +105,7 @@ final class MediaService
 
         if (! in_array($mime, (array) config('portfolio.uploads.mimes'), true)) {
             throw ValidationException::withMessages([
-                'file' => 'Upload a JPEG, PNG or WebP image.',
+                'file' => 'Загрузите изображение JPEG, PNG или WebP.',
             ]);
         }
     }
@@ -116,7 +116,7 @@ final class MediaService
 
         if ($user->media()->count() >= $limit) {
             throw ValidationException::withMessages([
-                'file' => 'You have reached the image limit for this account.',
+                'file' => 'Достигнут лимит изображений для этого аккаунта.',
             ]);
         }
     }

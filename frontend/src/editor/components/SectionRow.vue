@@ -44,19 +44,19 @@ const emit = defineEmits<{ select: []; toggle: []; remove: [] }>()
           {{ SECTION_META[section.type].label }}
         </span>
         <span v-if="unsupported" class="block truncate text-[11px] text-warning">
-          Not shown in this template
+          Не отображается в этом шаблоне
         </span>
         <span v-else-if="section.is_placeholder" class="block truncate text-[11px] text-ink-faint">
-          Sample content
+          Текст-пример
         </span>
       </span>
     </button>
 
-    <BaseTooltip :text="section.enabled ? 'Hide section' : 'Show section'">
+    <BaseTooltip :text="section.enabled ? 'Скрыть секцию' : 'Показать секцию'">
       <button
         type="button"
         class="grid size-6 place-items-center rounded-md text-ink-faint transition hover:bg-line hover:text-ink-soft"
-        :aria-label="section.enabled ? 'Hide section' : 'Show section'"
+        :aria-label="section.enabled ? 'Скрыть секцию' : 'Показать секцию'"
         @click="emit('toggle')"
       >
         <AppIcon :name="section.enabled ? 'eye' : 'eyeOff'" :size="14" />
@@ -67,7 +67,7 @@ const emit = defineEmits<{ select: []; toggle: []; remove: [] }>()
       <button
         type="button"
         class="grid size-6 place-items-center rounded-md text-ink-faint opacity-0 transition group-hover:opacity-100 hover:bg-danger-soft hover:text-danger"
-        aria-label="Delete section"
+        aria-label="Удалить секцию"
         @click="emit('remove')"
       >
         <AppIcon name="trash" :size="14" />

@@ -1,83 +1,87 @@
 {
-  "key": "developer-dark",
-  "name": "Developer",
-  "description": "Dark-first engineering portfolio. Monospace detailing, a dense skills matrix and bordered project cards — modern software craft, no terminal cosplay.",
-  "tags": ["developer", "engineering", "dark"],
-  "renderer": "DeveloperDarkRenderer",
-  "supported_sections": [
-    "hero",
-    "about",
-    "experience",
-    "education",
-    "skills",
-    "projects",
-    "achievements",
-    "contacts",
-    "social_links"
-  ],
-  "capabilities": {
-    "script": false
-  },
-  "defaults": {
-    "settings": {
-      "colors": {
-        "accent": "#7c8cff",
-        "background": "#0b0c10",
-        "surface": "#14161d",
-        "text": "#e9ebf2",
-        "muted": "#8b90a3",
-        "border": "#232733"
-      },
-      "typography": {
-        "heading_font": "space-grotesk",
-        "body_font": "inter",
-        "scale": "default"
-      },
-      "layout": {
-        "section_spacing": "default",
-        "content_width": "default"
-      },
-      "buttons": {
-        "style": "rounded"
-      }
-    }
-  },
-  "color_schemes": [
-    {
-      "key": "midnight",
-      "name": "Midnight",
-      "colors": {
-        "accent": "#7c8cff",
-        "background": "#0b0c10",
-        "surface": "#14161d",
-        "text": "#e9ebf2",
-        "muted": "#8b90a3",
-        "border": "#232733"
-      }
+    "key": "developer-dark",
+    "name": "Разработчик",
+    "description": "Тёмная тема для инженерного портфолио. Моноширинные детали, плотная матрица навыков и карточки проектов в рамках — современное ремесло без терминального маскарада.",
+    "tags": [
+        "разработка",
+        "инженерия",
+        "тёмная"
+    ],
+    "renderer": "DeveloperDarkRenderer",
+    "supported_sections": [
+        "hero",
+        "about",
+        "experience",
+        "education",
+        "skills",
+        "projects",
+        "achievements",
+        "contacts",
+        "social_links"
+    ],
+    "capabilities": {
+        "script": false
     },
-    {
-      "key": "moss",
-      "name": "Moss",
-      "colors": {
-        "accent": "#5fd6a4",
-        "background": "#0a0f0d",
-        "surface": "#111a16",
-        "text": "#e6f0ea",
-        "muted": "#84958d",
-        "border": "#1d2a24"
-      }
+    "defaults": {
+        "settings": {
+            "colors": {
+                "accent": "#7c8cff",
+                "background": "#0b0c10",
+                "surface": "#14161d",
+                "text": "#e9ebf2",
+                "muted": "#8b90a3",
+                "border": "#232733"
+            },
+            "typography": {
+                "heading_font": "space-grotesk",
+                "body_font": "inter",
+                "scale": "default"
+            },
+            "layout": {
+                "section_spacing": "default",
+                "content_width": "default"
+            },
+            "buttons": {
+                "style": "rounded"
+            }
+        }
     },
-    {
-      "key": "ember",
-      "name": "Ember",
-      "colors": {
-        "accent": "#ff8a5b",
-        "background": "#0d0b0b",
-        "surface": "#191414",
-        "text": "#f2ebe8",
-        "muted": "#9b8e89",
-        "border": "#2a2220"
-      }
-    }
-  ]
+    "color_schemes": [
+        {
+            "key": "midnight",
+            "name": "Полночь",
+            "colors": {
+                "accent": "#7c8cff",
+                "background": "#0b0c10",
+                "surface": "#14161d",
+                "text": "#e9ebf2",
+                "muted": "#8b90a3",
+                "border": "#232733"
+            }
+        },
+        {
+            "key": "moss",
+            "name": "Мох",
+            "colors": {
+                "accent": "#5fd6a4",
+                "background": "#0a0f0d",
+                "surface": "#111a16",
+                "text": "#e6f0ea",
+                "muted": "#84958d",
+                "border": "#1d2a24"
+            }
+        },
+        {
+            "key": "ember",
+            "name": "Уголь",
+            "colors": {
+                "accent": "#ff8a5b",
+                "background": "#0d0b0b",
+                "surface": "#191414",
+                "text": "#f2ebe8",
+                "muted": "#9b8e89",
+                "border": "#2a2220"
+            }
+        }
+    ]
 }

@@ -17,9 +17,9 @@ import type { DeviceKey } from '@/types'
  * the browser window and the mobile view would be a lie.
  */
 const DEVICES: Record<DeviceKey, { width: number; label: string }> = {
-  desktop: { width: 1440, label: 'Desktop' },
-  tablet: { width: 834, label: 'Tablet' },
-  mobile: { width: 390, label: 'Mobile' },
+  desktop: { width: 1440, label: 'Десктоп' },
+  tablet: { width: 834, label: 'Планшет' },
+  mobile: { width: 390, label: 'Мобильный' },
 }
 
 const editor = useEditorStore()

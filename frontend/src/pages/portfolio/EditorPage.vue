@@ -120,11 +120,11 @@ function startDownload(): void {
     <div v-if="editor.loadError" class="grid flex-1 place-items-center p-6">
       <EmptyState
         icon="alert"
-        title="We could not open this portfolio"
+        title="Не удалось открыть это портфолио"
         :description="editor.loadError"
       >
         <BaseButton variant="primary" @click="router.push({ name: 'dashboard' })">
-          Back to your portfolios
+          К моим портфолио
         </BaseButton>
       </EmptyState>
     </div>
@@ -151,11 +151,11 @@ function startDownload(): void {
       >
         <div v-if="showTemplates" class="h-full">
           <div class="flex items-center justify-between px-4 pt-4 pb-1">
-            <span class="panel-eyebrow">Templates</span>
+            <span class="panel-eyebrow">Шаблоны</span>
             <button
               type="button"
               class="grid size-6 place-items-center rounded-md text-ink-muted transition hover:bg-line-soft hover:text-ink"
-              aria-label="Close templates"
+              aria-label="Закрыть шаблоны"
               @click="showTemplates = false"
             >
               <AppIcon name="close" :size="14" />
@@ -174,7 +174,7 @@ function startDownload(): void {
               class="rounded-md px-1.5 py-0.5 text-[12px] text-ink-muted transition hover:bg-line-soft hover:text-ink"
               @click="editor.select(null)"
             >
-              Done
+              Готово
             </button>
           </div>
 
@@ -182,8 +182,8 @@ function startDownload(): void {
             v-if="editor.unsupportedSectionIds.has(selected.id)"
             class="mx-4 mt-2 rounded-[10px] bg-raised px-2.5 py-2 text-[12px] text-ink-muted"
           >
-            This template does not display this section. Your content is safe — switch template and
-            it comes back.
+            Этот шаблон не показывает такую секцию. Содержимое цело — смените шаблон, и оно
+            вернётся.
           </p>
 
           <component :is="editorComponent" :key="selected.id" :section="selected" />
@@ -194,13 +194,13 @@ function startDownload(): void {
     </div>
 
     <!-- Small screens: panels as drawers -->
-    <BaseDrawer :open="sectionsDrawer" title="Sections" side="left" @close="sectionsDrawer = false">
+    <BaseDrawer :open="sectionsDrawer" title="Секции" side="left" @close="sectionsDrawer = false">
       <SectionList @select="selectSection" />
     </BaseDrawer>
 
     <BaseDrawer
       :open="settingsDrawer"
-      :title="selected ? SECTION_META[selected.type].label : 'Design'"
+      :title="selected ? SECTION_META[selected.type].label : 'Оформление'"
       @close="settingsDrawer = false"
     >
       <component :is="editorComponent" v-if="selected" :key="selected.id" :section="selected" />
@@ -210,7 +210,7 @@ function startDownload(): void {
     <BaseDrawer
       v-if="!wideLayout"
       :open="showTemplates"
-      title="Templates"
+      title="Шаблоны"
       @close="showTemplates = false"
     >
       <TemplatePanel @close="showTemplates = false" />

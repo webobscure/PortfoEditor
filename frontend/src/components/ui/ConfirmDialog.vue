@@ -27,13 +27,13 @@ const emit = defineEmits<{ close: []; confirm: [] }>()
     @close="emit('close')"
   >
     <div class="flex justify-end gap-2 px-5 pt-1 pb-4">
-      <BaseButton variant="ghost" @click="emit('close')">Cancel</BaseButton>
+      <BaseButton variant="ghost" @click="emit('close')">Отмена</BaseButton>
       <BaseButton
         :variant="destructive ? 'danger' : 'primary'"
         :loading="busy"
         @click="emit('confirm')"
       >
-        {{ confirmLabel ?? 'Confirm' }}
+        {{ confirmLabel ?? 'Подтвердить' }}
       </BaseButton>
     </div>
   </BaseModal>

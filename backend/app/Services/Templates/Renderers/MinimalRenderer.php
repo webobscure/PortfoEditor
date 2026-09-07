@@ -43,7 +43,7 @@ final class MinimalRenderer extends AbstractTemplateRenderer
         }
 
         return '<div class="pf-shell">'
-            .$this->heading($data, 'Selected work')
+            .$this->heading($data, 'Избранные работы')
             .Html::paragraphs((string) ($data['intro'] ?? ''), 'pf-section__intro')
             .'<div class="pf-projects">'.$cards.'</div>'
             .'</div>';
@@ -68,7 +68,7 @@ final class MinimalRenderer extends AbstractTemplateRenderer
 
         $links = '';
 
-        foreach ([['url', 'View project'], ['github_url', 'Source']] as [$key, $label]) {
+        foreach ([['url', 'Открыть проект'], ['github_url', 'Исходный код']] as [$key, $label]) {
             $href = Html::url($item[$key] ?? null);
 
             if ($href === '') {

@@ -33,18 +33,19 @@ defineProps<{ title: string; subtitle?: string }>()
 
       <div class="relative max-w-md">
         <h1 class="text-[38px] leading-[1.08] font-semibold tracking-[-0.03em] text-white">
-          A portfolio site you own, in an afternoon.
+          Сайт-портфолио, который принадлежит вам. За один вечер.
         </h1>
         <p class="mt-4 text-[15px] leading-relaxed text-white/60">
-          Fill in your work, pick a template, and download clean HTML and CSS you can host anywhere.
-          No lock-in, no builder watermark, no monthly fee to keep it online.
+          Заполните работы, выберите шаблон и скачайте чистые HTML и CSS — разместите их где угодно.
+          Без привязки к платформе, без водяных знаков конструктора и без ежемесячной платы за то,
+          чтобы сайт оставался в сети.
         </p>
       </div>
 
       <ul class="relative flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-white/50">
-        <li>Three designed templates</li>
-        <li>Live preview</li>
-        <li>Static export</li>
+        <li>Три готовых шаблона</li>
+        <li>Живой предпросмотр</li>
+        <li>Статический экспорт</li>
       </ul>
     </aside>
 

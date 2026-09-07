@@ -21,16 +21,16 @@ enum SectionType: string
     public function label(): string
     {
         return match ($this) {
-            self::Hero => 'Hero',
-            self::About => 'About',
-            self::Experience => 'Experience',
-            self::Education => 'Education',
-            self::Skills => 'Skills',
-            self::Projects => 'Projects',
-            self::Services => 'Services',
-            self::Achievements => 'Achievements',
-            self::Contacts => 'Contact',
-            self::SocialLinks => 'Social links',
+            self::Hero => 'Обложка',
+            self::About => 'О себе',
+            self::Experience => 'Опыт',
+            self::Education => 'Образование',
+            self::Skills => 'Навыки',
+            self::Projects => 'Проекты',
+            self::Services => 'Услуги',
+            self::Achievements => 'Достижения',
+            self::Contacts => 'Контакты',
+            self::SocialLinks => 'Соцсети',
         };
     }
 

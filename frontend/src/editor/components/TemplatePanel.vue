@@ -24,6 +24,25 @@ const currentKey = computed(() => editor.portfolio?.template_key ?? '')
 
 const unsupportedCount = computed(() => editor.unsupportedSectionIds.size)
 
+// Russian agreement changes with the count, so the noun and the verb are both
+// chosen from the plural category rather than glued together from fragments.
+const plural = new Intl.PluralRules('ru')
+
+const unsupportedNotice = computed(() => {
+  const count = unsupportedCount.value
+
+  const phrase = {
+    one: 'секция не отображается',
+    few: 'секции не отображаются',
+    many: 'секций не отображается',
+    other: 'секции не отображается',
+    zero: 'секций не отображается',
+    two: 'секции не отображаются',
+  }[plural.select(count)]
+
+  return `${count} ${phrase} в этом шаблоне.`
+})
+
 function preview(key: string): void {
   if (key === currentKey.value) {
     editor.cancelTemplatePreview()
@@ -88,18 +107,17 @@ function cancel(): void {
       >
         <AppIcon name="info" :size="14" class="mt-px shrink-0" />
         <span>
-          {{ unsupportedCount }}
-          {{ unsupportedCount === 1 ? 'section is' : 'sections are' }}
-          not shown in this template. Nothing is deleted — switch back and it returns.
+          {{ unsupportedNotice }}
+          Ничего не удаляется — вернёте шаблон, вернётся и содержимое.
         </span>
       </p>
 
       <div class="flex gap-2">
         <BaseButton block :disabled="!editor.isPreviewingTemplate" @click="cancel">
-          Cancel
+          Отмена
         </BaseButton>
         <BaseButton variant="primary" block :disabled="!editor.isPreviewingTemplate" @click="apply">
-          Apply template
+          Применить шаблон
         </BaseButton>
       </div>
     </div>

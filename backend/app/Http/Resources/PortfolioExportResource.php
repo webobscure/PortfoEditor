@@ -20,7 +20,7 @@ final class PortfolioExportResource extends JsonResource
             'portfolio_id' => $this->portfolio_id,
             'status' => $this->status->value,
             'size' => $this->size,
-            'error' => $this->status === ExportStatus::Failed ? 'The export could not be generated.' : null,
+            'error' => $this->status === ExportStatus::Failed ? 'Не удалось собрать архив.' : null,
             'download_url' => $this->isDownloadable() ? route('exports.download', $this->id) : null,
             'created_at' => $this->created_at?->toISOString(),
             'completed_at' => $this->completed_at?->toISOString(),

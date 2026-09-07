@@ -18,7 +18,7 @@ onMounted(() => auth.initialise())
       <span
         class="size-3.5 animate-spin rounded-full border-[1.6px] border-current border-t-transparent"
       />
-      Loading
+      Загрузка
     </div>
   </div>
 

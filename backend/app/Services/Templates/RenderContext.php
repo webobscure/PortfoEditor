@@ -38,7 +38,7 @@ final class RenderContext
         public readonly string $styleHref,
         public readonly ?string $scriptSrc = null,
         public readonly ?string $ogImageUrl = null,
-        public readonly string $lang = 'en',
+        public readonly string $lang = 'ru',
     ) {}
 
     public function isPreview(): bool

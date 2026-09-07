@@ -28,10 +28,10 @@ function useTemplate(template: Template): void {
 <template>
   <AppLayout>
     <div class="max-w-2xl">
-      <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Templates</h1>
+      <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Шаблоны</h1>
       <p class="mt-1 text-[13.5px] text-ink-muted">
-        Each one is a distinct design, not a colour swap. Your content moves between them without
-        losing anything, so the choice is never permanent.
+        Каждый — самостоятельный дизайн, а не смена палитры. Содержимое переносится между ними без
+        потерь, так что выбор никогда не окончательный.
       </p>
     </div>
 

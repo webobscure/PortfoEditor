@@ -89,13 +89,13 @@ export function toApiError(
 }
 
 function fallbackMessage(status: number): string {
-  if (status === 0) return 'We could not reach the server. Check your connection.'
-  if (status === 403) return 'You do not have access to that.'
-  if (status === 404) return 'We could not find that.'
-  if (status === 429) return 'Too many requests. Try again in a moment.'
-  if (status >= 500) return 'Something went wrong on our side.'
+  if (status === 0) return 'Не удалось связаться с сервером. Проверьте соединение.'
+  if (status === 403) return 'Нет доступа к этому.'
+  if (status === 404) return 'Не найдено.'
+  if (status === 429) return 'Слишком много запросов. Попробуйте через минуту.'
+  if (status >= 500) return 'Что-то сломалось на нашей стороне.'
 
-  return 'Something went wrong.'
+  return 'Что-то пошло не так.'
 }
 
 export function isApiError(value: unknown): value is ApiError {

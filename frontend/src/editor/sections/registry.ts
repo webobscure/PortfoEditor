@@ -22,24 +22,24 @@ export interface SectionMeta {
 }
 
 export const SECTION_META: Record<SectionTypeKey, SectionMeta> = {
-  hero: { label: 'Hero', icon: 'sparkle', description: 'Name, title and the first impression.' },
-  about: { label: 'About', icon: 'user', description: 'A short piece about you.' },
-  experience: { label: 'Experience', icon: 'briefcase', description: 'Roles and what you did.' },
-  education: { label: 'Education', icon: 'graduation', description: 'Degrees and courses.' },
-  skills: { label: 'Skills', icon: 'layers', description: 'Grouped capabilities or stack.' },
-  projects: { label: 'Projects', icon: 'folder', description: 'Selected work.' },
+  hero: { label: 'Обложка', icon: 'sparkle', description: 'Имя, профессия и первое впечатление.' },
+  about: { label: 'О себе', icon: 'user', description: 'Короткий текст о вас.' },
+  experience: { label: 'Опыт', icon: 'briefcase', description: 'Должности и чем вы занимались.' },
+  education: { label: 'Образование', icon: 'graduation', description: 'Дипломы и курсы.' },
+  skills: { label: 'Навыки', icon: 'layers', description: 'Сгруппированные умения или стек.' },
+  projects: { label: 'Проекты', icon: 'folder', description: 'Избранные работы.' },
   services: {
-    label: 'Services',
+    label: 'Услуги',
     icon: 'sliders',
-    description: 'What you offer, and for how much.',
+    description: 'Что вы предлагаете и за сколько.',
   },
   achievements: {
-    label: 'Achievements',
+    label: 'Достижения',
     icon: 'award',
-    description: 'Awards, talks, publications.',
+    description: 'Награды, доклады, публикации.',
   },
-  contacts: { label: 'Contact', icon: 'mail', description: 'How people reach you.' },
-  social_links: { label: 'Social links', icon: 'link', description: 'Profiles elsewhere.' },
+  contacts: { label: 'Контакты', icon: 'mail', description: 'Как с вами связаться.' },
+  social_links: { label: 'Соцсети', icon: 'link', description: 'Профили на других площадках.' },
 }
 
 /** Lazy so the editor's initial bundle carries only what is on screen. */

@@ -48,7 +48,7 @@ final class SectionService
     {
         if ($type->isSingleton() && $portfolio->sections()->where('type', $type->value)->exists()) {
             throw ValidationException::withMessages([
-                'type' => "A {$type->label()} section already exists in this portfolio.",
+                'type' => "Секция «{$type->label()}» уже есть в этом портфолио.",
             ]);
         }
 

@@ -32,20 +32,20 @@ const platformOptions = () =>
 
 <template>
   <div>
-    <PanelSection title="Profiles">
+    <PanelSection title="Профили">
       <EmptyState
         v-if="links.items.value.length === 0"
         compact
         icon="link"
-        title="No links yet"
-        description="Two or three good ones beat a full row of icons."
+        title="Ссылок пока нет"
+        description="Две-три хорошие лучше целого ряда иконок."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in links.items.value"
           :key="index"
-          :title="item.label || item.platform || 'New link'"
+          :title="item.label || item.platform || 'Новая ссылка'"
           :subtitle="item.url"
           :can-move-up="index > 0"
           :can-move-down="index < links.items.value.length - 1"
@@ -55,20 +55,20 @@ const platformOptions = () =>
         >
           <BaseSelect
             :model-value="item.platform"
-            label="Platform"
+            label="Площадка"
             :options="platformOptions()"
             @update:model-value="links.update(index, { platform: $event })"
           />
           <BaseInput
             :model-value="item.url"
-            label="URL"
+            label="Ссылка"
             type="url"
             placeholder="https://github.com/you"
             @update:model-value="links.update(index, { url: $event })"
           />
           <BaseInput
             :model-value="item.label"
-            label="Label"
+            label="Подпись"
             placeholder="GitHub"
             :maxlength="40"
             @update:model-value="links.update(index, { label: $event })"
@@ -83,7 +83,7 @@ const platformOptions = () =>
         :disabled="links.items.value.length >= 10"
         @click="links.add({ platform: 'website', url: '', label: '' })"
       >
-        Add link
+        Добавить ссылку
       </BaseButton>
     </PanelSection>
   </div>

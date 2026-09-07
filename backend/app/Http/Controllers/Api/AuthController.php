@@ -46,7 +46,7 @@ final class AuthController extends Controller
 
         if (! Auth::attempt($credentials, $request->boolean('remember', true))) {
             throw ValidationException::withMessages([
-                'email' => 'These credentials do not match our records.',
+                'email' => 'Неверная почта или пароль.',
             ]);
         }
 

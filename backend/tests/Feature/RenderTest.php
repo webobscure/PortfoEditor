@@ -59,7 +59,7 @@ it('produces an accessible, indexable document', function () {
     expect(substr_count($html, '<h1'))->toBe(1)
         ->and($html)->toContain('<meta name="viewport"')
         ->and($html)->toContain('<meta property="og:title"')
-        ->and($html)->toContain('lang="en"');
+        ->and($html)->toContain('lang="ru"');
 
     // Every external link opens safely.
     preg_match_all('/<a[^>]*target="_blank"[^>]*>/', $html, $matches);

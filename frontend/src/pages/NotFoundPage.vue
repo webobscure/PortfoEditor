@@ -7,11 +7,11 @@ import EmptyState from '@/components/ui/EmptyState.vue'
   <div class="grid h-full place-items-center p-6">
     <EmptyState
       icon="search"
-      title="We could not find that page"
-      description="The link may be out of date, or the portfolio may have been deleted."
+      title="Такая страница не найдена"
+      description="Ссылка могла устареть, или портфолио удалили."
     >
       <BaseButton variant="primary" @click="$router.push({ name: 'dashboard' })">
-        Back to your portfolios
+        К моим портфолио
       </BaseButton>
     </EmptyState>
   </div>

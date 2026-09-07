@@ -55,7 +55,7 @@ const expanded = ref(false)
         <button
           type="button"
           class="grid size-6 place-items-center rounded-md text-ink-faint transition enabled:hover:bg-line-soft enabled:hover:text-ink-soft disabled:opacity-30"
-          aria-label="Move up"
+          aria-label="Выше"
           :disabled="!canMoveUp"
           @click="emit('up')"
         >
@@ -67,7 +67,7 @@ const expanded = ref(false)
         <button
           type="button"
           class="grid size-6 place-items-center rounded-md text-ink-faint transition enabled:hover:bg-line-soft enabled:hover:text-ink-soft disabled:opacity-30"
-          aria-label="Move down"
+          aria-label="Ниже"
           :disabled="!canMoveDown"
           @click="emit('down')"
         >
@@ -79,7 +79,7 @@ const expanded = ref(false)
         <button
           type="button"
           class="grid size-6 place-items-center rounded-md text-ink-faint transition hover:bg-danger-soft hover:text-danger"
-          aria-label="Remove"
+          aria-label="Удалить"
           @click="emit('remove')"
         >
           <AppIcon name="close" :size="13" />

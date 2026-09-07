@@ -27,54 +27,63 @@ const showSocial = field('show_social', true)
 
 <template>
   <div>
-    <PanelSection title="Introduction">
-      <BaseInput v-model="name" label="Name" placeholder="Alex Morgan" :maxlength="120" />
+    <PanelSection title="Знакомство">
+      <BaseInput v-model="name" label="Имя" placeholder="Александра Морозова" :maxlength="120" />
       <BaseInput
         v-model="title"
-        label="Job title"
-        placeholder="Product designer"
+        label="Профессия"
+        placeholder="Продуктовый дизайнер"
         :maxlength="160"
       />
       <BaseTextarea
         v-model="intro"
-        label="Intro"
+        label="Вступление"
         :rows="5"
         :maxlength="600"
-        placeholder="One or two sentences about the work you want more of."
-        hint="A blank line starts a new paragraph."
+        placeholder="Одно-два предложения о работе, которой хочется больше."
+        hint="Пустая строка начинает новый абзац."
       />
-      <ImageField v-model="photo" label="Photo" hint="Square images work best here." />
+      <ImageField
+        v-model="photo"
+        label="Фото"
+        hint="Лучше всего подходят квадратные изображения."
+      />
     </PanelSection>
 
-    <PanelSection title="Call to action">
-      <BaseInput v-model="ctaText" label="Button label" placeholder="View work" :maxlength="40" />
+    <PanelSection title="Кнопка действия">
+      <BaseInput
+        v-model="ctaText"
+        label="Текст кнопки"
+        placeholder="Смотреть работы"
+        :maxlength="40"
+      />
       <BaseInput
         v-model="ctaUrl"
-        label="Button link"
+        label="Ссылка кнопки"
         type="url"
         placeholder="https://example.com/work"
       />
       <div class="divider" />
       <BaseInput
         v-model="secondaryText"
-        label="Secondary label"
-        placeholder="Download CV"
+        label="Текст второй кнопки"
+        placeholder="Скачать резюме"
         :maxlength="40"
       />
       <BaseInput
         v-model="secondaryUrl"
-        label="Secondary link"
+        label="Ссылка второй кнопки"
         type="url"
         placeholder="https://example.com/cv.pdf"
       />
     </PanelSection>
 
-    <PanelSection title="Layout">
+    <PanelSection title="Раскладка">
       <div>
         <span class="field-label">Alignment</span>
         <SegmentedControl
           v-model="alignment"
-          label="Hero alignment"
+          label="Выравнивание обложки"
           :options="[
             { value: 'left', label: 'Left' },
             { value: 'center', label: 'Centred' },
@@ -84,7 +93,7 @@ const showSocial = field('show_social', true)
 
       <div class="flex items-center justify-between gap-3">
         <span class="text-[12.5px] text-ink-soft">Show social links</span>
-        <ToggleSwitch v-model="showSocial" label="Show social links in the hero" />
+        <ToggleSwitch v-model="showSocial" label="Показывать соцсети на обложке" />
       </div>
     </PanelSection>
   </div>

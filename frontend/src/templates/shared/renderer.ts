@@ -59,16 +59,16 @@ export interface RenderContext {
 }
 
 const SECTION_LABELS: Record<SectionTypeKey, string> = {
-  hero: 'Hero',
-  about: 'About',
-  experience: 'Experience',
-  education: 'Education',
-  skills: 'Skills',
-  projects: 'Projects',
-  services: 'Services',
-  achievements: 'Achievements',
-  contacts: 'Contact',
-  social_links: 'Social links',
+  hero: 'Обложка',
+  about: 'О себе',
+  experience: 'Опыт',
+  education: 'Образование',
+  skills: 'Навыки',
+  projects: 'Проекты',
+  services: 'Услуги',
+  achievements: 'Достижения',
+  contacts: 'Контакты',
+  social_links: 'Соцсети',
 }
 
 export function sectionLabel(type: SectionTypeKey): string {
@@ -110,7 +110,7 @@ export class TemplateRenderer {
   render(ctx: RenderContext): string {
     return [
       '<!DOCTYPE html>',
-      `<html lang="${escape(ctx.lang ?? 'en')}">`,
+      `<html lang="${escape(ctx.lang ?? 'ru')}">`,
       '<head>',
       this.head(ctx),
       '</head>',
@@ -201,7 +201,7 @@ export class TemplateRenderer {
       '<header class="pf-nav" id="top">' +
       '<div class="pf-nav__inner">' +
       brand +
-      '<nav class="pf-nav__links" aria-label="Sections">' +
+      '<nav class="pf-nav__links" aria-label="Секции">' +
       links.join('') +
       '</nav>' +
       '</div>' +
@@ -325,13 +325,13 @@ export class TemplateRenderer {
 
     const photo = this.figure(
       image(ctx, data['photo_media_id']),
-      str(data, 'heading') || 'About',
+      str(data, 'heading') || 'О себе',
       'pf-about__photo',
     )
 
     return (
       '<div class="pf-shell pf-about">' +
-      this.heading(data, 'About') +
+      this.heading(data, 'О себе') +
       '<div class="pf-about__grid">' +
       '<div class="pf-about__content">' +
       body +
@@ -371,7 +371,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Experience') +
+      this.heading(data, 'Опыт') +
       '<ul class="pf-entries">' +
       list +
       '</ul></div>'
@@ -400,7 +400,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Education') +
+      this.heading(data, 'Образование') +
       '<ul class="pf-entries">' +
       list +
       '</ul></div>'
@@ -432,7 +432,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Skills') +
+      this.heading(data, 'Навыки') +
       '<div class="pf-skills">' +
       groups +
       '</div></div>'
@@ -450,7 +450,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Selected work') +
+      this.heading(data, 'Избранные работы') +
       paragraphs(str(data, 'intro'), 'pf-section__intro') +
       '<div class="pf-projects">' +
       cards +
@@ -475,8 +475,8 @@ export class TemplateRenderer {
     let links = ''
 
     for (const [key, label] of [
-      ['url', 'Visit'],
-      ['github_url', 'Source'],
+      ['url', 'Смотреть'],
+      ['github_url', 'Исходный код'],
     ] as const) {
       const href = safeUrl(item[key])
 
@@ -527,7 +527,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Services') +
+      this.heading(data, 'Услуги') +
       '<div class="pf-services">' +
       cards +
       '</div></div>'
@@ -562,7 +562,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Achievements') +
+      this.heading(data, 'Достижения') +
       '<ul class="pf-awards">' +
       list +
       '</ul></div>'
@@ -575,10 +575,10 @@ export class TemplateRenderer {
     let list = ''
 
     const entries: [string, string, string][] = [
-      ['Email', email, emailHref],
-      ['Phone', str(data, 'phone'), tel(data['phone'])],
-      ['Location', str(data, 'location'), ''],
-      ['Availability', str(data, 'availability'), ''],
+      ['Почта', email, emailHref],
+      ['Телефон', str(data, 'phone'), tel(data['phone'])],
+      ['Город', str(data, 'location'), ''],
+      ['Доступность', str(data, 'availability'), ''],
     ]
 
     for (const [label, value, href] of entries) {
@@ -607,7 +607,7 @@ export class TemplateRenderer {
 
     return (
       '<div class="pf-shell pf-contacts">' +
-      this.heading(data, 'Get in touch') +
+      this.heading(data, 'Связаться') +
       intro +
       (list !== '' ? '<dl class="pf-contacts__grid">' + list + '</dl>' : '') +
       cta +
@@ -621,9 +621,7 @@ export class TemplateRenderer {
     if (links === '') return ''
 
     return (
-      '<div class="pf-shell"><nav class="pf-social" aria-label="Social links">' +
-      links +
-      '</nav></div>'
+      '<div class="pf-shell"><nav class="pf-social" aria-label="Соцсети">' + links + '</nav></div>'
     )
   }
 
@@ -641,7 +639,7 @@ export class TemplateRenderer {
 
   protected period(item: Record<string, unknown>): string {
     const start = str(item, 'start').trim()
-    const end = item['current'] ? 'Present' : str(item, 'end').trim()
+    const end = item['current'] ? 'по настоящее время' : str(item, 'end').trim()
 
     return [start, end]
       .filter((v) => v !== '')
@@ -696,7 +694,7 @@ export class TemplateRenderer {
 
       return links === ''
         ? ''
-        : '<nav class="pf-hero__social" aria-label="Social links">' + links + '</nav>'
+        : '<nav class="pf-hero__social" aria-label="Соцсети">' + links + '</nav>'
     }
 
     return ''
@@ -762,7 +760,7 @@ class MinimalRenderer extends TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Selected work') +
+      this.heading(data, 'Избранные работы') +
       paragraphs(str(data, 'intro'), 'pf-section__intro') +
       '<div class="pf-projects">' +
       cards +
@@ -791,8 +789,8 @@ class MinimalRenderer extends TemplateRenderer {
     let links = ''
 
     for (const [key, label] of [
-      ['url', 'View project'],
-      ['github_url', 'Source'],
+      ['url', 'Открыть проект'],
+      ['github_url', 'Исходный код'],
     ] as const) {
       const href = safeUrl(item[key])
 
@@ -925,7 +923,7 @@ class EditorialRenderer extends TemplateRenderer {
 
     return (
       '<div class="pf-shell">' +
-      this.heading(data, 'Selected work') +
+      this.heading(data, 'Избранные работы') +
       paragraphs(str(data, 'intro'), 'pf-section__intro') +
       '<div class="pf-projects">' +
       cards +
@@ -953,7 +951,7 @@ class EditorialRenderer extends TemplateRenderer {
     if (year !== '') {
       aside +=
         '<div>' +
-        tag('p', { class: 'pf-project__label' }, 'Year') +
+        tag('p', { class: 'pf-project__label' }, 'Год') +
         tag('p', { class: 'pf-project__year' }, escape(year)) +
         '</div>'
     }
@@ -967,7 +965,7 @@ class EditorialRenderer extends TemplateRenderer {
     if (tech !== '') {
       aside +=
         '<div>' +
-        tag('p', { class: 'pf-project__label' }, 'Discipline') +
+        tag('p', { class: 'pf-project__label' }, 'Направление') +
         '<ul class="pf-chips">' +
         tech +
         '</ul>' +
@@ -977,8 +975,8 @@ class EditorialRenderer extends TemplateRenderer {
     let links = ''
 
     for (const [key, label] of [
-      ['url', 'View the work'],
-      ['github_url', 'Source'],
+      ['url', 'Смотреть работу'],
+      ['github_url', 'Исходный код'],
     ] as const) {
       const href = safeUrl(item[key])
 
@@ -1051,7 +1049,7 @@ export function portfolioName(ctx: RenderContext): string {
     if (name !== '') return name
   }
 
-  return ctx.portfolio.name || 'Portfolio'
+  return ctx.portfolio.name || 'Портфолио'
 }
 
 export function documentTitle(ctx: RenderContext): string {

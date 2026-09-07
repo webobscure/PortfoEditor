@@ -18,24 +18,24 @@ const editor = useEditorStore()
         class="size-3 animate-spin rounded-full border-[1.5px] border-ink-faint border-t-transparent"
         aria-hidden="true"
       />
-      <span class="text-ink-muted">Saving…</span>
+      <span class="text-ink-muted">Сохраняем…</span>
     </template>
 
     <template v-else-if="editor.saveState === 'error'">
       <AppIcon name="alert" :size="13" class="text-danger" />
-      <span class="text-danger">Could not save changes</span>
+      <span class="text-danger">Не удалось сохранить</span>
       <button
         type="button"
         class="font-medium text-brand underline-offset-2 hover:underline"
         @click="editor.retryNow()"
       >
-        Retry
+        Повторить
       </button>
     </template>
 
     <template v-else-if="editor.saveState === 'saved'">
       <AppIcon name="check" :size="13" class="text-positive" />
-      <span class="text-ink-muted">Saved</span>
+      <span class="text-ink-muted">Сохранено</span>
     </template>
   </div>
 </template>

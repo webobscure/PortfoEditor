@@ -36,10 +36,10 @@ async function confirmDelete(): Promise<void> {
 
   try {
     await portfolios.remove(pendingDelete.value.id)
-    toast.success('Portfolio deleted')
+    toast.success('Портфолио удалено')
     pendingDelete.value = null
   } catch {
-    toast.error('Could not delete', 'The portfolio is still there. Please try again.')
+    toast.error('Не удалось удалить', 'Портфолио на месте. Попробуйте ещё раз.')
   } finally {
     deleting.value = false
   }
@@ -50,14 +50,14 @@ async function confirmDelete(): Promise<void> {
   <AppLayout>
     <div class="flex flex-wrap items-end justify-between gap-4">
       <div>
-        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Your portfolios</h1>
+        <h1 class="text-[26px] font-semibold tracking-[-0.025em]">Мои портфолио</h1>
         <p class="mt-1 text-[13.5px] text-ink-muted">
-          Edit, preview, or download any of them as a static site.
+          Редактируйте, смотрите предпросмотр или скачивайте любое из них как статический сайт.
         </p>
       </div>
 
       <BaseButton variant="primary" icon="plus" @click="router.push({ name: 'portfolio-create' })">
-        Create portfolio
+        Создать портфолио
       </BaseButton>
     </div>
 
@@ -77,8 +77,8 @@ async function confirmDelete(): Promise<void> {
     <div v-else-if="portfolios.isEmpty" class="panel mt-8">
       <EmptyState
         icon="sparkle"
-        title="Create your first portfolio"
-        description="Pick what you do, answer three questions, and choose a template. You will have a real site to look at in under a minute."
+        title="Создайте первое портфолио"
+        description="Выберите, чем занимаетесь, ответьте на три вопроса и подберите шаблон. Меньше чем через минуту будет готовый сайт."
       >
         <BaseButton
           variant="primary"
@@ -86,7 +86,7 @@ async function confirmDelete(): Promise<void> {
           icon="plus"
           @click="router.push({ name: 'portfolio-create' })"
         >
-          Create portfolio
+          Создать портфолио
         </BaseButton>
       </EmptyState>
     </div>
@@ -103,9 +103,9 @@ async function confirmDelete(): Promise<void> {
 
     <ConfirmDialog
       :open="pendingDelete !== null"
-      title="Delete this portfolio?"
-      :description="`“${pendingDelete?.name}” and everything in it will be removed. This cannot be undone.`"
-      confirm-label="Delete"
+      title="Удалить это портфолио?"
+      :description="`«${pendingDelete?.name}» и всё его содержимое будет удалено. Отменить это нельзя.`"
+      confirm-label="Удалить"
       destructive
       :busy="deleting"
       @close="pendingDelete = null"

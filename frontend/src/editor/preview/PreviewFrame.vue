@@ -118,7 +118,7 @@ onBeforeUnmount(() => {
 <template>
   <iframe
     ref="frame"
-    title="Portfolio preview"
+    title="Предпросмотр портфолио"
     class="size-full border-0 bg-white"
     @load="attach"
   />

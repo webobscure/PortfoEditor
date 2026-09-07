@@ -72,7 +72,7 @@ const widthClass = computed(
             <button
               v-if="!hideClose"
               type="button"
-              aria-label="Close"
+              aria-label="Закрыть"
               class="grid size-7 place-items-center rounded-lg text-ink-muted transition hover:bg-line-soft hover:text-ink"
               @click="emit('close')"
             >

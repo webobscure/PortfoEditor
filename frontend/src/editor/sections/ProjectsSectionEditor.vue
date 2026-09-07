@@ -26,7 +26,7 @@ interface Project extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Selected work')
+const heading = field('heading', 'Избранные работы')
 const intro = field('intro', '')
 const projects = list<Project>('items')
 
@@ -44,31 +44,31 @@ const blank: Project = {
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
       <BaseTextarea
         v-model="intro"
-        label="Intro"
+        label="Вступление"
         :rows="3"
         :maxlength="400"
-        placeholder="Optional line above the work."
+        placeholder="Необязательная строка над работами."
       />
     </PanelSection>
 
-    <PanelSection title="Projects">
+    <PanelSection title="Проекты">
       <EmptyState
         v-if="projects.items.value.length === 0"
         compact
         icon="folder"
-        title="No projects yet"
-        description="Three strong pieces beat ten average ones."
+        title="Проектов пока нет"
+        description="Три сильные работы лучше десяти средних."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in projects.items.value"
           :key="index"
-          :title="item.title || 'New project'"
+          :title="item.title || 'Новый проект'"
           :subtitle="
             [item.year, ...(item.technologies ?? []).slice(0, 2)].filter(Boolean).join(' · ')
           "
@@ -80,44 +80,44 @@ const blank: Project = {
         >
           <BaseInput
             :model-value="item.title"
-            label="Title"
+            label="Название"
             @update:model-value="projects.update(index, { title: $event })"
           />
           <BaseTextarea
             :model-value="item.description"
-            label="Description"
+            label="Описание"
             :rows="5"
             :maxlength="800"
-            placeholder="The problem, what you did, and what changed."
+            placeholder="Задача, что вы сделали и что изменилось."
             @update:model-value="projects.update(index, { description: $event })"
           />
           <ImageField
             :model-value="item.image_media_id"
-            label="Cover image"
+            label="Обложка"
             @update:model-value="projects.update(index, { image_media_id: $event })"
           />
           <TagInput
             :model-value="item.technologies ?? []"
-            label="Technologies"
+            label="Технологии"
             placeholder="Figma"
             @update:model-value="projects.update(index, { technologies: $event })"
           />
           <BaseInput
             :model-value="item.year"
-            label="Year"
+            label="Год"
             placeholder="2024"
             @update:model-value="projects.update(index, { year: $event })"
           />
           <BaseInput
             :model-value="item.url"
-            label="Link"
+            label="Ссылка"
             type="url"
             placeholder="https://example.com/project"
             @update:model-value="projects.update(index, { url: $event })"
           />
           <BaseInput
             :model-value="item.github_url"
-            label="Source code"
+            label="Исходный код"
             type="url"
             placeholder="https://github.com/you/project"
             @update:model-value="projects.update(index, { github_url: $event })"
@@ -132,7 +132,7 @@ const blank: Project = {
         :disabled="projects.items.value.length >= 24"
         @click="projects.add({ ...blank })"
       >
-        Add project
+        Добавить проект
       </BaseButton>
     </PanelSection>
   </div>

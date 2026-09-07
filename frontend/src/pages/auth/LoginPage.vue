@@ -33,7 +33,7 @@ async function submit(): Promise<void> {
       fieldErrors.value = error.errors
       formError.value = Object.keys(error.errors).length === 0 ? error.message : ''
     } else {
-      formError.value = 'Something went wrong. Try again.'
+      formError.value = 'Что-то пошло не так. Попробуйте ещё раз.'
     }
   } finally {
     busy.value = false
@@ -42,7 +42,7 @@ async function submit(): Promise<void> {
 </script>
 
 <template>
-  <AuthLayout title="Welcome back" subtitle="Sign in to keep building.">
+  <AuthLayout title="С возвращением" subtitle="Войдите, чтобы продолжить работу.">
     <form class="space-y-4" novalidate @submit.prevent="submit">
       <p
         v-if="formError"
@@ -54,7 +54,7 @@ async function submit(): Promise<void> {
 
       <BaseInput
         v-model="email"
-        label="Email"
+        label="Почта"
         type="email"
         autocomplete="email"
         placeholder="you@example.com"
@@ -64,7 +64,7 @@ async function submit(): Promise<void> {
 
       <BaseInput
         v-model="password"
-        label="Password"
+        label="Пароль"
         type="password"
         autocomplete="current-password"
         placeholder="••••••••"
@@ -73,14 +73,14 @@ async function submit(): Promise<void> {
       />
 
       <BaseButton type="submit" variant="primary" size="lg" block :loading="busy">
-        Sign in
+        Войти
       </BaseButton>
     </form>
 
     <p class="mt-6 text-center text-[13px] text-ink-muted">
-      New here?
+      Впервые здесь?
       <RouterLink :to="{ name: 'register' }" class="font-medium text-brand hover:underline">
-        Create an account
+        Создать аккаунт
       </RouterLink>
     </p>
   </AuthLayout>

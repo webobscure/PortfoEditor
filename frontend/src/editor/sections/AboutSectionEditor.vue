@@ -19,7 +19,7 @@ interface Highlight extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'About')
+const heading = field('heading', 'О себе')
 const body = field('body', '')
 const photo = field<number | null>('photo_media_id', null)
 const highlights = list<Highlight>('highlights')
@@ -27,31 +27,31 @@ const highlights = list<Highlight>('highlights')
 
 <template>
   <div>
-    <PanelSection title="Content">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Содержимое">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
       <BaseTextarea
         v-model="body"
-        label="About you"
+        label="О себе"
         :rows="9"
         :maxlength="3000"
-        placeholder="Where you come from, what you are good at, what you are looking for."
+        placeholder="Откуда вы, в чём сильны и что ищете."
       />
-      <ImageField v-model="photo" label="Photo" />
+      <ImageField v-model="photo" label="Фото" />
     </PanelSection>
 
-    <PanelSection title="Highlights">
+    <PanelSection title="Цифры">
       <EmptyState
         v-if="highlights.items.value.length === 0"
         compact
-        title="No highlights yet"
-        description="Short numbers that anchor your experience — years, projects, clients."
+        title="Цифр пока нет"
+        description="Короткие цифры, которые закрепляют опыт: годы, проекты, клиенты."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(highlight, index) in highlights.items.value"
           :key="index"
-          :title="highlight.value || 'Highlight'"
+          :title="highlight.value || 'Цифра'"
           :subtitle="highlight.label"
           :can-move-up="index > 0"
           :can-move-down="index < highlights.items.value.length - 1"
@@ -61,15 +61,15 @@ const highlights = list<Highlight>('highlights')
         >
           <BaseInput
             :model-value="highlight.value"
-            label="Value"
+            label="Значение"
             placeholder="10"
             :maxlength="60"
             @update:model-value="highlights.update(index, { value: $event })"
           />
           <BaseInput
             :model-value="highlight.label"
-            label="Label"
-            placeholder="Years designing"
+            label="Подпись"
+            placeholder="Лет в дизайне"
             :maxlength="60"
             @update:model-value="highlights.update(index, { label: $event })"
           />
@@ -83,7 +83,7 @@ const highlights = list<Highlight>('highlights')
         :disabled="highlights.items.value.length >= 6"
         @click="highlights.add({ label: '', value: '' })"
       >
-        Add highlight
+        Добавить цифру
       </BaseButton>
     </PanelSection>
   </div>

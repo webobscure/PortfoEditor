@@ -22,7 +22,7 @@ interface Entry extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Education')
+const heading = field('heading', 'Образование')
 const entries = list<Entry>('items')
 
 const blank: Entry = {
@@ -37,18 +37,18 @@ const blank: Entry = {
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
     </PanelSection>
 
-    <PanelSection title="Entries">
-      <EmptyState v-if="entries.items.value.length === 0" compact title="Nothing here yet" />
+    <PanelSection title="Записи">
+      <EmptyState v-if="entries.items.value.length === 0" compact title="Здесь пока пусто" />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in entries.items.value"
           :key="index"
-          :title="item.degree || 'New entry'"
+          :title="item.degree || 'Новая запись'"
           :subtitle="item.institution"
           :can-move-up="index > 0"
           :can-move-down="index < entries.items.value.length - 1"
@@ -58,35 +58,35 @@ const blank: Entry = {
         >
           <BaseInput
             :model-value="item.degree"
-            label="Qualification"
-            placeholder="BSc Computer Science"
+            label="Квалификация"
+            placeholder="Бакалавр, прикладная информатика"
             @update:model-value="entries.update(index, { degree: $event })"
           />
           <BaseInput
             :model-value="item.institution"
-            label="Institution"
+            label="Учебное заведение"
             @update:model-value="entries.update(index, { institution: $event })"
           />
           <BaseInput
             :model-value="item.location"
-            label="Location"
+            label="Город"
             @update:model-value="entries.update(index, { location: $event })"
           />
           <div class="grid grid-cols-2 gap-2">
             <BaseInput
               :model-value="item.start"
-              label="From"
+              label="С"
               @update:model-value="entries.update(index, { start: $event })"
             />
             <BaseInput
               :model-value="item.end"
-              label="To"
+              label="по"
               @update:model-value="entries.update(index, { end: $event })"
             />
           </div>
           <BaseTextarea
             :model-value="item.description"
-            label="Notes"
+            label="Заметки"
             :rows="3"
             :maxlength="600"
             @update:model-value="entries.update(index, { description: $event })"
@@ -101,7 +101,7 @@ const blank: Entry = {
         :disabled="entries.items.value.length >= 12"
         @click="entries.add({ ...blank })"
       >
-        Add entry
+        Добавить запись
       </BaseButton>
     </PanelSection>
   </div>

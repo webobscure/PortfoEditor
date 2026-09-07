@@ -40,8 +40,8 @@ async function signOut(): Promise<void> {
         <nav class="flex items-center gap-0.5">
           <RouterLink
             v-for="link in [
-              { name: 'dashboard', label: 'My portfolios' },
-              { name: 'templates', label: 'Templates' },
+              { name: 'dashboard', label: 'Мои портфолио' },
+              { name: 'templates', label: 'Шаблоны' },
             ]"
             :key="link.name"
             :to="{ name: link.name }"
@@ -61,7 +61,7 @@ async function signOut(): Promise<void> {
             <button
               type="button"
               class="grid size-8 place-items-center rounded-full bg-brand-soft text-[12px] font-semibold text-brand transition hover:brightness-97"
-              aria-label="Account menu"
+              aria-label="Меню аккаунта"
               @click="toggle"
             >
               {{ auth.user?.initials }}
@@ -85,7 +85,7 @@ async function signOut(): Promise<void> {
               "
             >
               <AppIcon name="logout" :size="15" />
-              Sign out
+              Выйти
             </button>
           </template>
         </BasePopover>

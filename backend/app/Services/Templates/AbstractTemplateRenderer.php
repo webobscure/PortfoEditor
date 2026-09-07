@@ -121,7 +121,7 @@ abstract class AbstractTemplateRenderer
         return '<header class="pf-nav" id="top">'
             .'<div class="pf-nav__inner">'
             .$brand
-            .'<nav class="pf-nav__links" aria-label="Sections">'.implode('', $links).'</nav>'
+            .'<nav class="pf-nav__links" aria-label="Секции">'.implode('', $links).'</nav>'
             .'</div>'
             .'</header>';
     }
@@ -228,10 +228,10 @@ abstract class AbstractTemplateRenderer
                 .'</div>';
         }
 
-        $photo = $this->figure($ctx->image($data['photo_media_id'] ?? null), (string) ($data['heading'] ?? 'About'), 'pf-about__photo');
+        $photo = $this->figure($ctx->image($data['photo_media_id'] ?? null), (string) ($data['heading'] ?? 'О себе'), 'pf-about__photo');
 
         return '<div class="pf-shell pf-about">'
-            .$this->heading($data, 'About')
+            .$this->heading($data, 'О себе')
             .'<div class="pf-about__grid">'
             .'<div class="pf-about__content">'.$body
             .($highlights !== '' ? '<dl class="pf-highlights">'.$highlights.'</dl>' : '')
@@ -274,7 +274,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell">'.$this->heading($data, 'Experience').'<ul class="pf-entries">'.$rows.'</ul></div>';
+        return '<div class="pf-shell">'.$this->heading($data, 'Опыт').'<ul class="pf-entries">'.$rows.'</ul></div>';
     }
 
     /** @param array<string, mixed> $data */
@@ -303,7 +303,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell">'.$this->heading($data, 'Education').'<ul class="pf-entries">'.$rows.'</ul></div>';
+        return '<div class="pf-shell">'.$this->heading($data, 'Образование').'<ul class="pf-entries">'.$rows.'</ul></div>';
     }
 
     /** @param array<string, mixed> $data */
@@ -332,7 +332,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell">'.$this->heading($data, 'Skills').'<div class="pf-skills">'.$groups.'</div></div>';
+        return '<div class="pf-shell">'.$this->heading($data, 'Навыки').'<div class="pf-skills">'.$groups.'</div></div>';
     }
 
     /** @param array<string, mixed> $data */
@@ -349,7 +349,7 @@ abstract class AbstractTemplateRenderer
         }
 
         return '<div class="pf-shell">'
-            .$this->heading($data, 'Selected work')
+            .$this->heading($data, 'Избранные работы')
             .Html::paragraphs((string) ($data['intro'] ?? ''), 'pf-section__intro')
             .'<div class="pf-projects">'.$cards.'</div>'
             .'</div>';
@@ -374,7 +374,7 @@ abstract class AbstractTemplateRenderer
 
         $links = '';
 
-        foreach ([['url', 'Visit'], ['github_url', 'Source']] as [$key, $label]) {
+        foreach ([['url', 'Смотреть'], ['github_url', 'Исходный код']] as [$key, $label]) {
             $href = Html::url($item[$key] ?? null);
 
             if ($href === '') {
@@ -428,7 +428,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell">'.$this->heading($data, 'Services').'<div class="pf-services">'.$cards.'</div></div>';
+        return '<div class="pf-shell">'.$this->heading($data, 'Услуги').'<div class="pf-services">'.$cards.'</div></div>';
     }
 
     /** @param array<string, mixed> $data */
@@ -464,7 +464,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell">'.$this->heading($data, 'Achievements').'<ul class="pf-awards">'.$rows.'</ul></div>';
+        return '<div class="pf-shell">'.$this->heading($data, 'Достижения').'<ul class="pf-awards">'.$rows.'</ul></div>';
     }
 
     /** @param array<string, mixed> $data */
@@ -475,10 +475,10 @@ abstract class AbstractTemplateRenderer
         $rows = '';
 
         foreach ([
-            ['Email', $email, $mailto],
-            ['Phone', (string) ($data['phone'] ?? ''), Html::tel($data['phone'] ?? null)],
-            ['Location', (string) ($data['location'] ?? ''), ''],
-            ['Availability', (string) ($data['availability'] ?? ''), ''],
+            ['Почта', $email, $mailto],
+            ['Телефон', (string) ($data['phone'] ?? ''), Html::tel($data['phone'] ?? null)],
+            ['Город', (string) ($data['location'] ?? ''), ''],
+            ['Доступность', (string) ($data['availability'] ?? ''), ''],
         ] as [$label, $value, $href]) {
             if (trim($value) === '') {
                 continue;
@@ -508,7 +508,7 @@ abstract class AbstractTemplateRenderer
         }
 
         return '<div class="pf-shell pf-contacts">'
-            .$this->heading($data, 'Get in touch')
+            .$this->heading($data, 'Связаться')
             .$intro
             .($rows !== '' ? '<dl class="pf-contacts__grid">'.$rows.'</dl>' : '')
             .$cta
@@ -524,7 +524,7 @@ abstract class AbstractTemplateRenderer
             return '';
         }
 
-        return '<div class="pf-shell"><nav class="pf-social" aria-label="Social links">'.$links.'</nav></div>';
+        return '<div class="pf-shell"><nav class="pf-social" aria-label="Соцсети">'.$links.'</nav></div>';
     }
 
     // -------------------------------------------------------------- helpers
@@ -555,7 +555,7 @@ abstract class AbstractTemplateRenderer
     protected function period(array $item): string
     {
         $start = trim((string) ($item['start'] ?? ''));
-        $end = ($item['current'] ?? false) ? 'Present' : trim((string) ($item['end'] ?? ''));
+        $end = ($item['current'] ?? false) ? 'по настоящее время' : trim((string) ($item['end'] ?? ''));
 
         return trim(implode(' — ', array_values(array_filter([$start, $end], static fn (string $v) => $v !== ''))));
     }
@@ -623,7 +623,7 @@ abstract class AbstractTemplateRenderer
 
                 return $links === ''
                     ? ''
-                    : '<nav class="pf-hero__social" aria-label="Social links">'.$links.'</nav>';
+                    : '<nav class="pf-hero__social" aria-label="Соцсети">'.$links.'</nav>';
             }
         }
 

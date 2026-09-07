@@ -26,7 +26,7 @@ interface Role extends Record<string, unknown> {
 const props = defineProps<{ section: Section }>()
 const { field, list } = useSectionModel(() => props.section)
 
-const heading = field('heading', 'Experience')
+const heading = field('heading', 'Опыт')
 const roles = list<Role>('items')
 
 const blank: Role = {
@@ -43,23 +43,23 @@ const blank: Role = {
 
 <template>
   <div>
-    <PanelSection title="Section">
-      <BaseInput v-model="heading" label="Heading" :maxlength="120" />
+    <PanelSection title="Секция">
+      <BaseInput v-model="heading" label="Заголовок" :maxlength="120" />
     </PanelSection>
 
-    <PanelSection title="Roles">
+    <PanelSection title="Должности">
       <EmptyState
         v-if="roles.items.value.length === 0"
         compact
-        title="No roles yet"
-        description="Start with your current position."
+        title="Должностей пока нет"
+        description="Начните с текущей должности."
       />
 
       <div v-else class="space-y-2">
         <RepeaterItem
           v-for="(item, index) in roles.items.value"
           :key="index"
-          :title="item.role || 'New role'"
+          :title="item.role || 'Новая должность'"
           :subtitle="[item.company, item.start].filter(Boolean).join(' · ')"
           :can-move-up="index > 0"
           :can-move-down="index < roles.items.value.length - 1"
@@ -69,32 +69,32 @@ const blank: Role = {
         >
           <BaseInput
             :model-value="item.role"
-            label="Role"
-            placeholder="Senior Product Designer"
+            label="Должность"
+            placeholder="Ведущий продуктовый дизайнер"
             @update:model-value="roles.update(index, { role: $event })"
           />
           <BaseInput
             :model-value="item.company"
-            label="Company"
+            label="Компания"
             @update:model-value="roles.update(index, { company: $event })"
           />
           <BaseInput
             :model-value="item.location"
-            label="Location"
-            placeholder="Remote"
+            label="Город"
+            placeholder="Удалённо"
             @update:model-value="roles.update(index, { location: $event })"
           />
 
           <div class="grid grid-cols-2 gap-2">
             <BaseInput
               :model-value="item.start"
-              label="From"
+              label="С"
               placeholder="2021"
               @update:model-value="roles.update(index, { start: $event })"
             />
             <BaseInput
               :model-value="item.end"
-              label="To"
+              label="по"
               placeholder="2024"
               :disabled="item.current"
               @update:model-value="roles.update(index, { end: $event })"
@@ -105,24 +105,24 @@ const blank: Role = {
             <span class="text-[12.5px] text-ink-soft">Current role</span>
             <ToggleSwitch
               :model-value="item.current"
-              label="Current role"
+              label="Текущая должность"
               @update:model-value="roles.update(index, { current: $event })"
             />
           </div>
 
           <BaseTextarea
             :model-value="item.description"
-            label="What you did"
+            label="Чем занимались"
             :rows="4"
             :maxlength="1000"
-            placeholder="Responsibilities, and one concrete result."
+            placeholder="Обязанности и один конкретный результат."
             @update:model-value="roles.update(index, { description: $event })"
           />
 
           <TagInput
             :model-value="item.tags ?? []"
-            label="Tags"
-            placeholder="Design systems"
+            label="Теги"
+            placeholder="Дизайн-системы"
             @update:model-value="roles.update(index, { tags: $event })"
           />
         </RepeaterItem>
@@ -135,7 +135,7 @@ const blank: Role = {
         :disabled="roles.items.value.length >= 20"
         @click="roles.add({ ...blank })"
       >
-        Add role
+        Добавить должность
       </BaseButton>
     </PanelSection>
   </div>
