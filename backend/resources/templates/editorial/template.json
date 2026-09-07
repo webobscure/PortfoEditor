@@ -34,7 +34,7 @@
                 "border": "#dedad0"
             },
             "typography": {
-                "heading_font": "fraunces",
+                "heading_font": "playfair-display",
                 "body_font": "ibm-plex-sans",
                 "scale": "default"
             },

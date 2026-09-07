@@ -33,7 +33,7 @@
                 "border": "#232733"
             },
             "typography": {
-                "heading_font": "space-grotesk",
+                "heading_font": "jetbrains-mono",
                 "body_font": "inter",
                 "scale": "default"
             },

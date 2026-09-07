@@ -10,7 +10,7 @@ import PanelSection from '@/editor/components/PanelSection.vue'
 import { useCatalogStore } from '@/stores/catalog'
 import { useEditorStore } from '@/stores/editor'
 
-import type { ColorScheme, ThemeColors } from '@/types'
+import type { ColorScheme, FontFamily, ThemeColors } from '@/types'
 
 /**
  * Project-level settings — shown whenever no section is selected.
@@ -25,16 +25,24 @@ const catalog = useCatalogStore()
 const settings = computed(() => editor.effectiveSettings)
 const template = computed(() => catalog.template(editor.activeTemplateKey))
 
+/*
+ * Seven of the catalogue's families have no Cyrillic subset. Choosing one for
+ * Russian text does not fail loudly — the browser just substitutes a system
+ * font — so the option says so in the list rather than letting the user find
+ * out from the rendered page.
+ */
+function fontOption(font: FontFamily) {
+  const suffix = font.cyrillic ? '' : ' · без кириллицы'
+
+  return { value: font.key, label: `${font.name} · ${font.category}${suffix}` }
+}
+
 const headingFonts = computed(() =>
-  catalog.fonts
-    .filter((font) => font.roles.includes('heading'))
-    .map((font) => ({ value: font.key, label: `${font.name} · ${font.category}` })),
+  catalog.fonts.filter((font) => font.roles.includes('heading')).map(fontOption),
 )
 
 const bodyFonts = computed(() =>
-  catalog.fonts
-    .filter((font) => font.roles.includes('body'))
-    .map((font) => ({ value: font.key, label: `${font.name} · ${font.category}` })),
+  catalog.fonts.filter((font) => font.roles.includes('body')).map(fontOption),
 )
 
 const swatches = computed(() =>

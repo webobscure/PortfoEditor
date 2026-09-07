@@ -117,6 +117,8 @@ export interface FontFamily {
   name: string
   category: 'sans' | 'serif' | 'mono'
   stack: string
+  /** Whether the family ships a Cyrillic subset. Several do not. */
+  cyrillic: boolean
   roles: string[]
 }
 

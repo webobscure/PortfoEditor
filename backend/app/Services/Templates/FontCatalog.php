@@ -20,7 +20,7 @@ final class FontCatalog
     private ?array $faces = null;
 
     /**
-     * @return array<string, array{key:string,name:string,category:string,stack:string,roles:array<int,string>}>
+     * @return array<string, array{key:string,name:string,category:string,stack:string,cyrillic:bool,roles:array<int,string>}>
      */
     public function all(): array
     {
@@ -32,6 +32,10 @@ final class FontCatalog
                 'name' => $family['name'],
                 'category' => $family['category'],
                 'stack' => $family['stack'],
+                // Published so the editor can mark the families that cannot
+                // set Russian text rather than letting the user discover it
+                // from a rendered page.
+                'cyrillic' => (bool) ($family['cyrillic'] ?? false),
                 'roles' => $family['roles'],
             ];
         }
