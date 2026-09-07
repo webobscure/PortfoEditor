@@ -6,7 +6,15 @@ import { ref } from 'vue'
  * tooltip that only responds to a pointer is invisible to half the users who
  * need it.
  */
-withDefaults(defineProps<{ text: string; side?: 'top' | 'bottom' }>(), { side: 'bottom' })
+/*
+ * `align` exists because a centred tooltip on a control at the very edge of a
+ * panel is clipped by it. Anchoring to the control's left edge keeps the label
+ * inside the panel.
+ */
+withDefaults(defineProps<{ text: string; side?: 'top' | 'bottom'; align?: 'center' | 'start' }>(), {
+  side: 'bottom',
+  align: 'center',
+})
 
 const visible = ref(false)
 let timer: number | null = null
@@ -39,8 +47,11 @@ function hide(): void {
       <span
         v-if="visible"
         role="tooltip"
-        class="pointer-events-none absolute left-1/2 z-50 -translate-x-1/2 rounded-lg bg-ink px-2 py-1 text-[11.5px] whitespace-nowrap text-white shadow-pop"
-        :class="side === 'bottom' ? 'top-[calc(100%+7px)]' : 'bottom-[calc(100%+7px)]'"
+        class="pointer-events-none absolute z-50 rounded-lg bg-ink px-2 py-1 text-[11.5px] whitespace-nowrap text-white shadow-pop"
+        :class="[
+          side === 'bottom' ? 'top-[calc(100%+7px)]' : 'bottom-[calc(100%+7px)]',
+          align === 'start' ? 'left-0' : 'left-1/2 -translate-x-1/2',
+        ]"
       >
         {{ text }}
       </span>

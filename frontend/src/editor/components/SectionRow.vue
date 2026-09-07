@@ -15,12 +15,20 @@ const emit = defineEmits<{ select: []; toggle: []; remove: [] }>()
     class="group flex items-center gap-1 rounded-[10px] pr-1 pl-0.5 transition-colors duration-150"
     :class="active ? 'bg-brand-soft' : 'hover:bg-line-soft'"
   >
-    <span
-      class="js-drag-handle grid size-6 shrink-0 cursor-grab place-items-center text-ink-faint opacity-0 transition group-hover:opacity-100 active:cursor-grabbing"
-      aria-hidden="true"
-    >
-      <AppIcon name="grip" :size="14" />
-    </span>
+    <!--
+      The handle used to be invisible until the row was hovered, which meant
+      the list gave no sign that sections can be reordered at all. It is now
+      always drawn, in the faintest ink of the palette: legible enough to be
+      discovered, quiet enough not to compete with the section names.
+    -->
+    <BaseTooltip class="shrink-0" align="start" text="Перетащите, чтобы поменять порядок">
+      <span
+        class="js-drag-handle grid size-6 shrink-0 cursor-grab place-items-center text-ink-faint transition group-hover:text-ink-soft active:cursor-grabbing"
+        aria-hidden="true"
+      >
+        <AppIcon name="grip" :size="14" />
+      </span>
+    </BaseTooltip>
 
     <button
       type="button"
