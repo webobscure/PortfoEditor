@@ -1,0 +1,84 @@
+{
+  "key": "editorial",
+  "name": "Editorial",
+  "description": "Magazine typography with serif display headings and case-study project spreads. For designers, photographers and creative professionals.",
+  "tags": ["designer", "photography", "creative"],
+  "renderer": "EditorialRenderer",
+  "supported_sections": [
+    "hero",
+    "about",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "services",
+    "achievements",
+    "contacts",
+    "social_links"
+  ],
+  "capabilities": {
+    "script": false
+  },
+  "defaults": {
+    "settings": {
+      "colors": {
+        "accent": "#a8452c",
+        "background": "#fbfaf7",
+        "surface": "#f2efe8",
+        "text": "#1b1a17",
+        "muted": "#6f6b63",
+        "border": "#dedad0"
+      },
+      "typography": {
+        "heading_font": "fraunces",
+        "body_font": "ibm-plex-sans",
+        "scale": "default"
+      },
+      "layout": {
+        "section_spacing": "spacious",
+        "content_width": "wide"
+      },
+      "buttons": {
+        "style": "square"
+      }
+    }
+  },
+  "color_schemes": [
+    {
+      "key": "manuscript",
+      "name": "Manuscript",
+      "colors": {
+        "accent": "#a8452c",
+        "background": "#fbfaf7",
+        "surface": "#f2efe8",
+        "text": "#1b1a17",
+        "muted": "#6f6b63",
+        "border": "#dedad0"
+      }
+    },
+    {
+      "key": "gallery",
+      "name": "Gallery",
+      "colors": {
+        "accent": "#1b1a17",
+        "background": "#ffffff",
+        "surface": "#f4f4f2",
+        "text": "#111110",
+        "muted": "#6e6e6a",
+        "border": "#e4e4e0"
+      }
+    },
+    {
+      "key": "dusk",
+      "name": "Dusk",
+      "colors": {
+        "accent": "#c9a227",
+        "background": "#16151a",
+        "surface": "#1f1e25",
+        "text": "#f0eee9",
+        "muted": "#928e99",
+        "border": "#2c2a33"
+      }
+    }
+  ]
+}

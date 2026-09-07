@@ -1,0 +1,283 @@
+/*
+ * Shared foundation for every template.
+ *
+ * This file is concatenated ahead of a template's own stylesheet, both when the
+ * editor serves CSS to the preview iframe and when a portfolio is exported, so
+ * the two paths cannot drift. It owns the reset, the layout shell and the few
+ * primitives (buttons, chips, images) that every template reuses. Everything
+ * that defines a template's personality lives in the template's own file.
+ *
+ * All colour, type and spacing values come from the --pf-* custom properties
+ * emitted by ThemeCompiler. Templates never hardcode a user-controllable value.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--pf-bg);
+  color: var(--pf-text);
+  font-family: var(--pf-font-body);
+  font-size: calc(16px * var(--pf-type-scale));
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--pf-font-heading);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+figure {
+  margin: 0;
+}
+
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--pf-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.pf-shell {
+  width: 100%;
+  max-width: var(--pf-content-width);
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 40px);
+}
+
+.pf-main {
+  display: block;
+}
+
+.pf-section {
+  padding-block: calc(88px * var(--pf-space-scale));
+}
+
+.pf-section--hero {
+  padding-block: calc(120px * var(--pf-space-scale)) calc(96px * var(--pf-space-scale));
+}
+
+.pf-section__title {
+  font-size: calc(clamp(26px, 3.2vw, 34px) * var(--pf-type-scale));
+  margin-bottom: calc(36px * var(--pf-space-scale));
+}
+
+.pf-section__intro {
+  color: var(--pf-muted);
+  max-width: 60ch;
+  margin-top: -18px;
+  margin-bottom: 40px;
+}
+
+/* ------------------------------------------------------------------- nav */
+
+.pf-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: saturate(1.4) blur(12px);
+  background: color-mix(in srgb, var(--pf-bg) 86%, transparent);
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.pf-nav__inner {
+  max-width: var(--pf-content-width);
+  margin-inline: auto;
+  padding: 14px clamp(20px, 5vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.pf-nav__brand {
+  font-family: var(--pf-font-heading);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.pf-nav__links {
+  display: flex;
+  gap: clamp(14px, 2vw, 26px);
+  flex-wrap: wrap;
+}
+
+.pf-nav__link {
+  color: var(--pf-muted);
+  text-decoration: none;
+  font-size: 0.92em;
+  transition: color 0.18s ease;
+}
+
+.pf-nav__link:hover {
+  color: var(--pf-text);
+}
+
+@media (max-width: 640px) {
+  .pf-nav__links {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------- buttons */
+
+.pf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--pf-btn-radius);
+  font-weight: 500;
+  font-size: 0.95em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.pf-btn:hover {
+  transform: translateY(-1px);
+}
+
+.pf-btn--primary {
+  background: var(--pf-accent);
+  color: var(--pf-accent-contrast);
+}
+
+.pf-btn--primary:hover {
+  background: var(--pf-accent-strong);
+}
+
+.pf-btn--ghost {
+  border-color: var(--pf-border);
+  color: var(--pf-text);
+}
+
+.pf-btn--ghost:hover {
+  border-color: var(--pf-accent);
+  color: var(--pf-accent);
+}
+
+/* ----------------------------------------------------------------- chips */
+
+.pf-chips,
+.pf-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pf-chip,
+.pf-tag {
+  font-size: 0.82em;
+  line-height: 1.4;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--pf-border);
+  color: var(--pf-muted);
+  background: var(--pf-surface);
+}
+
+/* ---------------------------------------------------------------- footer */
+
+.pf-footer {
+  padding-block: 40px 56px;
+  border-top: 1px solid var(--pf-border);
+}
+
+.pf-footer__text {
+  color: var(--pf-muted);
+  font-size: 0.86em;
+  margin: 0;
+}
+
+/* -------------------------------------------------- editor instrumentation
+ * Applied only inside the editor preview; never emitted in an export.
+ */
+
+body.pf-editing .pf-section {
+  position: relative;
+  cursor: pointer;
+}
+
+body.pf-editing .pf-section::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  pointer-events: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+body.pf-editing .pf-section:hover::after {
+  border-color: color-mix(in srgb, var(--pf-accent) 40%, transparent);
+}
+
+body.pf-editing .pf-section.is-selected::after {
+  border-color: var(--pf-accent);
+  background: color-mix(in srgb, var(--pf-accent) 4%, transparent);
+}

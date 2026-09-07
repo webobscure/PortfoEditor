@@ -1,0 +1,84 @@
+{
+  "key": "minimal",
+  "name": "Minimal",
+  "description": "Generous whitespace, oversized type and full-bleed work cards. Built for designers and product people who want the work to carry the page.",
+  "tags": ["designer", "product", "light"],
+  "renderer": "MinimalRenderer",
+  "supported_sections": [
+    "hero",
+    "about",
+    "experience",
+    "education",
+    "skills",
+    "projects",
+    "services",
+    "achievements",
+    "contacts",
+    "social_links"
+  ],
+  "capabilities": {
+    "script": false
+  },
+  "defaults": {
+    "settings": {
+      "colors": {
+        "accent": "#1a1a1f",
+        "background": "#ffffff",
+        "surface": "#f6f6f4",
+        "text": "#121215",
+        "muted": "#75757f",
+        "border": "#e8e8e4"
+      },
+      "typography": {
+        "heading_font": "manrope",
+        "body_font": "inter",
+        "scale": "default"
+      },
+      "layout": {
+        "section_spacing": "spacious",
+        "content_width": "default"
+      },
+      "buttons": {
+        "style": "pill"
+      }
+    }
+  },
+  "color_schemes": [
+    {
+      "key": "paper",
+      "name": "Paper",
+      "colors": {
+        "accent": "#1a1a1f",
+        "background": "#ffffff",
+        "surface": "#f6f6f4",
+        "text": "#121215",
+        "muted": "#75757f",
+        "border": "#e8e8e4"
+      }
+    },
+    {
+      "key": "sand",
+      "name": "Sand",
+      "colors": {
+        "accent": "#8a5a2b",
+        "background": "#fdfbf7",
+        "surface": "#f4efe6",
+        "text": "#241d16",
+        "muted": "#7c7065",
+        "border": "#e7ded0"
+      }
+    },
+    {
+      "key": "ink",
+      "name": "Ink",
+      "colors": {
+        "accent": "#2f5bea",
+        "background": "#ffffff",
+        "surface": "#f4f6fb",
+        "text": "#0d1220",
+        "muted": "#6b7488",
+        "border": "#e2e6f0"
+      }
+    }
+  ]
+}

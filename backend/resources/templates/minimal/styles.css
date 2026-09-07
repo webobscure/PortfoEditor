@@ -1,0 +1,471 @@
+/*
+ * Minimal — light, airy, editorial-grade whitespace.
+ *
+ * The personality here is scale: an oversized hero name, a single-column
+ * reading measure, and work cards that go nearly full bleed. Everything else
+ * recedes.
+ */
+
+.pf-t-minimal {
+  --pf-rule: 1px solid var(--pf-border);
+}
+
+.pf-t-minimal .pf-nav {
+  background: color-mix(in srgb, var(--pf-bg) 90%, transparent);
+}
+
+.pf-t-minimal .pf-nav__link {
+  font-size: 0.86em;
+  letter-spacing: 0.01em;
+}
+
+/* ------------------------------------------------------------------ hero */
+
+.pf-t-minimal .pf-section--hero {
+  padding-block: calc(112px * var(--pf-space-scale)) calc(84px * var(--pf-space-scale));
+}
+
+.pf-t-minimal .pf-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px;
+}
+
+.pf-t-minimal .pf-hero.has-photo {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.pf-t-minimal .pf-hero.is-center {
+  text-align: center;
+  justify-items: center;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.pf-t-minimal .pf-hero.is-center .pf-hero__intro,
+.pf-t-minimal .pf-hero.is-center .pf-hero__actions,
+.pf-t-minimal .pf-hero.is-center .pf-hero__social {
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.pf-t-minimal .pf-hero__eyebrow {
+  font-size: 0.9em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+  margin-bottom: 22px;
+}
+
+.pf-t-minimal .pf-hero__name {
+  font-size: clamp(44px, 8.2vw, 88px);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  max-width: 14ch;
+}
+
+.pf-t-minimal .pf-hero.is-center .pf-hero__name {
+  max-width: none;
+}
+
+.pf-t-minimal .pf-hero__intro {
+  margin-top: 28px;
+  max-width: 46ch;
+  font-size: 1.12em;
+  color: var(--pf-muted);
+}
+
+.pf-t-minimal .pf-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.pf-t-minimal .pf-hero__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.pf-t-minimal .pf-hero__social-link {
+  font-size: 0.9em;
+  color: var(--pf-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.pf-t-minimal .pf-hero__social-link:hover {
+  color: var(--pf-text);
+  border-color: var(--pf-text);
+}
+
+.pf-t-minimal .pf-hero__photo img {
+  width: clamp(140px, 20vw, 208px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 780px) {
+  .pf-t-minimal .pf-hero.has-photo {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-t-minimal .pf-hero__photo {
+    order: -1;
+  }
+}
+
+/* ----------------------------------------------------------------- about */
+
+.pf-t-minimal .pf-about__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+}
+
+.pf-t-minimal .pf-about__grid:not(:has(.pf-about__photo)) {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 62ch;
+}
+
+.pf-t-minimal .pf-about__body {
+  font-size: 1.05em;
+}
+
+.pf-t-minimal .pf-about__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.pf-t-minimal .pf-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 24px;
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-highlight__value {
+  font-family: var(--pf-font-heading);
+  font-size: 1.6em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.pf-t-minimal .pf-highlight__label {
+  color: var(--pf-muted);
+  font-size: 0.86em;
+  margin-top: 4px;
+}
+
+@media (max-width: 780px) {
+  .pf-t-minimal .pf-about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* -------------------------------------------------- experience/education */
+
+.pf-t-minimal .pf-entries {
+  display: flex;
+  flex-direction: column;
+}
+
+.pf-t-minimal .pf-entry {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 32px;
+  padding-block: 34px;
+  border-top: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-entry:last-child {
+  border-bottom: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-entry__period {
+  color: var(--pf-muted);
+  font-size: 0.88em;
+  margin: 4px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pf-t-minimal .pf-entry__title {
+  font-size: 1.28em;
+}
+
+.pf-t-minimal .pf-entry__meta {
+  color: var(--pf-muted);
+  margin: 6px 0 0;
+  font-size: 0.94em;
+}
+
+.pf-t-minimal .pf-entry__text {
+  margin-top: 14px;
+  color: var(--pf-muted);
+  max-width: 62ch;
+}
+
+.pf-t-minimal .pf-entry .pf-tags {
+  margin-top: 18px;
+}
+
+@media (max-width: 700px) {
+  .pf-t-minimal .pf-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+}
+
+/* ---------------------------------------------------------------- skills */
+
+.pf-t-minimal .pf-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px 32px;
+}
+
+.pf-t-minimal .pf-skillgroup__name {
+  font-size: 0.82em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.pf-t-minimal .pf-skillgroup .pf-chip {
+  background: transparent;
+  border-color: var(--pf-border);
+  color: var(--pf-text);
+  font-size: 0.88em;
+  padding: 6px 13px;
+}
+
+/* -------------------------------------------------------------- projects */
+
+.pf-t-minimal .pf-projects {
+  display: grid;
+  gap: clamp(40px, 6vw, 76px);
+}
+
+.pf-t-minimal .pf-project {
+  display: grid;
+  gap: 26px;
+}
+
+.pf-t-minimal .pf-project__media {
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--pf-surface);
+}
+
+.pf-t-minimal .pf-project__media img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.pf-t-minimal .pf-project:hover .pf-project__media img {
+  transform: scale(1.02);
+}
+
+.pf-t-minimal .pf-project__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 24px 48px;
+  align-items: start;
+}
+
+.pf-t-minimal .pf-project__index {
+  font-size: 0.82em;
+  letter-spacing: 0.12em;
+  color: var(--pf-muted);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 10px;
+}
+
+.pf-t-minimal .pf-project__title {
+  font-size: clamp(24px, 3vw, 34px);
+  letter-spacing: -0.025em;
+}
+
+.pf-t-minimal .pf-project__year {
+  color: var(--pf-muted);
+  font-size: 0.86em;
+  margin: 0 0 8px;
+}
+
+.pf-t-minimal .pf-project__text {
+  color: var(--pf-muted);
+}
+
+.pf-t-minimal .pf-project__links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pf-t-minimal .pf-project__link {
+  font-size: 0.92em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--pf-border);
+  padding-bottom: 3px;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.pf-t-minimal .pf-project__link:hover {
+  color: var(--pf-accent);
+  border-color: var(--pf-accent);
+}
+
+.pf-t-minimal .pf-project .pf-chips {
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .pf-t-minimal .pf-project__body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+}
+
+/* ------------------------------------------------------ services/awards */
+
+.pf-t-minimal .pf-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+}
+
+.pf-t-minimal .pf-service {
+  padding: 30px;
+  border: var(--pf-rule);
+  border-radius: 16px;
+  background: var(--pf-surface);
+}
+
+.pf-t-minimal .pf-service__title {
+  font-size: 1.15em;
+  margin-bottom: 12px;
+}
+
+.pf-t-minimal .pf-service__text {
+  color: var(--pf-muted);
+  font-size: 0.96em;
+}
+
+.pf-t-minimal .pf-service__price {
+  margin-top: 18px;
+  font-family: var(--pf-font-heading);
+  font-weight: 600;
+}
+
+.pf-t-minimal .pf-awards {
+  display: grid;
+  gap: 0;
+}
+
+.pf-t-minimal .pf-award {
+  padding-block: 26px;
+  border-top: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-award:last-child {
+  border-bottom: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-award__title {
+  font-size: 1.1em;
+}
+
+.pf-t-minimal .pf-award__title a {
+  text-decoration: none;
+  border-bottom: 1px solid var(--pf-border);
+}
+
+.pf-t-minimal .pf-award__meta {
+  color: var(--pf-muted);
+  font-size: 0.88em;
+  margin: 6px 0 0;
+}
+
+.pf-t-minimal .pf-award__text {
+  color: var(--pf-muted);
+  margin-top: 10px;
+  max-width: 62ch;
+}
+
+/* -------------------------------------------------------------- contacts */
+
+.pf-t-minimal .pf-section--contacts {
+  background: var(--pf-surface);
+}
+
+.pf-t-minimal .pf-contacts .pf-section__title {
+  font-size: clamp(32px, 5vw, 52px);
+  max-width: 16ch;
+}
+
+.pf-t-minimal .pf-contacts__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 26px;
+  margin: 40px 0;
+  padding-top: 32px;
+  border-top: var(--pf-rule);
+}
+
+.pf-t-minimal .pf-contact__label {
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pf-muted);
+  margin-bottom: 8px;
+}
+
+.pf-t-minimal .pf-contact__value {
+  font-size: 1.02em;
+}
+
+.pf-t-minimal .pf-contact__link {
+  text-decoration: none;
+  border-bottom: 1px solid var(--pf-border);
+  padding-bottom: 2px;
+}
+
+.pf-t-minimal .pf-contact__link:hover {
+  border-color: var(--pf-accent);
+  color: var(--pf-accent);
+}
+
+.pf-t-minimal .pf-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.pf-t-minimal .pf-social__link {
+  padding: 10px 18px;
+  border: var(--pf-rule);
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.pf-t-minimal .pf-social__link:hover {
+  border-color: var(--pf-accent);
+  color: var(--pf-accent);
+}
