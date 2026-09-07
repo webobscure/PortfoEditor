@@ -10,8 +10,13 @@ export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      // The marketing page is what an anonymous visitor lands on. Signed in
+      // users are sent straight to their portfolios, so the front page never
+      // becomes a detour for somebody who already bought in.
       path: '/',
-      redirect: () => ({ name: 'dashboard' }),
+      name: 'home',
+      component: () => import('@/pages/LandingPage.vue'),
+      meta: { guest: true },
     },
     {
       path: '/login',
