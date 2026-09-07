@@ -22,15 +22,16 @@ final class DemoSeeder extends Seeder
     {
         $user = User::firstOrCreate(
             ['email' => 'demo@portfoedit.test'],
-            ['name' => 'Alex Morgan', 'password' => Hash::make('password')],
+            ['name' => 'Алиса Морозова', 'password' => Hash::make('password')],
         );
 
         $service = app(PortfolioService::class);
 
         $portfolios = [
-            ['name' => 'Alex Morgan — Product Design', 'preset' => 'designer', 'template_key' => 'minimal'],
-            ['name' => 'Jordan Reyes — Engineering', 'preset' => 'developer', 'template_key' => 'developer-dark'],
-            ['name' => 'Nina Halvorsen — Photography', 'preset' => 'photographer', 'template_key' => 'editorial'],
+            ['name' => 'Алиса Морозова — продуктовый дизайн', 'preset' => 'designer', 'template_key' => 'minimal'],
+            ['name' => 'Ярослав Кузнецов — разработка', 'preset' => 'developer', 'template_key' => 'developer-dark'],
+            ['name' => 'Нина Северова — фотография', 'preset' => 'photographer', 'template_key' => 'editorial'],
+            ['name' => 'Семён Окулов — продукт', 'preset' => 'product', 'template_key' => 'studio'],
         ];
 
         foreach ($portfolios as $definition) {

@@ -54,8 +54,15 @@ function contentsOf(PortfolioExport $export, string $entry): string
 }
 
 it('builds a self-contained archive', function () {
-    $this->postJson('/api/portfolios', ['name' => 'Alex Morgan', 'preset' => 'designer'])
-        ->assertCreated();
+    // The name is supplied through the create flow's profile answers rather
+    // than left to the preset, so the assertion below checks that what the
+    // user typed reaches the archive — not that the sample copy happens to
+    // carry the same name.
+    $this->postJson('/api/portfolios', [
+        'name' => 'Алиса Морозова',
+        'preset' => 'designer',
+        'profile' => ['name' => 'Алиса Морозова'],
+    ])->assertCreated();
 
     $portfolio = Portfolio::firstOrFail();
 
@@ -76,7 +83,7 @@ it('builds a self-contained archive', function () {
     $html = contentsOf($export, 'index.html');
 
     expect($html)->toStartWith('<!DOCTYPE html>')
-        ->and($html)->toContain('Alex Morgan')
+        ->and($html)->toContain('Алиса Морозова')
         ->and($html)->toContain('href="assets/css/styles.css"')
         ->and($html)->not->toContain('http://localhost')
         ->and($html)->not->toContain('/api/');

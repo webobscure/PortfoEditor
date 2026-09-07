@@ -5,6 +5,7 @@
             "name": "Inter",
             "category": "sans",
             "stack": "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+            "cyrillic": true,
             "roles": [
                 "heading",
                 "body"
@@ -15,6 +16,7 @@
             "name": "Manrope",
             "category": "sans",
             "stack": "\"Manrope\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+            "cyrillic": true,
             "roles": [
                 "heading",
                 "body"
@@ -25,6 +27,7 @@
             "name": "DM Sans",
             "category": "sans",
             "stack": "\"DM Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+            "cyrillic": false,
             "roles": [
                 "heading",
                 "body"
@@ -35,6 +38,7 @@
             "name": "Sora",
             "category": "sans",
             "stack": "\"Sora\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+            "cyrillic": false,
             "roles": [
                 "heading",
                 "body"
@@ -45,6 +49,7 @@
             "name": "Space Grotesk",
             "category": "sans",
             "stack": "\"Space Grotesk\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+            "cyrillic": false,
             "roles": [
                 "heading",
                 "body"
@@ -55,6 +60,7 @@
             "name": "IBM Plex Sans",
             "category": "sans",
             "stack": "\"IBM Plex Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+            "cyrillic": true,
             "roles": [
                 "heading",
                 "body"
@@ -65,6 +71,7 @@
             "name": "JetBrains Mono",
             "category": "mono",
             "stack": "\"JetBrains Mono\", ui-monospace, SFMono-Regular, Menlo, monospace",
+            "cyrillic": true,
             "roles": [
                 "heading",
                 "body",
@@ -76,6 +83,7 @@
             "name": "Fraunces",
             "category": "serif",
             "stack": "\"Fraunces\", Georgia, \"Times New Roman\", serif",
+            "cyrillic": false,
             "roles": [
                 "heading"
             ]
@@ -85,6 +93,7 @@
             "name": "Playfair Display",
             "category": "serif",
             "stack": "\"Playfair Display\", Georgia, \"Times New Roman\", serif",
+            "cyrillic": true,
             "roles": [
                 "heading"
             ]
@@ -94,6 +103,7 @@
             "name": "Instrument Serif",
             "category": "serif",
             "stack": "\"Instrument Serif\", Georgia, \"Times New Roman\", serif",
+            "cyrillic": false,
             "roles": [
                 "heading"
             ]
@@ -103,6 +113,7 @@
             "name": "Newsreader",
             "category": "serif",
             "stack": "\"Newsreader\", Georgia, \"Times New Roman\", serif",
+            "cyrillic": false,
             "roles": [
                 "heading",
                 "body"
@@ -113,6 +124,7 @@
             "name": "Libre Baskerville",
             "category": "serif",
             "stack": "\"Libre Baskerville\", Georgia, \"Times New Roman\", serif",
+            "cyrillic": false,
             "roles": [
                 "heading",
                 "body"
@@ -141,6 +153,24 @@
         {
             "slug": "inter",
             "family": "Inter",
+            "subset": "cyrillic-ext",
+            "weight": "400",
+            "style": "normal",
+            "file": "inter-400-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic",
+            "weight": "400",
+            "style": "normal",
+            "file": "inter-400-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
             "subset": "latin-ext",
             "weight": "500",
             "style": "normal",
@@ -155,6 +185,24 @@
             "style": "normal",
             "file": "inter-500-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic-ext",
+            "weight": "500",
+            "style": "normal",
+            "file": "inter-500-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic",
+            "weight": "500",
+            "style": "normal",
+            "file": "inter-500-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "inter",
@@ -177,6 +225,24 @@
         {
             "slug": "inter",
             "family": "Inter",
+            "subset": "cyrillic-ext",
+            "weight": "600",
+            "style": "normal",
+            "file": "inter-600-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic",
+            "weight": "600",
+            "style": "normal",
+            "file": "inter-600-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
             "subset": "latin-ext",
             "weight": "700",
             "style": "normal",
@@ -191,6 +257,24 @@
             "style": "normal",
             "file": "inter-700-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic-ext",
+            "weight": "700",
+            "style": "normal",
+            "file": "inter-700-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "inter",
+            "family": "Inter",
+            "subset": "cyrillic",
+            "weight": "700",
+            "style": "normal",
+            "file": "inter-700-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "manrope",
@@ -213,6 +297,24 @@
         {
             "slug": "manrope",
             "family": "Manrope",
+            "subset": "cyrillic-ext",
+            "weight": "400",
+            "style": "normal",
+            "file": "manrope-400-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic",
+            "weight": "400",
+            "style": "normal",
+            "file": "manrope-400-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
             "subset": "latin-ext",
             "weight": "500",
             "style": "normal",
@@ -227,6 +329,24 @@
             "style": "normal",
             "file": "manrope-500-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic-ext",
+            "weight": "500",
+            "style": "normal",
+            "file": "manrope-500-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic",
+            "weight": "500",
+            "style": "normal",
+            "file": "manrope-500-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "manrope",
@@ -249,6 +369,24 @@
         {
             "slug": "manrope",
             "family": "Manrope",
+            "subset": "cyrillic-ext",
+            "weight": "600",
+            "style": "normal",
+            "file": "manrope-600-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic",
+            "weight": "600",
+            "style": "normal",
+            "file": "manrope-600-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
             "subset": "latin-ext",
             "weight": "700",
             "style": "normal",
@@ -263,6 +401,24 @@
             "style": "normal",
             "file": "manrope-700-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic-ext",
+            "weight": "700",
+            "style": "normal",
+            "file": "manrope-700-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "manrope",
+            "family": "Manrope",
+            "subset": "cyrillic",
+            "weight": "700",
+            "style": "normal",
+            "file": "manrope-700-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "dm-sans",
@@ -447,6 +603,24 @@
         {
             "slug": "ibm-plex-sans",
             "family": "IBM Plex Sans",
+            "subset": "cyrillic-ext",
+            "weight": "400",
+            "style": "normal",
+            "file": "ibm-plex-sans-400-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
+            "subset": "cyrillic",
+            "weight": "400",
+            "style": "normal",
+            "file": "ibm-plex-sans-400-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
             "subset": "latin-ext",
             "weight": "500",
             "style": "normal",
@@ -465,6 +639,24 @@
         {
             "slug": "ibm-plex-sans",
             "family": "IBM Plex Sans",
+            "subset": "cyrillic-ext",
+            "weight": "500",
+            "style": "normal",
+            "file": "ibm-plex-sans-500-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
+            "subset": "cyrillic",
+            "weight": "500",
+            "style": "normal",
+            "file": "ibm-plex-sans-500-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
             "subset": "latin-ext",
             "weight": "600",
             "style": "normal",
@@ -479,6 +671,24 @@
             "style": "normal",
             "file": "ibm-plex-sans-600-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
+            "subset": "cyrillic-ext",
+            "weight": "600",
+            "style": "normal",
+            "file": "ibm-plex-sans-600-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "ibm-plex-sans",
+            "family": "IBM Plex Sans",
+            "subset": "cyrillic",
+            "weight": "600",
+            "style": "normal",
+            "file": "ibm-plex-sans-600-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "jetbrains-mono",
@@ -501,6 +711,24 @@
         {
             "slug": "jetbrains-mono",
             "family": "JetBrains Mono",
+            "subset": "cyrillic-ext",
+            "weight": "400",
+            "style": "normal",
+            "file": "jetbrains-mono-400-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
+            "subset": "cyrillic",
+            "weight": "400",
+            "style": "normal",
+            "file": "jetbrains-mono-400-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
             "subset": "latin-ext",
             "weight": "500",
             "style": "normal",
@@ -519,6 +747,24 @@
         {
             "slug": "jetbrains-mono",
             "family": "JetBrains Mono",
+            "subset": "cyrillic-ext",
+            "weight": "500",
+            "style": "normal",
+            "file": "jetbrains-mono-500-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
+            "subset": "cyrillic",
+            "weight": "500",
+            "style": "normal",
+            "file": "jetbrains-mono-500-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
             "subset": "latin-ext",
             "weight": "700",
             "style": "normal",
@@ -533,6 +779,24 @@
             "style": "normal",
             "file": "jetbrains-mono-700-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
+            "subset": "cyrillic-ext",
+            "weight": "700",
+            "style": "normal",
+            "file": "jetbrains-mono-700-cyrillic-ext.woff2",
+            "range": "U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F"
+        },
+        {
+            "slug": "jetbrains-mono",
+            "family": "JetBrains Mono",
+            "subset": "cyrillic",
+            "weight": "700",
+            "style": "normal",
+            "file": "jetbrains-mono-700-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "fraunces",
@@ -609,6 +873,15 @@
         {
             "slug": "playfair-display",
             "family": "Playfair Display",
+            "subset": "cyrillic",
+            "weight": "400",
+            "style": "normal",
+            "file": "playfair-display-400-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "playfair-display",
+            "family": "Playfair Display",
             "subset": "latin-ext",
             "weight": "500",
             "style": "normal",
@@ -627,6 +900,15 @@
         {
             "slug": "playfair-display",
             "family": "Playfair Display",
+            "subset": "cyrillic",
+            "weight": "500",
+            "style": "normal",
+            "file": "playfair-display-500-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+        },
+        {
+            "slug": "playfair-display",
+            "family": "Playfair Display",
             "subset": "latin-ext",
             "weight": "700",
             "style": "normal",
@@ -641,6 +923,15 @@
             "style": "normal",
             "file": "playfair-display-700-latin.woff2",
             "range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"
+        },
+        {
+            "slug": "playfair-display",
+            "family": "Playfair Display",
+            "subset": "cyrillic",
+            "weight": "700",
+            "style": "normal",
+            "file": "playfair-display-700-cyrillic.woff2",
+            "range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
         },
         {
             "slug": "instrument-serif",
@@ -785,7 +1076,7 @@
                 "border": "#232733"
             },
             "typography": {
-                "heading_font": "space-grotesk",
+                "heading_font": "jetbrains-mono",
                 "body_font": "inter",
                 "scale": "default"
             },
@@ -807,7 +1098,7 @@
                 "border": "#dedad0"
             },
             "typography": {
-                "heading_font": "fraunces",
+                "heading_font": "playfair-display",
                 "body_font": "ibm-plex-sans",
                 "scale": "default"
             },

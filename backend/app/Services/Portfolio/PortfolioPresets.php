@@ -15,6 +15,12 @@ use App\Enums\SectionType;
  * settings; the editor shows it as sample content and the flag clears the first
  * time the user edits that section, so nobody is ever confused about what is
  * theirs and what is ours.
+ *
+ * The copy is Russian, and written as a Russian professional would actually
+ * write it — not translated from an English original. Sample content is read
+ * as a suggestion of the register to aim for, so a stilted translation would
+ * teach the wrong thing. Cities, companies and currencies are local for the
+ * same reason.
  */
 final class PortfolioPresets
 {
@@ -97,77 +103,77 @@ final class PortfolioPresets
     {
         return [
             'hero' => [
-                'name' => 'Jordan Reyes',
-                'title' => 'Senior backend engineer',
-                'intro' => "I build the parts of a product that have to keep working at 3am — payment pipelines, event systems, and the boring infrastructure that makes the interesting features possible.\n\nCurrently at a fintech scale-up, previously agency and consultancy work.",
-                'cta_text' => 'Read the CV',
+                'name' => 'Ярослав Кузнецов',
+                'title' => 'Ведущий backend-разработчик',
+                'intro' => "Делаю те части продукта, которые обязаны работать в три часа ночи: платёжные конвейеры, событийные системы и скучную инфраструктуру, без которой не бывает интересных фич.\n\nСейчас в финтех-компании на стадии роста, до этого — агентство и консалтинг.",
+                'cta_text' => 'Смотреть резюме',
                 'cta_url' => 'https://example.com/cv.pdf',
-                'secondary_cta_text' => 'Email me',
+                'secondary_cta_text' => 'Написать',
                 'secondary_cta_url' => 'https://example.com/contact',
                 'alignment' => 'left',
                 'show_social' => true,
                 'photo_media_id' => null,
             ],
             'about' => [
-                'heading' => 'About',
-                'body' => "Nine years writing services that other teams depend on. I care about the seams: retries, idempotency, migrations that run while the site is up, and observability you can actually reason about at 2am.\n\nI like joining a codebase that already has customers and making it calmer — not rewriting it.",
+                'heading' => 'О себе',
+                'body' => "Девять лет пишу сервисы, от которых зависят другие команды. Мне важны стыки: повторные попытки, идемпотентность, миграции, которые проходят без остановки сайта, и наблюдаемость, в которой можно разобраться в два часа ночи.\n\nЛюблю приходить в кодовую базу, у которой уже есть клиенты, и делать её спокойнее — а не переписывать с нуля.",
                 'highlights' => [
-                    ['label' => 'Years shipping', 'value' => '9'],
-                    ['label' => 'Uptime held', 'value' => '99.98%'],
-                    ['label' => 'Teams mentored', 'value' => '4'],
+                    ['label' => 'Лет в разработке', 'value' => '9'],
+                    ['label' => 'Аптайм', 'value' => '99,98%'],
+                    ['label' => 'Команд наставлял', 'value' => '4'],
                 ],
                 'photo_media_id' => null,
             ],
             'experience' => [
-                'heading' => 'Experience',
+                'heading' => 'Опыт',
                 'items' => [
                     [
-                        'role' => 'Senior Backend Engineer',
-                        'company' => 'Northbeam Payments',
-                        'location' => 'Remote',
+                        'role' => 'Ведущий backend-разработчик',
+                        'company' => 'Северный Платёж',
+                        'location' => 'Удалённо',
                         'start' => '2022',
                         'end' => '',
                         'current' => true,
-                        'description' => 'Own the ledger and settlement services. Cut reconciliation time from four hours to eleven minutes by moving batch jobs onto an event stream, and led the migration off a single Postgres primary without downtime.',
+                        'description' => 'Отвечаю за сервисы реестра и расчётов. Сократил сверку с четырёх часов до одиннадцати минут, переведя пакетные задания на поток событий, и провёл уход от единственного primary в PostgreSQL без простоя.',
                         'tags' => ['Go', 'PostgreSQL', 'Kafka', 'Terraform'],
                     ],
                     [
-                        'role' => 'Backend Engineer',
-                        'company' => 'Kettle Studio',
-                        'location' => 'Berlin',
+                        'role' => 'Backend-разработчик',
+                        'company' => 'Студия «Котёл»',
+                        'location' => 'Тбилиси',
                         'start' => '2019',
                         'end' => '2022',
                         'current' => false,
-                        'description' => 'Built APIs for a dozen client products, from a logistics tracker to a booking platform. Introduced the testing and deploy conventions the studio still uses.',
+                        'description' => 'Собрал API для десятка клиентских продуктов — от трекера логистики до платформы бронирования. Ввёл конвенции тестов и деплоя, которыми студия пользуется до сих пор.',
                         'tags' => ['PHP', 'Laravel', 'Vue', 'AWS'],
                     ],
                     [
-                        'role' => 'Software Engineer',
-                        'company' => 'Halden Systems',
-                        'location' => 'Oslo',
+                        'role' => 'Инженер-программист',
+                        'company' => 'Халден Системы',
+                        'location' => 'Казань',
                         'start' => '2016',
                         'end' => '2019',
                         'current' => false,
-                        'description' => 'Maintained an industrial monitoring platform used across eleven sites. First exposure to systems where a bad deploy meant somebody drove to a factory.',
+                        'description' => 'Поддерживал платформу промышленного мониторинга на одиннадцати площадках. Первый опыт систем, где неудачный деплой означал, что кто-то едет на завод.',
                         'tags' => ['Python', 'TimescaleDB'],
                     ],
                 ],
             ],
             'skills' => [
-                'heading' => 'Stack',
+                'heading' => 'Стек',
                 'groups' => [
-                    ['name' => 'Languages', 'items' => ['Go', 'PHP', 'TypeScript', 'Python', 'SQL']],
-                    ['name' => 'Data', 'items' => ['PostgreSQL', 'Redis', 'Kafka', 'ClickHouse']],
-                    ['name' => 'Platform', 'items' => ['Docker', 'Terraform', 'AWS', 'GitHub Actions', 'Grafana']],
+                    ['name' => 'Языки', 'items' => ['Go', 'PHP', 'TypeScript', 'Python', 'SQL']],
+                    ['name' => 'Данные', 'items' => ['PostgreSQL', 'Redis', 'Kafka', 'ClickHouse']],
+                    ['name' => 'Платформа', 'items' => ['Docker', 'Terraform', 'AWS', 'GitHub Actions', 'Grafana']],
                 ],
             ],
             'projects' => [
-                'heading' => 'Selected work',
-                'intro' => 'A few things I can talk about publicly.',
+                'heading' => 'Избранные работы',
+                'intro' => 'Несколько вещей, о которых можно говорить публично.',
                 'items' => [
                     [
-                        'title' => 'Ledger rebuild',
-                        'description' => 'Replaced a nightly batch reconciliation with an append-only event ledger. Balances became queryable in real time and the finance team stopped filing tickets about missing rows.',
+                        'title' => 'Перестройка реестра',
+                        'description' => 'Заменил ночную пакетную сверку журналом событий, в который можно только дописывать. Остатки стали видны в реальном времени, а финансы перестали заводить тикеты о пропавших строках.',
                         'technologies' => ['Go', 'Kafka', 'PostgreSQL'],
                         'url' => 'https://example.com/ledger',
                         'github_url' => '',
@@ -177,7 +183,7 @@ final class PortfolioPresets
                     ],
                     [
                         'title' => 'pgshift',
-                        'description' => 'A small CLI for running expand-and-contract Postgres migrations safely against a live primary. Open source, used by a handful of teams beyond mine.',
+                        'description' => 'Небольшая утилита для безопасных миграций PostgreSQL по схеме expand-and-contract на живом primary. Открытый код, им пользуются несколько команд помимо моей.',
                         'technologies' => ['Go', 'PostgreSQL'],
                         'url' => '',
                         'github_url' => 'https://github.com/example/pgshift',
@@ -186,8 +192,8 @@ final class PortfolioPresets
                         'featured' => false,
                     ],
                     [
-                        'title' => 'Booking platform API',
-                        'description' => 'Multi-tenant booking backend for a studio client, handling 40k reservations a month with a scheduling model that survived three rounds of requirement changes.',
+                        'title' => 'API платформы бронирования',
+                        'description' => 'Мультиарендный бэкенд бронирования для клиента студии: 40 тысяч записей в месяц и модель расписания, пережившая три круга смены требований.',
                         'technologies' => ['Laravel', 'MySQL', 'Redis'],
                         'url' => 'https://example.com/booking',
                         'github_url' => '',
@@ -198,32 +204,32 @@ final class PortfolioPresets
                 ],
             ],
             'education' => [
-                'heading' => 'Education',
+                'heading' => 'Образование',
                 'items' => [
                     [
-                        'degree' => 'BSc Computer Science',
-                        'institution' => 'University of Bergen',
-                        'location' => 'Norway',
+                        'degree' => 'Бакалавр, прикладная математика и информатика',
+                        'institution' => 'Университет ИТМО',
+                        'location' => 'Санкт-Петербург',
                         'start' => '2012',
-                        'end' => '2015',
+                        'end' => '2016',
                         'description' => '',
                     ],
                 ],
             ],
             'contacts' => [
-                'heading' => 'Get in touch',
-                'intro' => 'Open to senior backend and platform roles, and to short consulting engagements.',
-                'email' => 'jordan@example.com',
+                'heading' => 'Связаться',
+                'intro' => 'Открыт к сильным backend- и платформенным ролям, а также к коротким консультациям.',
+                'email' => 'yaroslav@example.com',
                 'phone' => '',
-                'location' => 'Lisbon, Portugal',
-                'availability' => 'Available from March',
-                'cta_text' => 'Send an email',
+                'location' => 'Тбилиси',
+                'availability' => 'Свободен с марта',
+                'cta_text' => 'Написать письмо',
             ],
             'social_links' => [
                 'items' => [
                     ['platform' => 'github', 'url' => 'https://github.com/example', 'label' => 'GitHub'],
                     ['platform' => 'linkedin', 'url' => 'https://linkedin.com/in/example', 'label' => 'LinkedIn'],
-                    ['platform' => 'x', 'url' => 'https://x.com/example', 'label' => 'X'],
+                    ['platform' => 'telegram', 'url' => 'https://t.me/example', 'label' => 'Telegram'],
                 ],
             ],
         ];
@@ -234,78 +240,78 @@ final class PortfolioPresets
     {
         return [
             'hero' => [
-                'name' => 'Alex Morgan',
-                'title' => 'Product designer',
-                'intro' => 'I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens where the real work happens.',
-                'cta_text' => 'View work',
+                'name' => 'Алиса Морозова',
+                'title' => 'Продуктовый дизайнер',
+                'intro' => 'Проектирую софт, которым пользуются каждый день не задумываясь. Десять лет в финтехе, медицине и инструментах для разработчиков — в основном те неэффектные экраны, где и делается настоящая работа.',
+                'cta_text' => 'Смотреть работы',
                 'cta_url' => 'https://example.com/work',
-                'secondary_cta_text' => 'Download CV',
+                'secondary_cta_text' => 'Скачать резюме',
                 'secondary_cta_url' => 'https://example.com/cv.pdf',
                 'alignment' => 'left',
                 'show_social' => true,
                 'photo_media_id' => null,
             ],
             'about' => [
-                'heading' => 'About',
-                'body' => "I started in print, moved to interfaces, and never lost the habit of caring about type and rhythm. These days I spend most of my time on flows that are hard to get right — onboarding, permissions, billing — where a good decision saves a support team a thousand emails.\n\nI work best embedded with engineers, sketching in the morning and reviewing a build in the afternoon.",
+                'heading' => 'О себе',
+                'body' => "Начинала в печати, ушла в интерфейсы и не растеряла привычку следить за шрифтом и ритмом. Сейчас почти всё время занимают сценарии, которые трудно сделать хорошо: онбординг, права доступа, биллинг — там одно верное решение экономит поддержке тысячу писем.\n\nЛучше всего работаю внутри команды разработки: утром эскизы, днём разбор собранного билда.",
                 'highlights' => [
-                    ['label' => 'Years designing', 'value' => '10'],
-                    ['label' => 'Products shipped', 'value' => '24'],
-                    ['label' => 'Design systems built', 'value' => '3'],
+                    ['label' => 'Лет в дизайне', 'value' => '10'],
+                    ['label' => 'Продуктов выпущено', 'value' => '24'],
+                    ['label' => 'Дизайн-систем собрано', 'value' => '3'],
                 ],
                 'photo_media_id' => null,
             ],
             'experience' => [
-                'heading' => 'Experience',
+                'heading' => 'Опыт',
                 'items' => [
                     [
-                        'role' => 'Lead Product Designer',
-                        'company' => 'Fathom Health',
-                        'location' => 'London',
+                        'role' => 'Ведущий продуктовый дизайнер',
+                        'company' => 'Фатом Health',
+                        'location' => 'Москва',
                         'start' => '2021',
                         'end' => '',
                         'current' => true,
-                        'description' => 'Lead design for the clinician workspace used in 60 practices. Redesigned the triage flow and cut the time to log a consultation from nine minutes to under four.',
-                        'tags' => ['Product design', 'Design systems', 'Research'],
+                        'description' => 'Веду дизайн рабочего места врача, которым пользуются 60 клиник. Переделала сценарий приёма и сократила запись консультации с девяти минут до четырёх.',
+                        'tags' => ['Продуктовый дизайн', 'Дизайн-системы', 'Исследования'],
                     ],
                     [
-                        'role' => 'Senior Product Designer',
-                        'company' => 'Ravel',
-                        'location' => 'Amsterdam',
+                        'role' => 'Старший продуктовый дизайнер',
+                        'company' => 'Равель',
+                        'location' => 'Санкт-Петербург',
                         'start' => '2018',
                         'end' => '2021',
                         'current' => false,
-                        'description' => 'Owned the billing and subscription experience for a B2B analytics product, and built the first version of the design system with two engineers.',
-                        'tags' => ['SaaS', 'Design systems'],
+                        'description' => 'Отвечала за биллинг и подписки в B2B-аналитике, вместе с двумя разработчиками собрала первую версию дизайн-системы.',
+                        'tags' => ['SaaS', 'Дизайн-системы'],
                     ],
                     [
-                        'role' => 'Designer',
-                        'company' => 'Studio Mara',
-                        'location' => 'Lisbon',
+                        'role' => 'Дизайнер',
+                        'company' => 'Студия «Мара»',
+                        'location' => 'Калининград',
                         'start' => '2015',
                         'end' => '2018',
                         'current' => false,
-                        'description' => 'Brand and interface work for cultural institutions and early-stage products. Where I learned to present work properly.',
-                        'tags' => ['Brand', 'Web'],
+                        'description' => 'Айдентика и интерфейсы для культурных институций и ранних продуктов. Здесь научилась нормально показывать работу.',
+                        'tags' => ['Бренд', 'Веб'],
                     ],
                 ],
             ],
             'skills' => [
-                'heading' => 'Capabilities',
+                'heading' => 'Что умею',
                 'groups' => [
-                    ['name' => 'Design', 'items' => ['Product design', 'Design systems', 'Interaction', 'Prototyping', 'Typography']],
-                    ['name' => 'Research', 'items' => ['User interviews', 'Usability testing', 'Journey mapping']],
-                    ['name' => 'Tools', 'items' => ['Figma', 'Framer', 'Principle', 'HTML & CSS']],
+                    ['name' => 'Дизайн', 'items' => ['Продуктовый дизайн', 'Дизайн-системы', 'Взаимодействие', 'Прототипы', 'Типографика']],
+                    ['name' => 'Исследования', 'items' => ['Интервью с пользователями', 'Юзабилити-тесты', 'Карты пути']],
+                    ['name' => 'Инструменты', 'items' => ['Figma', 'Framer', 'Principle', 'HTML и CSS']],
                 ],
             ],
             'projects' => [
-                'heading' => 'Selected work',
-                'intro' => 'Four projects that show how I think, not just what I shipped.',
+                'heading' => 'Избранные работы',
+                'intro' => 'Четыре проекта, которые показывают ход мысли, а не только результат.',
                 'items' => [
                     [
-                        'title' => 'Clinician workspace',
-                        'description' => 'A single screen replacing four. We shadowed twelve clinicians for a week, found that most of the time went to context switching, and rebuilt the day around one timeline. Consultation logging dropped from nine minutes to under four.',
-                        'technologies' => ['Product design', 'Research', 'Design system'],
+                        'title' => 'Рабочее место врача',
+                        'description' => 'Один экран вместо четырёх. Неделю ходили за двенадцатью врачами, увидели, что время уходит на переключение контекста, и пересобрали день вокруг одной ленты. Запись консультации сократилась с девяти минут до четырёх.',
+                        'technologies' => ['Продуктовый дизайн', 'Исследования', 'Дизайн-система'],
                         'url' => 'https://example.com/work/clinician',
                         'github_url' => '',
                         'year' => '2024',
@@ -313,9 +319,9 @@ final class PortfolioPresets
                         'featured' => true,
                     ],
                     [
-                        'title' => 'Ravel design system',
-                        'description' => 'Sixty components, one type scale, and a contribution model that survived the team doubling. The point was never the library — it was giving engineers a default that was already right.',
-                        'technologies' => ['Design systems', 'Documentation'],
+                        'title' => 'Дизайн-система «Равель»',
+                        'description' => 'Шестьдесят компонентов, одна шкала кеглей и модель вклада, пережившая удвоение команды. Смысл был не в библиотеке, а в том, чтобы у разработчиков по умолчанию получалось правильно.',
+                        'technologies' => ['Дизайн-системы', 'Документация'],
                         'url' => 'https://example.com/work/ravel',
                         'github_url' => '',
                         'year' => '2023',
@@ -323,9 +329,9 @@ final class PortfolioPresets
                         'featured' => true,
                     ],
                     [
-                        'title' => 'Billing that explains itself',
-                        'description' => 'Usage-based pricing is honest and confusing. We rebuilt the invoice around a plain-language summary and put the breakdown one click away. Billing support tickets fell by 38% in a quarter.',
-                        'technologies' => ['Product design', 'Content design'],
+                        'title' => 'Счёт, который сам себя объясняет',
+                        'description' => 'Оплата по потреблению честная, но непонятная. Пересобрали счёт вокруг короткой сводки человеческим языком, а расшифровку убрали на один клик вглубь. Обращения в поддержку по биллингу упали на 38% за квартал.',
+                        'technologies' => ['Продуктовый дизайн', 'Редактура интерфейса'],
                         'url' => 'https://example.com/work/billing',
                         'github_url' => '',
                         'year' => '2022',
@@ -333,9 +339,9 @@ final class PortfolioPresets
                         'featured' => false,
                     ],
                     [
-                        'title' => 'Museu do Som identity',
-                        'description' => 'Identity and site for a small sound archive in Lisbon. A restrained system built around one serif and a lot of silence, so the recordings carry the page.',
-                        'technologies' => ['Brand', 'Web'],
+                        'title' => 'Айдентика «Музея звука»',
+                        'description' => 'Айдентика и сайт для небольшого звукового архива. Сдержанная система вокруг одной антиквы и большого количества тишины, чтобы страницу держали записи.',
+                        'technologies' => ['Бренд', 'Веб'],
                         'url' => 'https://example.com/work/museu',
                         'github_url' => '',
                         'year' => '2019',
@@ -345,20 +351,20 @@ final class PortfolioPresets
                 ],
             ],
             'education' => [
-                'heading' => 'Education',
+                'heading' => 'Образование',
                 'items' => [
                     [
-                        'degree' => 'MA Graphic Design',
-                        'institution' => 'Central Saint Martins',
-                        'location' => 'London',
+                        'degree' => 'Магистр, графический дизайн',
+                        'institution' => 'Высшая школа экономики',
+                        'location' => 'Москва',
                         'start' => '2013',
                         'end' => '2015',
                         'description' => '',
                     ],
                     [
-                        'degree' => 'BA Visual Communication',
-                        'institution' => 'FBAUL',
-                        'location' => 'Lisbon',
+                        'degree' => 'Бакалавр, визуальные коммуникации',
+                        'institution' => 'Академия имени Штиглица',
+                        'location' => 'Санкт-Петербург',
                         'start' => '2009',
                         'end' => '2013',
                         'description' => '',
@@ -366,19 +372,19 @@ final class PortfolioPresets
                 ],
             ],
             'contacts' => [
-                'heading' => 'Work together',
-                'intro' => 'I take on one freelance engagement at a time, and I answer every email.',
-                'email' => 'alex@example.com',
+                'heading' => 'Поработаем вместе',
+                'intro' => 'Беру один проект за раз и отвечаю на каждое письмо.',
+                'email' => 'alisa@example.com',
                 'phone' => '',
-                'location' => 'London, UK',
-                'availability' => 'Taking projects from April',
-                'cta_text' => 'Start a conversation',
+                'location' => 'Москва',
+                'availability' => 'Беру проекты с апреля',
+                'cta_text' => 'Начать разговор',
             ],
             'social_links' => [
                 'items' => [
-                    ['platform' => 'dribbble', 'url' => 'https://dribbble.com/example', 'label' => 'Dribbble'],
+                    ['platform' => 'behance', 'url' => 'https://behance.net/example', 'label' => 'Behance'],
+                    ['platform' => 'telegram', 'url' => 'https://t.me/example', 'label' => 'Telegram'],
                     ['platform' => 'linkedin', 'url' => 'https://linkedin.com/in/example', 'label' => 'LinkedIn'],
-                    ['platform' => 'instagram', 'url' => 'https://instagram.com/example', 'label' => 'Instagram'],
                 ],
             ],
         ];
@@ -389,10 +395,10 @@ final class PortfolioPresets
     {
         return [
             'hero' => [
-                'name' => 'Nina Halvorsen',
-                'title' => 'Photographer',
-                'intro' => 'Documentary and portrait work, mostly on assignment. I photograph people where they actually are rather than where they look best.',
-                'cta_text' => 'See the series',
+                'name' => 'Нина Северова',
+                'title' => 'Фотограф',
+                'intro' => 'Документальная и портретная съёмка, в основном по заказу. Снимаю людей там, где они на самом деле находятся, а не там, где лучше выглядят.',
+                'cta_text' => 'Смотреть серию',
                 'cta_url' => 'https://example.com/series',
                 'secondary_cta_text' => '',
                 'secondary_cta_url' => '',
@@ -401,23 +407,23 @@ final class PortfolioPresets
                 'photo_media_id' => null,
             ],
             'about' => [
-                'heading' => 'About',
-                'body' => "I have been photographing coastal communities for eight years, which taught me patience more than technique. Assignment work for magazines and cultural institutions; long-form personal projects in between.\n\nAvailable for editorial, portrait and documentary commissions across Europe.",
+                'heading' => 'О себе',
+                'body' => "Восемь лет снимаю прибрежные посёлки — это научило терпению больше, чем технике. Заказы для журналов и культурных институций, между ними — личные проекты вдолгую.\n\nБеру редакционные, портретные и документальные съёмки по России и Европе.",
                 'highlights' => [
-                    ['label' => 'Series completed', 'value' => '12'],
-                    ['label' => 'Exhibitions', 'value' => '7'],
-                    ['label' => 'Based in', 'value' => 'Oslo'],
+                    ['label' => 'Серий завершено', 'value' => '12'],
+                    ['label' => 'Выставок', 'value' => '7'],
+                    ['label' => 'База', 'value' => 'Мурманск'],
                 ],
                 'photo_media_id' => null,
             ],
             'projects' => [
-                'heading' => 'Series',
-                'intro' => 'Long-form work, shot over months rather than days.',
+                'heading' => 'Серии',
+                'intro' => 'Долгая работа: месяцы, а не дни.',
                 'items' => [
                     [
-                        'title' => 'The last ferry',
-                        'description' => 'Three winters aboard the night crossing between two islands, photographing the people for whom it is not a journey but a commute.',
-                        'technologies' => ['Documentary', 'Black and white'],
+                        'title' => 'Последний паром',
+                        'description' => 'Три зимы на ночной переправе между островами — снимала тех, для кого это не путешествие, а дорога на работу.',
+                        'technologies' => ['Документальная', 'Чёрно-белая'],
                         'url' => 'https://example.com/ferry',
                         'github_url' => '',
                         'year' => '2024',
@@ -425,9 +431,9 @@ final class PortfolioPresets
                         'featured' => true,
                     ],
                     [
-                        'title' => 'Rooms kept warm',
-                        'description' => 'Portraits made in the front rooms of a village that lost its harbour. Shot on medium format, available light only.',
-                        'technologies' => ['Portrait', 'Medium format'],
+                        'title' => 'Комнаты, которые топят',
+                        'description' => 'Портреты в передних комнатах посёлка, потерявшего порт. Средний формат, только доступный свет.',
+                        'technologies' => ['Портрет', 'Средний формат'],
                         'url' => 'https://example.com/rooms',
                         'github_url' => '',
                         'year' => '2022',
@@ -435,9 +441,9 @@ final class PortfolioPresets
                         'featured' => true,
                     ],
                     [
-                        'title' => 'Field notes, Lofoten',
-                        'description' => 'A commission for a cultural quarterly on the changing season of the cod fishery.',
-                        'technologies' => ['Editorial'],
+                        'title' => 'Полевые заметки, Териберка',
+                        'description' => 'Заказ культурного ежеквартальника о том, как меняется сезон трескового промысла.',
+                        'technologies' => ['Редакционная'],
                         'url' => 'https://example.com/lofoten',
                         'github_url' => '',
                         'year' => '2021',
@@ -447,34 +453,34 @@ final class PortfolioPresets
                 ],
             ],
             'services' => [
-                'heading' => 'Commissions',
+                'heading' => 'Съёмки',
                 'items' => [
-                    ['title' => 'Editorial assignment', 'description' => 'Reportage and portraits for magazines and newspapers, delivered within 48 hours of the shoot.', 'price' => 'From €900 / day'],
-                    ['title' => 'Portrait sitting', 'description' => 'An unhurried two-hour session, on location, with fifteen retouched frames.', 'price' => 'From €450'],
-                    ['title' => 'Documentary project', 'description' => 'Longer-form work for institutions and NGOs, scoped per commission.', 'price' => 'On request'],
+                    ['title' => 'Редакционная съёмка', 'description' => 'Репортаж и портреты для журналов и изданий, сдача в течение 48 часов после съёмки.', 'price' => 'От 60 000 ₽ за день'],
+                    ['title' => 'Портретная сессия', 'description' => 'Неторопливые два часа на локации и пятнадцать отретушированных кадров.', 'price' => 'От 30 000 ₽'],
+                    ['title' => 'Документальный проект', 'description' => 'Длинная работа для институций и НКО, объём обсуждается под задачу.', 'price' => 'По запросу'],
                 ],
             ],
             'achievements' => [
-                'heading' => 'Selected exhibitions',
+                'heading' => 'Избранные выставки',
                 'items' => [
-                    ['title' => 'The last ferry', 'issuer' => 'Fotogalleriet, Oslo', 'date' => '2024', 'url' => '', 'description' => 'Solo exhibition, 34 prints.'],
-                    ['title' => 'New Nordic Documentary', 'issuer' => 'Landskrona Foto', 'date' => '2023', 'url' => '', 'description' => 'Group exhibition.'],
-                    ['title' => 'Rooms kept warm', 'issuer' => 'Format Festival, Derby', 'date' => '2022', 'url' => '', 'description' => ''],
+                    ['title' => 'Последний паром', 'issuer' => 'Центр фотографии, Москва', 'date' => '2024', 'url' => '', 'description' => 'Персональная выставка, 34 отпечатка.'],
+                    ['title' => 'Новая северная документалистика', 'issuer' => 'Фотобиеннале, Нижний Новгород', 'date' => '2023', 'url' => '', 'description' => 'Групповая выставка.'],
+                    ['title' => 'Комнаты, которые топят', 'issuer' => 'Фестиваль «Формат», Екатеринбург', 'date' => '2022', 'url' => '', 'description' => ''],
                 ],
             ],
             'contacts' => [
-                'heading' => 'Commissions and prints',
-                'intro' => 'For assignments, print sales or archive requests.',
+                'heading' => 'Съёмки и отпечатки',
+                'intro' => 'По заказам, продаже отпечатков и запросам в архив.',
                 'email' => 'nina@example.com',
                 'phone' => '',
-                'location' => 'Oslo, Norway',
-                'availability' => 'Booking from June',
-                'cta_text' => 'Get in touch',
+                'location' => 'Мурманск',
+                'availability' => 'Запись с июня',
+                'cta_text' => 'Написать',
             ],
             'social_links' => [
                 'items' => [
-                    ['platform' => 'instagram', 'url' => 'https://instagram.com/example', 'label' => 'Instagram'],
-                    ['platform' => 'website', 'url' => 'https://example.com', 'label' => 'Archive'],
+                    ['platform' => 'telegram', 'url' => 'https://t.me/example', 'label' => 'Telegram'],
+                    ['platform' => 'website', 'url' => 'https://example.com', 'label' => 'Архив'],
                 ],
             ],
         ];
@@ -485,24 +491,24 @@ final class PortfolioPresets
     {
         $content = $this->designer();
 
-        $content['hero']['name'] = 'Sam Okafor';
-        $content['hero']['title'] = 'Product manager';
-        $content['hero']['intro'] = "I take products from 'this roughly works' to 'people pay for this'. Mostly B2B SaaS, mostly the part where strategy has to survive contact with a roadmap.";
-        $content['about']['body'] = "Seven years in product, three of them as the first PM in the room. I am at my best with a team that has shipped something real and needs to decide what to stop doing.\n\nI write specs that engineers actually read, and I would rather cut scope than a corner.";
+        $content['hero']['name'] = 'Семён Окулов';
+        $content['hero']['title'] = 'Продакт-менеджер';
+        $content['hero']['intro'] = 'Довожу продукты от «в целом работает» до «за это платят». В основном B2B SaaS и та часть, где стратегии приходится выжить при встрече с роадмапом.';
+        $content['about']['body'] = "Семь лет в продукте, три из них — первым продактом в команде. Лучше всего мне там, где уже что-то выпустили и надо решить, что перестать делать.\n\nПишу спеки, которые разработчики правда читают, и скорее срежу объём, чем углы.";
         $content['about']['highlights'] = [
-            ['label' => 'Years in product', 'value' => '7'],
-            ['label' => 'ARR influenced', 'value' => '$14M'],
-            ['label' => 'Teams led', 'value' => '3'],
+            ['label' => 'Лет в продукте', 'value' => '7'],
+            ['label' => 'Выручки под влиянием', 'value' => '1,2 млрд ₽'],
+            ['label' => 'Команд вёл', 'value' => '3'],
         ];
-        $content['skills']['heading'] = 'How I work';
+        $content['skills']['heading'] = 'Как я работаю';
         $content['skills']['groups'] = [
-            ['name' => 'Product', 'items' => ['Discovery', 'Roadmapping', 'Pricing', 'Positioning', 'Analytics']],
-            ['name' => 'Research', 'items' => ['Customer interviews', 'Win/loss analysis', 'Usability testing']],
-            ['name' => 'Tools', 'items' => ['Amplitude', 'Linear', 'Figma', 'SQL']],
+            ['name' => 'Продукт', 'items' => ['Дискавери', 'Роадмап', 'Ценообразование', 'Позиционирование', 'Аналитика']],
+            ['name' => 'Исследования', 'items' => ['Интервью с клиентами', 'Разбор сделок', 'Юзабилити-тесты']],
+            ['name' => 'Инструменты', 'items' => ['Amplitude', 'Linear', 'Figma', 'SQL']],
         ];
-        $content['contacts']['heading'] = 'Get in touch';
-        $content['contacts']['intro'] = 'Open to senior product roles and to advisory work with early-stage teams.';
-        $content['contacts']['email'] = 'sam@example.com';
+        $content['contacts']['heading'] = 'Связаться';
+        $content['contacts']['intro'] = 'Открыт к сильным продуктовым ролям и к эдвайзингу для ранних команд.';
+        $content['contacts']['email'] = 'semyon@example.com';
 
         return $content;
     }
@@ -512,10 +518,10 @@ final class PortfolioPresets
     {
         return [
             'hero' => [
-                'name' => 'Your name',
-                'title' => 'What you do',
-                'intro' => 'One or two sentences about the work you want more of. Say it the way you would say it out loud — the people reading this are deciding whether to email you.',
-                'cta_text' => 'Get in touch',
+                'name' => 'Ваше имя',
+                'title' => 'Чем вы занимаетесь',
+                'intro' => 'Одно-два предложения о работе, которой хочется больше. Напишите так, как сказали бы вслух — люди, которые это читают, решают, писать вам или нет.',
+                'cta_text' => 'Связаться',
                 'cta_url' => 'https://example.com',
                 'secondary_cta_text' => '',
                 'secondary_cta_url' => '',
@@ -524,42 +530,42 @@ final class PortfolioPresets
                 'photo_media_id' => null,
             ],
             'about' => [
-                'heading' => 'About',
-                'body' => 'A short paragraph about your background and what you are good at. A second one about how you like to work, or what you are looking for next.',
+                'heading' => 'О себе',
+                'body' => 'Короткий абзац о вашем опыте и о том, в чём вы сильны. Второй — о том, как вам нравится работать или что вы ищете дальше.',
                 'highlights' => [
-                    ['label' => 'Years of experience', 'value' => '5'],
-                    ['label' => 'Projects delivered', 'value' => '20'],
+                    ['label' => 'Лет опыта', 'value' => '5'],
+                    ['label' => 'Проектов сдано', 'value' => '20'],
                 ],
                 'photo_media_id' => null,
             ],
             'experience' => [
-                'heading' => 'Experience',
+                'heading' => 'Опыт',
                 'items' => [
                     [
-                        'role' => 'Your role',
-                        'company' => 'Company',
-                        'location' => 'City',
+                        'role' => 'Ваша должность',
+                        'company' => 'Компания',
+                        'location' => 'Город',
                         'start' => '2022',
                         'end' => '',
                         'current' => true,
-                        'description' => 'What you were responsible for, and one concrete result.',
+                        'description' => 'За что вы отвечали и один конкретный результат.',
                         'tags' => [],
                     ],
                 ],
             ],
             'skills' => [
-                'heading' => 'Skills',
+                'heading' => 'Навыки',
                 'groups' => [
-                    ['name' => 'Core', 'items' => ['Add a skill', 'And another']],
+                    ['name' => 'Основное', 'items' => ['Добавьте навык', 'И ещё один']],
                 ],
             ],
             'projects' => [
-                'heading' => 'Selected work',
+                'heading' => 'Избранные работы',
                 'intro' => '',
                 'items' => [
                     [
-                        'title' => 'A project',
-                        'description' => 'What the problem was, what you did, and what changed as a result.',
+                        'title' => 'Проект',
+                        'description' => 'В чём была задача, что вы сделали и что в итоге изменилось.',
                         'technologies' => [],
                         'url' => '',
                         'github_url' => '',
@@ -570,13 +576,13 @@ final class PortfolioPresets
                 ],
             ],
             'contacts' => [
-                'heading' => 'Get in touch',
+                'heading' => 'Связаться',
                 'intro' => '',
                 'email' => 'you@example.com',
                 'phone' => '',
                 'location' => '',
                 'availability' => '',
-                'cta_text' => 'Send an email',
+                'cta_text' => 'Написать письмо',
             ],
             'social_links' => [
                 'items' => [],

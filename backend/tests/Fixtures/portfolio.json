@@ -14,13 +14,13 @@
         {
             "type": "hero",
             "content": {
-                "name": "Alex Morgan",
-                "title": "Product designer",
-                "intro": "I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens where the real work happens.",
+                "name": "Алиса Морозова",
+                "title": "Продуктовый дизайнер",
+                "intro": "Проектирую софт, которым пользуются каждый день не задумываясь. Десять лет в финтехе, медицине и инструментах для разработчиков — в основном те неэффектные экраны, где и делается настоящая работа.",
                 "photo_media_id": null,
-                "cta_text": "View work",
+                "cta_text": "Смотреть работы",
                 "cta_url": "https://example.com/work",
-                "secondary_cta_text": "Download CV",
+                "secondary_cta_text": "Скачать резюме",
                 "secondary_cta_url": "https://example.com/cv.pdf",
                 "alignment": "left",
                 "show_social": true
@@ -29,20 +29,20 @@
         {
             "type": "about",
             "content": {
-                "heading": "About",
-                "body": "I started in print, moved to interfaces, and never lost the habit of caring about type and rhythm. These days I spend most of my time on flows that are hard to get right — onboarding, permissions, billing — where a good decision saves a support team a thousand emails.\n\nI work best embedded with engineers, sketching in the morning and reviewing a build in the afternoon.",
+                "heading": "О себе",
+                "body": "Начинала в печати, ушла в интерфейсы и не растеряла привычку следить за шрифтом и ритмом. Сейчас почти всё время занимают сценарии, которые трудно сделать хорошо: онбординг, права доступа, биллинг — там одно верное решение экономит поддержке тысячу писем.\n\nЛучше всего работаю внутри команды разработки: утром эскизы, днём разбор собранного билда.",
                 "photo_media_id": null,
                 "highlights": [
                     {
-                        "label": "Years designing",
+                        "label": "Лет в дизайне",
                         "value": "10"
                     },
                     {
-                        "label": "Products shipped",
+                        "label": "Продуктов выпущено",
                         "value": "24"
                     },
                     {
-                        "label": "Design systems built",
+                        "label": "Дизайн-систем собрано",
                         "value": "3"
                     }
                 ]
@@ -51,46 +51,46 @@
         {
             "type": "experience",
             "content": {
-                "heading": "Experience",
+                "heading": "Опыт",
                 "items": [
                     {
-                        "role": "Lead Product Designer",
-                        "company": "Fathom Health",
-                        "location": "London",
+                        "role": "Ведущий продуктовый дизайнер",
+                        "company": "Фатом Health",
+                        "location": "Москва",
                         "start": "2021",
                         "end": "",
                         "current": true,
-                        "description": "Lead design for the clinician workspace used in 60 practices. Redesigned the triage flow and cut the time to log a consultation from nine minutes to under four.",
+                        "description": "Веду дизайн рабочего места врача, которым пользуются 60 клиник. Переделала сценарий приёма и сократила запись консультации с девяти минут до четырёх.",
                         "tags": [
-                            "Product design",
-                            "Design systems",
-                            "Research"
+                            "Продуктовый дизайн",
+                            "Дизайн-системы",
+                            "Исследования"
                         ]
                     },
                     {
-                        "role": "Senior Product Designer",
-                        "company": "Ravel",
-                        "location": "Amsterdam",
+                        "role": "Старший продуктовый дизайнер",
+                        "company": "Равель",
+                        "location": "Санкт-Петербург",
                         "start": "2018",
                         "end": "2021",
                         "current": false,
-                        "description": "Owned the billing and subscription experience for a B2B analytics product, and built the first version of the design system with two engineers.",
+                        "description": "Отвечала за биллинг и подписки в B2B-аналитике, вместе с двумя разработчиками собрала первую версию дизайн-системы.",
                         "tags": [
                             "SaaS",
-                            "Design systems"
+                            "Дизайн-системы"
                         ]
                     },
                     {
-                        "role": "Designer",
-                        "company": "Studio Mara",
-                        "location": "Lisbon",
+                        "role": "Дизайнер",
+                        "company": "Студия «Мара»",
+                        "location": "Калининград",
                         "start": "2015",
                         "end": "2018",
                         "current": false,
-                        "description": "Brand and interface work for cultural institutions and early-stage products. Where I learned to present work properly.",
+                        "description": "Айдентика и интерфейсы для культурных институций и ранних продуктов. Здесь научилась нормально показывать работу.",
                         "tags": [
-                            "Brand",
-                            "Web"
+                            "Бренд",
+                            "Веб"
                         ]
                     }
                 ]
@@ -99,33 +99,33 @@
         {
             "type": "skills",
             "content": {
-                "heading": "Capabilities",
+                "heading": "Что умею",
                 "groups": [
                     {
-                        "name": "Design",
+                        "name": "Дизайн",
                         "items": [
-                            "Product design",
-                            "Design systems",
-                            "Interaction",
-                            "Prototyping",
-                            "Typography"
+                            "Продуктовый дизайн",
+                            "Дизайн-системы",
+                            "Взаимодействие",
+                            "Прототипы",
+                            "Типографика"
                         ]
                     },
                     {
-                        "name": "Research",
+                        "name": "Исследования",
                         "items": [
-                            "User interviews",
-                            "Usability testing",
-                            "Journey mapping"
+                            "Интервью с пользователями",
+                            "Юзабилити-тесты",
+                            "Карты пути"
                         ]
                     },
                     {
-                        "name": "Tools",
+                        "name": "Инструменты",
                         "items": [
                             "Figma",
                             "Framer",
                             "Principle",
-                            "HTML & CSS"
+                            "HTML и CSS"
                         ]
                     }
                 ]
@@ -134,16 +134,16 @@
         {
             "type": "projects",
             "content": {
-                "heading": "Selected work",
-                "intro": "Four projects that show how I think, not just what I shipped.",
+                "heading": "Избранные работы",
+                "intro": "Четыре проекта, которые показывают ход мысли, а не только результат.",
                 "items": [
                     {
-                        "title": "Clinician workspace",
-                        "description": "A single screen replacing four. We shadowed twelve clinicians for a week, found that most of the time went to context switching, and rebuilt the day around one timeline. Consultation logging dropped from nine minutes to under four.",
+                        "title": "Рабочее место врача",
+                        "description": "Один экран вместо четырёх. Неделю ходили за двенадцатью врачами, увидели, что время уходит на переключение контекста, и пересобрали день вокруг одной ленты. Запись консультации сократилась с девяти минут до четырёх.",
                         "technologies": [
-                            "Product design",
-                            "Research",
-                            "Design system"
+                            "Продуктовый дизайн",
+                            "Исследования",
+                            "Дизайн-система"
                         ],
                         "url": "https://example.com/work/clinician",
                         "github_url": "",
@@ -152,11 +152,11 @@
                         "featured": true
                     },
                     {
-                        "title": "Ravel design system",
-                        "description": "Sixty components, one type scale, and a contribution model that survived the team doubling. The point was never the library — it was giving engineers a default that was already right.",
+                        "title": "Дизайн-система «Равель»",
+                        "description": "Шестьдесят компонентов, одна шкала кеглей и модель вклада, пережившая удвоение команды. Смысл был не в библиотеке, а в том, чтобы у разработчиков по умолчанию получалось правильно.",
                         "technologies": [
-                            "Design systems",
-                            "Documentation"
+                            "Дизайн-системы",
+                            "Документация"
                         ],
                         "url": "https://example.com/work/ravel",
                         "github_url": "",
@@ -165,11 +165,11 @@
                         "featured": true
                     },
                     {
-                        "title": "Billing that explains itself",
-                        "description": "Usage-based pricing is honest and confusing. We rebuilt the invoice around a plain-language summary and put the breakdown one click away. Billing support tickets fell by 38% in a quarter.",
+                        "title": "Счёт, который сам себя объясняет",
+                        "description": "Оплата по потреблению честная, но непонятная. Пересобрали счёт вокруг короткой сводки человеческим языком, а расшифровку убрали на один клик вглубь. Обращения в поддержку по биллингу упали на 38% за квартал.",
                         "technologies": [
-                            "Product design",
-                            "Content design"
+                            "Продуктовый дизайн",
+                            "Редактура интерфейса"
                         ],
                         "url": "https://example.com/work/billing",
                         "github_url": "",
@@ -178,11 +178,11 @@
                         "featured": false
                     },
                     {
-                        "title": "Museu do Som identity",
-                        "description": "Identity and site for a small sound archive in Lisbon. A restrained system built around one serif and a lot of silence, so the recordings carry the page.",
+                        "title": "Айдентика «Музея звука»",
+                        "description": "Айдентика и сайт для небольшого звукового архива. Сдержанная система вокруг одной антиквы и большого количества тишины, чтобы страницу держали записи.",
                         "technologies": [
-                            "Brand",
-                            "Web"
+                            "Бренд",
+                            "Веб"
                         ],
                         "url": "https://example.com/work/museu",
                         "github_url": "",
@@ -196,20 +196,20 @@
         {
             "type": "education",
             "content": {
-                "heading": "Education",
+                "heading": "Образование",
                 "items": [
                     {
-                        "degree": "MA Graphic Design",
-                        "institution": "Central Saint Martins",
-                        "location": "London",
+                        "degree": "Магистр, графический дизайн",
+                        "institution": "Высшая школа экономики",
+                        "location": "Москва",
                         "start": "2013",
                         "end": "2015",
                         "description": ""
                     },
                     {
-                        "degree": "BA Visual Communication",
-                        "institution": "FBAUL",
-                        "location": "Lisbon",
+                        "degree": "Бакалавр, визуальные коммуникации",
+                        "institution": "Академия имени Штиглица",
+                        "location": "Санкт-Петербург",
                         "start": "2009",
                         "end": "2013",
                         "description": ""
@@ -220,13 +220,13 @@
         {
             "type": "contacts",
             "content": {
-                "heading": "Work together",
-                "intro": "I take on one freelance engagement at a time, and I answer every email.",
-                "email": "alex@example.com",
+                "heading": "Поработаем вместе",
+                "intro": "Беру один проект за раз и отвечаю на каждое письмо.",
+                "email": "alisa@example.com",
                 "phone": "",
-                "location": "London, UK",
-                "availability": "Taking projects from April",
-                "cta_text": "Start a conversation"
+                "location": "Москва",
+                "availability": "Беру проекты с апреля",
+                "cta_text": "Начать разговор"
             }
         },
         {
@@ -234,19 +234,19 @@
             "content": {
                 "items": [
                     {
-                        "platform": "dribbble",
-                        "url": "https://dribbble.com/example",
-                        "label": "Dribbble"
+                        "platform": "behance",
+                        "url": "https://behance.net/example",
+                        "label": "Behance"
+                    },
+                    {
+                        "platform": "telegram",
+                        "url": "https://t.me/example",
+                        "label": "Telegram"
                     },
                     {
                         "platform": "linkedin",
                         "url": "https://linkedin.com/in/example",
                         "label": "LinkedIn"
-                    },
-                    {
-                        "platform": "instagram",
-                        "url": "https://instagram.com/example",
-                        "label": "Instagram"
                     }
                 ]
             }

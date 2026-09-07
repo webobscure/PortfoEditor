@@ -26,6 +26,10 @@ final class SectionSchemaRegistry
         'platforms' => [
             'github', 'linkedin', 'x', 'dribbble', 'behance', 'instagram',
             'youtube', 'medium', 'figma', 'threads', 'mastodon', 'website',
+            // Telegram and VK are the default professional contact channels
+            // for this audience; leaving them out would push people into the
+            // generic "website" row for the link they most want to show.
+            'telegram', 'vk',
         ],
     ];
 

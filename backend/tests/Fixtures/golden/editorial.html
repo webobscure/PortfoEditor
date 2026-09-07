@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alex Morgan — Product designer</title>
-<meta name="description" content="I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens wh…">
+<title>Алиса Морозова — Продуктовый дизайнер</title>
+<meta name="description" content="Проектирую софт, которым пользуются каждый день не задумываясь. Десять лет в финтехе, медицине и инструментах для разработчиков — в основном те неэффектные экр…">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Alex Morgan — Product designer">
-<meta property="og:description" content="I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens wh…">
+<meta property="og:title" content="Алиса Морозова — Продуктовый дизайнер">
+<meta property="og:description" content="Проектирую софт, которым пользуются каждый день не задумываясь. Десять лет в финтехе, медицине и инструментах для разработчиков — в основном те неэффектные экр…">
 <meta name="twitter:card" content="summary">
 <style>@font-face {
   font-family: 'IBM Plex Sans';
@@ -28,6 +28,22 @@
 @font-face {
   font-family: 'IBM Plex Sans';
   font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/ibm-plex-sans-400-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/ibm-plex-sans-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
   font-weight: 500;
   font-display: swap;
   src: url('assets/fonts/ibm-plex-sans-500-latin-ext.woff2') format('woff2');
@@ -40,6 +56,22 @@
   font-display: swap;
   src: url('assets/fonts/ibm-plex-sans-500-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/ibm-plex-sans-500-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/ibm-plex-sans-500-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 @font-face {
   font-family: 'IBM Plex Sans';
@@ -58,52 +90,92 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Fraunces';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('assets/fonts/fraunces-400-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Fraunces';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('assets/fonts/fraunces-400-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Fraunces';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('assets/fonts/fraunces-600-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('assets/fonts/ibm-plex-sans-600-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'IBM Plex Sans';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('assets/fonts/fraunces-600-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('assets/fonts/ibm-plex-sans-600-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'Playfair Display';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-display: swap;
-  src: url('assets/fonts/fraunces-700-latin-ext.woff2') format('woff2');
+  src: url('assets/fonts/playfair-display-400-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: 'Fraunces';
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-500-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('assets/fonts/fraunces-700-latin.woff2') format('woff2');
+  src: url('assets/fonts/playfair-display-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-700-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('assets/fonts/playfair-display-700-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }</style>
 <style>:root {
   --pf-accent: #2f5bea;
@@ -115,7 +187,7 @@
   --pf-text: #1b1a17;
   --pf-muted: #6f6b63;
   --pf-border: #dedad0;
-  --pf-font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --pf-font-heading: "Playfair Display", Georgia, "Times New Roman", serif;
   --pf-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --pf-type-scale: 1;
   --pf-space-scale: 1.32;
@@ -125,17 +197,17 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="pf pf-t-editorial">
-<header class="pf-nav" id="top"><div class="pf-nav__inner"><a class="pf-nav__brand" href="#top">Alex Morgan</a><nav class="pf-nav__links" aria-label="Секции"><a class="pf-nav__link" href="#section-about">About</a><a class="pf-nav__link" href="#section-experience">Experience</a><a class="pf-nav__link" href="#section-skills">Capabilities</a><a class="pf-nav__link" href="#section-projects">Selected work</a><a class="pf-nav__link" href="#section-education">Education</a><a class="pf-nav__link" href="#section-contacts">Work together</a></nav></div></header>
+<header class="pf-nav" id="top"><div class="pf-nav__inner"><a class="pf-nav__brand" href="#top">Алиса Морозова</a><nav class="pf-nav__links" aria-label="Секции"><a class="pf-nav__link" href="#section-about">О себе</a><a class="pf-nav__link" href="#section-experience">Опыт</a><a class="pf-nav__link" href="#section-skills">Что умею</a><a class="pf-nav__link" href="#section-projects">Избранные работы</a><a class="pf-nav__link" href="#section-education">Образование</a><a class="pf-nav__link" href="#section-contacts">Поработаем вместе</a></nav></div></header>
 <main class="pf-main" id="content">
-<section id="section-hero" class="pf-section pf-section--hero" data-pf-section="1" data-pf-type="hero"><div class="pf-shell pf-hero is-left"><div class="pf-hero__text"><p class="pf-hero__eyebrow">Product designer</p><h1 class="pf-hero__name">Alex Morgan</h1><p class="pf-hero__intro">I design software that people use every day without thinking about it. Ten years across fintech, health and developer tools — mostly the unglamorous screens where the real work happens.</p><div class="pf-hero__actions"><a class="pf-btn pf-btn--primary" href="https://example.com/work" target="_blank" rel="noopener noreferrer">View work</a><a class="pf-btn pf-btn--ghost" href="https://example.com/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV</a></div><nav class="pf-hero__social" aria-label="Соцсети"><a class="pf-hero__social-link" href="https://dribbble.com/example" target="_blank" rel="noopener noreferrer" data-platform="dribbble">Dribbble</a><a class="pf-hero__social-link" href="https://linkedin.com/in/example" target="_blank" rel="noopener noreferrer" data-platform="linkedin">LinkedIn</a><a class="pf-hero__social-link" href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" data-platform="instagram">Instagram</a></nav></div></div></section>
-<section id="section-about" class="pf-section pf-section--about" data-pf-section="2" data-pf-type="about"><div class="pf-shell pf-about"><h2 class="pf-section__title">About</h2><div class="pf-about__grid"><div class="pf-about__content"><p class="pf-about__body">I started in print, moved to interfaces, and never lost the habit of caring about type and rhythm. These days I spend most of my time on flows that are hard to get right — onboarding, permissions, billing — where a good decision saves a support team a thousand emails.</p><p class="pf-about__body">I work best embedded with engineers, sketching in the morning and reviewing a build in the afternoon.</p><dl class="pf-highlights"><div class="pf-highlight"><dt class="pf-highlight__value">10</dt><dd class="pf-highlight__label">Years designing</dd></div><div class="pf-highlight"><dt class="pf-highlight__value">24</dt><dd class="pf-highlight__label">Products shipped</dd></div><div class="pf-highlight"><dt class="pf-highlight__value">3</dt><dd class="pf-highlight__label">Design systems built</dd></div></dl></div></div></div></section>
-<section id="section-experience" class="pf-section pf-section--experience" data-pf-section="3" data-pf-type="experience"><div class="pf-shell"><h2 class="pf-section__title">Experience</h2><ul class="pf-entries"><li class="pf-entry"><p class="pf-entry__period">2021 — по настоящее время</p><div class="pf-entry__body"><h3 class="pf-entry__title">Lead Product Designer</h3><p class="pf-entry__meta">Fathom Health · London</p><p class="pf-entry__text">Lead design for the clinician workspace used in 60 practices. Redesigned the triage flow and cut the time to log a consultation from nine minutes to under four.</p><ul class="pf-tags"><li class="pf-tag">Product design</li><li class="pf-tag">Design systems</li><li class="pf-tag">Research</li></ul></div></li><li class="pf-entry"><p class="pf-entry__period">2018 — 2021</p><div class="pf-entry__body"><h3 class="pf-entry__title">Senior Product Designer</h3><p class="pf-entry__meta">Ravel · Amsterdam</p><p class="pf-entry__text">Owned the billing and subscription experience for a B2B analytics product, and built the first version of the design system with two engineers.</p><ul class="pf-tags"><li class="pf-tag">SaaS</li><li class="pf-tag">Design systems</li></ul></div></li><li class="pf-entry"><p class="pf-entry__period">2015 — 2018</p><div class="pf-entry__body"><h3 class="pf-entry__title">Designer</h3><p class="pf-entry__meta">Studio Mara · Lisbon</p><p class="pf-entry__text">Brand and interface work for cultural institutions and early-stage products. Where I learned to present work properly.</p><ul class="pf-tags"><li class="pf-tag">Brand</li><li class="pf-tag">Web</li></ul></div></li></ul></div></section>
-<section id="section-skills" class="pf-section pf-section--skills" data-pf-section="4" data-pf-type="skills"><div class="pf-shell"><h2 class="pf-section__title">Capabilities</h2><div class="pf-skills"><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Design</h3><ul class="pf-chips"><li class="pf-chip">Product design</li><li class="pf-chip">Design systems</li><li class="pf-chip">Interaction</li><li class="pf-chip">Prototyping</li><li class="pf-chip">Typography</li></ul></div><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Research</h3><ul class="pf-chips"><li class="pf-chip">User interviews</li><li class="pf-chip">Usability testing</li><li class="pf-chip">Journey mapping</li></ul></div><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Tools</h3><ul class="pf-chips"><li class="pf-chip">Figma</li><li class="pf-chip">Framer</li><li class="pf-chip">Principle</li><li class="pf-chip">HTML &amp; CSS</li></ul></div></div></div></section>
-<section id="section-projects" class="pf-section pf-section--projects" data-pf-section="5" data-pf-type="projects"><div class="pf-shell"><h2 class="pf-section__title">Selected work</h2><p class="pf-section__intro">Four projects that show how I think, not just what I shipped.</p><div class="pf-projects"><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">01</p><h3 class="pf-project__title">Clinician workspace</h3></div><div class="pf-project__body"><p class="pf-project__text">A single screen replacing four. We shadowed twelve clinicians for a week, found that most of the time went to context switching, and rebuilt the day around one timeline. Consultation logging dropped from nine minutes to under four.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2024</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Product design</li><li class="pf-chip">Research</li><li class="pf-chip">Design system</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/clinician" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">02</p><h3 class="pf-project__title">Ravel design system</h3></div><div class="pf-project__body"><p class="pf-project__text">Sixty components, one type scale, and a contribution model that survived the team doubling. The point was never the library — it was giving engineers a default that was already right.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2023</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Design systems</li><li class="pf-chip">Documentation</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/ravel" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">03</p><h3 class="pf-project__title">Billing that explains itself</h3></div><div class="pf-project__body"><p class="pf-project__text">Usage-based pricing is honest and confusing. We rebuilt the invoice around a plain-language summary and put the breakdown one click away. Billing support tickets fell by 38% in a quarter.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2022</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Product design</li><li class="pf-chip">Content design</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/billing" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">04</p><h3 class="pf-project__title">Museu do Som identity</h3></div><div class="pf-project__body"><p class="pf-project__text">Identity and site for a small sound archive in Lisbon. A restrained system built around one serif and a lot of silence, so the recordings carry the page.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2019</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Brand</li><li class="pf-chip">Web</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/museu" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article></div></div></section>
-<section id="section-education" class="pf-section pf-section--education" data-pf-section="6" data-pf-type="education"><div class="pf-shell"><h2 class="pf-section__title">Education</h2><ul class="pf-entries"><li class="pf-entry"><p class="pf-entry__period">2013 — 2015</p><div class="pf-entry__body"><h3 class="pf-entry__title">MA Graphic Design</h3><p class="pf-entry__meta">Central Saint Martins · London</p></div></li><li class="pf-entry"><p class="pf-entry__period">2009 — 2013</p><div class="pf-entry__body"><h3 class="pf-entry__title">BA Visual Communication</h3><p class="pf-entry__meta">FBAUL · Lisbon</p></div></li></ul></div></section>
-<section id="section-contacts" class="pf-section pf-section--contacts" data-pf-section="7" data-pf-type="contacts"><div class="pf-shell pf-contacts"><h2 class="pf-section__title">Work together</h2><p class="pf-section__intro">I take on one freelance engagement at a time, and I answer every email.</p><dl class="pf-contacts__grid"><div class="pf-contact"><dt class="pf-contact__label">Почта</dt><dd class="pf-contact__value"><a class="pf-contact__link" href="mailto:alex@example.com">alex@example.com</a></dd></div><div class="pf-contact"><dt class="pf-contact__label">Город</dt><dd class="pf-contact__value">London, UK</dd></div><div class="pf-contact"><dt class="pf-contact__label">Доступность</dt><dd class="pf-contact__value">Taking projects from April</dd></div></dl><a class="pf-btn pf-btn--primary" href="mailto:alex@example.com">Start a conversation</a></div></section>
-<section id="section-social-links" class="pf-section pf-section--social_links" data-pf-section="8" data-pf-type="social_links"><div class="pf-shell"><nav class="pf-social" aria-label="Соцсети"><a class="pf-social__link" href="https://dribbble.com/example" target="_blank" rel="noopener noreferrer" data-platform="dribbble">Dribbble</a><a class="pf-social__link" href="https://linkedin.com/in/example" target="_blank" rel="noopener noreferrer" data-platform="linkedin">LinkedIn</a><a class="pf-social__link" href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" data-platform="instagram">Instagram</a></nav></div></section>
+<section id="section-hero" class="pf-section pf-section--hero" data-pf-section="1" data-pf-type="hero"><div class="pf-shell pf-hero is-left"><div class="pf-hero__text"><p class="pf-hero__eyebrow">Продуктовый дизайнер</p><h1 class="pf-hero__name">Алиса Морозова</h1><p class="pf-hero__intro">Проектирую софт, которым пользуются каждый день не задумываясь. Десять лет в финтехе, медицине и инструментах для разработчиков — в основном те неэффектные экраны, где и делается настоящая работа.</p><div class="pf-hero__actions"><a class="pf-btn pf-btn--primary" href="https://example.com/work" target="_blank" rel="noopener noreferrer">Смотреть работы</a><a class="pf-btn pf-btn--ghost" href="https://example.com/cv.pdf" target="_blank" rel="noopener noreferrer">Скачать резюме</a></div><nav class="pf-hero__social" aria-label="Соцсети"><a class="pf-hero__social-link" href="https://behance.net/example" target="_blank" rel="noopener noreferrer" data-platform="behance">Behance</a><a class="pf-hero__social-link" href="https://t.me/example" target="_blank" rel="noopener noreferrer" data-platform="telegram">Telegram</a><a class="pf-hero__social-link" href="https://linkedin.com/in/example" target="_blank" rel="noopener noreferrer" data-platform="linkedin">LinkedIn</a></nav></div></div></section>
+<section id="section-about" class="pf-section pf-section--about" data-pf-section="2" data-pf-type="about"><div class="pf-shell pf-about"><h2 class="pf-section__title">О себе</h2><div class="pf-about__grid"><div class="pf-about__content"><p class="pf-about__body">Начинала в печати, ушла в интерфейсы и не растеряла привычку следить за шрифтом и ритмом. Сейчас почти всё время занимают сценарии, которые трудно сделать хорошо: онбординг, права доступа, биллинг — там одно верное решение экономит поддержке тысячу писем.</p><p class="pf-about__body">Лучше всего работаю внутри команды разработки: утром эскизы, днём разбор собранного билда.</p><dl class="pf-highlights"><div class="pf-highlight"><dt class="pf-highlight__value">10</dt><dd class="pf-highlight__label">Лет в дизайне</dd></div><div class="pf-highlight"><dt class="pf-highlight__value">24</dt><dd class="pf-highlight__label">Продуктов выпущено</dd></div><div class="pf-highlight"><dt class="pf-highlight__value">3</dt><dd class="pf-highlight__label">Дизайн-систем собрано</dd></div></dl></div></div></div></section>
+<section id="section-experience" class="pf-section pf-section--experience" data-pf-section="3" data-pf-type="experience"><div class="pf-shell"><h2 class="pf-section__title">Опыт</h2><ul class="pf-entries"><li class="pf-entry"><p class="pf-entry__period">2021 — по настоящее время</p><div class="pf-entry__body"><h3 class="pf-entry__title">Ведущий продуктовый дизайнер</h3><p class="pf-entry__meta">Фатом Health · Москва</p><p class="pf-entry__text">Веду дизайн рабочего места врача, которым пользуются 60 клиник. Переделала сценарий приёма и сократила запись консультации с девяти минут до четырёх.</p><ul class="pf-tags"><li class="pf-tag">Продуктовый дизайн</li><li class="pf-tag">Дизайн-системы</li><li class="pf-tag">Исследования</li></ul></div></li><li class="pf-entry"><p class="pf-entry__period">2018 — 2021</p><div class="pf-entry__body"><h3 class="pf-entry__title">Старший продуктовый дизайнер</h3><p class="pf-entry__meta">Равель · Санкт-Петербург</p><p class="pf-entry__text">Отвечала за биллинг и подписки в B2B-аналитике, вместе с двумя разработчиками собрала первую версию дизайн-системы.</p><ul class="pf-tags"><li class="pf-tag">SaaS</li><li class="pf-tag">Дизайн-системы</li></ul></div></li><li class="pf-entry"><p class="pf-entry__period">2015 — 2018</p><div class="pf-entry__body"><h3 class="pf-entry__title">Дизайнер</h3><p class="pf-entry__meta">Студия «Мара» · Калининград</p><p class="pf-entry__text">Айдентика и интерфейсы для культурных институций и ранних продуктов. Здесь научилась нормально показывать работу.</p><ul class="pf-tags"><li class="pf-tag">Бренд</li><li class="pf-tag">Веб</li></ul></div></li></ul></div></section>
+<section id="section-skills" class="pf-section pf-section--skills" data-pf-section="4" data-pf-type="skills"><div class="pf-shell"><h2 class="pf-section__title">Что умею</h2><div class="pf-skills"><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Дизайн</h3><ul class="pf-chips"><li class="pf-chip">Продуктовый дизайн</li><li class="pf-chip">Дизайн-системы</li><li class="pf-chip">Взаимодействие</li><li class="pf-chip">Прототипы</li><li class="pf-chip">Типографика</li></ul></div><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Исследования</h3><ul class="pf-chips"><li class="pf-chip">Интервью с пользователями</li><li class="pf-chip">Юзабилити-тесты</li><li class="pf-chip">Карты пути</li></ul></div><div class="pf-skillgroup"><h3 class="pf-skillgroup__name">Инструменты</h3><ul class="pf-chips"><li class="pf-chip">Figma</li><li class="pf-chip">Framer</li><li class="pf-chip">Principle</li><li class="pf-chip">HTML и CSS</li></ul></div></div></div></section>
+<section id="section-projects" class="pf-section pf-section--projects" data-pf-section="5" data-pf-type="projects"><div class="pf-shell"><h2 class="pf-section__title">Избранные работы</h2><p class="pf-section__intro">Четыре проекта, которые показывают ход мысли, а не только результат.</p><div class="pf-projects"><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">01</p><h3 class="pf-project__title">Рабочее место врача</h3></div><div class="pf-project__body"><p class="pf-project__text">Один экран вместо четырёх. Неделю ходили за двенадцатью врачами, увидели, что время уходит на переключение контекста, и пересобрали день вокруг одной ленты. Запись консультации сократилась с девяти минут до четырёх.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2024</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Продуктовый дизайн</li><li class="pf-chip">Исследования</li><li class="pf-chip">Дизайн-система</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/clinician" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">02</p><h3 class="pf-project__title">Дизайн-система «Равель»</h3></div><div class="pf-project__body"><p class="pf-project__text">Шестьдесят компонентов, одна шкала кеглей и модель вклада, пережившая удвоение команды. Смысл был не в библиотеке, а в том, чтобы у разработчиков по умолчанию получалось правильно.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2023</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Дизайн-системы</li><li class="pf-chip">Документация</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/ravel" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">03</p><h3 class="pf-project__title">Счёт, который сам себя объясняет</h3></div><div class="pf-project__body"><p class="pf-project__text">Оплата по потреблению честная, но непонятная. Пересобрали счёт вокруг короткой сводки человеческим языком, а расшифровку убрали на один клик вглубь. Обращения в поддержку по биллингу упали на 38% за квартал.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2022</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Продуктовый дизайн</li><li class="pf-chip">Редактура интерфейса</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/billing" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article><article class="pf-project"><div class="pf-project__header"><p class="pf-project__index">04</p><h3 class="pf-project__title">Айдентика «Музея звука»</h3></div><div class="pf-project__body"><p class="pf-project__text">Айдентика и сайт для небольшого звукового архива. Сдержанная система вокруг одной антиквы и большого количества тишины, чтобы страницу держали записи.</p><div class="pf-project__aside"><div><p class="pf-project__label">Год</p><p class="pf-project__year">2019</p></div><div><p class="pf-project__label">Направление</p><ul class="pf-chips"><li class="pf-chip">Бренд</li><li class="pf-chip">Веб</li></ul></div><div class="pf-project__links"><a class="pf-project__link" href="https://example.com/work/museu" target="_blank" rel="noopener noreferrer">Смотреть работу</a></div></div></div></article></div></div></section>
+<section id="section-education" class="pf-section pf-section--education" data-pf-section="6" data-pf-type="education"><div class="pf-shell"><h2 class="pf-section__title">Образование</h2><ul class="pf-entries"><li class="pf-entry"><p class="pf-entry__period">2013 — 2015</p><div class="pf-entry__body"><h3 class="pf-entry__title">Магистр, графический дизайн</h3><p class="pf-entry__meta">Высшая школа экономики · Москва</p></div></li><li class="pf-entry"><p class="pf-entry__period">2009 — 2013</p><div class="pf-entry__body"><h3 class="pf-entry__title">Бакалавр, визуальные коммуникации</h3><p class="pf-entry__meta">Академия имени Штиглица · Санкт-Петербург</p></div></li></ul></div></section>
+<section id="section-contacts" class="pf-section pf-section--contacts" data-pf-section="7" data-pf-type="contacts"><div class="pf-shell pf-contacts"><h2 class="pf-section__title">Поработаем вместе</h2><p class="pf-section__intro">Беру один проект за раз и отвечаю на каждое письмо.</p><dl class="pf-contacts__grid"><div class="pf-contact"><dt class="pf-contact__label">Почта</dt><dd class="pf-contact__value"><a class="pf-contact__link" href="mailto:alisa@example.com">alisa@example.com</a></dd></div><div class="pf-contact"><dt class="pf-contact__label">Город</dt><dd class="pf-contact__value">Москва</dd></div><div class="pf-contact"><dt class="pf-contact__label">Доступность</dt><dd class="pf-contact__value">Беру проекты с апреля</dd></div></dl><a class="pf-btn pf-btn--primary" href="mailto:alisa@example.com">Начать разговор</a></div></section>
+<section id="section-social-links" class="pf-section pf-section--social_links" data-pf-section="8" data-pf-type="social_links"><div class="pf-shell"><nav class="pf-social" aria-label="Соцсети"><a class="pf-social__link" href="https://behance.net/example" target="_blank" rel="noopener noreferrer" data-platform="behance">Behance</a><a class="pf-social__link" href="https://t.me/example" target="_blank" rel="noopener noreferrer" data-platform="telegram">Telegram</a><a class="pf-social__link" href="https://linkedin.com/in/example" target="_blank" rel="noopener noreferrer" data-platform="linkedin">LinkedIn</a></nav></div></section>
 </main>
-<footer class="pf-footer"><div class="pf-shell"><p class="pf-footer__text">© 2026 Alex Morgan</p></div></footer>
+<footer class="pf-footer"><div class="pf-shell"><p class="pf-footer__text">© 2026 Алиса Морозова</p></div></footer>
 </body>
 </html>
