@@ -81,3 +81,27 @@ the entrypoint caches Laravel configuration, creates the storage link, and runs
 The free Render filesystem is ephemeral. Keeping both
 `PORTFOLIO_UPLOAD_DISK=s3` and `PORTFOLIO_EXPORT_DISK=s3` is required for images
 and exported ZIP files to survive restarts and idle spin-downs.
+
+## 5. Troubleshooting
+
+### Every request returns 500 with "attempt to write a readonly database"
+
+The database environment variables are missing, so Laravel fell back to its
+default `sqlite` connection. Migrations then run as `root` at container start
+and create `database/database.sqlite`, but Apache serves as `www-data` and
+cannot write to it, so the first request that touches the session fails.
+
+Set `DB_CONNECTION=pgsql`, `DB_URL` and `DB_SSLMODE=require` in the service
+environment and redeploy. `DB_URL` on its own is not enough: it only supplies
+credentials to whichever connection is already selected, so without
+`DB_CONNECTION` the default still wins.
+
+Since this misconfiguration is easy to make and hard to read off a stack trace,
+the entrypoint now refuses to boot when `APP_ENV=production` and
+`DB_CONNECTION` is anything other than `pgsql`. A deploy that stops with
+
+```
+DB_CONNECTION must be 'pgsql' in production (current: 'unset').
+```
+
+is reporting this same problem before it can reach a browser.
