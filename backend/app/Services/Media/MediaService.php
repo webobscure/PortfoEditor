@@ -34,8 +34,10 @@ final class MediaService
         $disk = (string) config('portfolio.uploads.disk');
         $path = sprintf('portfolios/%d/%s.%s', $user->id, Str::ulid(), $processed['extension']);
 
+        // Public access is controlled by the disk/bucket configuration. Avoid
+        // sending an object ACL here because R2 deliberately does not support
+        // the S3 ACL API; its public bucket/custom domain provides the URL.
         Storage::disk($disk)->put($path, $processed['contents'], [
-            'visibility' => 'public',
             'ContentType' => $processed['mime'],
         ]);
 
