@@ -54,6 +54,22 @@ fi
 php artisan storage:link >/dev/null 2>&1 || true
 php artisan config:cache
 php artisan view:cache
-php artisan migrate --force
+# A suspended Neon compute wakes on the first connection, and a statement that
+# times out mid-migration aborts the whole transaction — which surfaces as a
+# cascade of 25P02 errors rather than as the real cause. Postgres DDL is
+# transactional, so a failed attempt leaves nothing behind and retrying is safe.
+migrate_attempt=1
+migrate_attempts=3
+
+until php artisan migrate --force; do
+    if [ "$migrate_attempt" -ge "$migrate_attempts" ]; then
+        echo "Migrations failed after ${migrate_attempts} attempts; not starting Apache." >&2
+        exit 1
+    fi
+
+    echo "Migration attempt ${migrate_attempt} failed; retrying in 5s." >&2
+    migrate_attempt=$((migrate_attempt + 1))
+    sleep 5
+done
 
 exec apache2-foreground
