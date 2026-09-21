@@ -61,3 +61,19 @@ it('rejects bad credentials without leaking which field was wrong', function () 
 it('refuses the user endpoint when signed out', function () {
     $this->getJson('/api/user')->assertUnauthorized();
 });
+
+it('fails loudly when the caller host is not a stateful domain', function () {
+    // Sanctum starts a session only for hosts listed in sanctum.stateful. This
+    // is the production failure mode behind an opaque 500 on register/login
+    // while GET routes still answer 401, so it is worth pinning down by cause
+    // rather than by status code alone.
+    $register = fn () => $this->withoutExceptionHandling()
+        ->withHeader('Origin', 'https://not-configured.example')
+        ->postJson('/api/register', [
+            'name' => 'Alex Morgan',
+            'email' => 'alex@example.com',
+            'password' => 'correct horse 9',
+        ]);
+
+    expect($register)->toThrow(RuntimeException::class, 'SANCTUM_STATEFUL_DOMAINS');
+});

@@ -105,3 +105,26 @@ DB_CONNECTION must be 'pgsql' in production (current: 'unset').
 ```
 
 is reporting this same problem before it can reach a browser.
+
+### Register and login return 500, but `GET /api/user` returns 401
+
+The host the browser used is not listed in `sanctum.stateful`, so Sanctum does
+not treat the request as coming from the SPA and never starts a session. Read
+endpoints still answer normally — only the routes that rotate the session id
+fail, which is why the two symptoms look unrelated.
+
+Set `SANCTUM_STATEFUL_DOMAINS` to the exact hostname, with no scheme, no port
+and no trailing slash:
+
+```dotenv
+APP_URL=https://portfoeditor.onrender.com
+FRONTEND_URL=https://portfoeditor.onrender.com
+SANCTUM_STATEFUL_DOMAINS=portfoeditor.onrender.com
+SESSION_SECURE_COOKIE=true
+```
+
+Leave `SESSION_DOMAIN` unset on an `onrender.com` hostname: pinning the cookie
+to a domain the browser considers public suffix-adjacent stops it being stored.
+
+The controller now logs the mismatch before failing, so the deploy log names the
+origin it received and the domains it was willing to accept.

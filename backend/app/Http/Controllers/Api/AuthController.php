@@ -12,7 +12,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
+use RuntimeException;
 
 /**
  * Cookie-based SPA authentication.
@@ -32,7 +34,7 @@ final class AuthController extends Controller
         ]);
 
         Auth::login($user, remember: true);
-        $request->session()->regenerate();
+        $this->regenerateSession($request);
 
         return response()->json(['data' => $this->profile($user)], 201);
     }
@@ -50,7 +52,7 @@ final class AuthController extends Controller
             ]);
         }
 
-        $request->session()->regenerate();
+        $this->regenerateSession($request);
 
         return response()->json(['data' => $this->profile($request->user())]);
     }
@@ -67,6 +69,35 @@ final class AuthController extends Controller
     public function user(Request $request): JsonResponse
     {
         return response()->json(['data' => $this->profile($request->user())]);
+    }
+
+    /**
+     * Rotate the session id after a successful credential check.
+     *
+     * Sanctum only starts a session for a request it recognises as coming from
+     * the SPA, which it decides by matching the Origin/Referer host against
+     * `sanctum.stateful`. When that list does not contain the host the browser
+     * actually used, there is no session and this call throws — surfacing as an
+     * opaque 500 on register and login while GET routes still answer 401. The
+     * explicit log line turns that into something readable in the deploy logs.
+     */
+    private function regenerateSession(Request $request): void
+    {
+        if (! $request->hasSession()) {
+            Log::error('No session on a stateful API request. Sanctum did not recognise the caller as the SPA.', [
+                'origin' => $request->headers->get('origin'),
+                'referer' => $request->headers->get('referer'),
+                'host' => $request->getHost(),
+                'stateful_domains' => config('sanctum.stateful'),
+                'app_url' => config('app.url'),
+            ]);
+
+            throw new RuntimeException(
+                'Session unavailable: the request host is not listed in SANCTUM_STATEFUL_DOMAINS.'
+            );
+        }
+
+        $request->session()->regenerate();
     }
 
     /** @return array<string, mixed> */
